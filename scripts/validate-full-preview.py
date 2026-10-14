@@ -14,7 +14,7 @@ with sync_playwright() as p:
    page.set_viewport_size({'width':width,'height':1000});page.goto(f'http://127.0.0.1:{server.server_port}/index-{lang}.html')
    page.evaluate('document.querySelectorAll("img").forEach(i=>i.loading="eager")');page.evaluate('document.fonts.ready');page.wait_for_function('Array.from(document.images).every(i=>i.complete)')
    assert page.locator('[data-catalog-card]').count()==15
-   assert page.locator('.hero').count()==1 and page.locator('.site-footer').count()==1 and page.locator('.club').count()==1
+   assert page.locator('.silk-stage').count()==1 and page.locator('.site-footer').count()==1 and page.locator('.club').count()==1
    assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'),f'Overflow {lang} {width}'
    assert page.locator('img').evaluate_all('(imgs)=>imgs.every(i=>i.naturalWidth>0)')
    if lang=='es' and width in [1440,390]:

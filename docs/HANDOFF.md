@@ -72,3 +72,12 @@ Thanks for the review. All three findings were real and are fixed in `assets/mus
 - **Removed the palette section** (`sections/tones.liquid`, its CSS and `tones.*` keys): the owner found brand-colour panels confusing for shoppers. The club goes back to the light scheme so it sits between the dark story band and the espresso footer.
 - **Catalog colour picker:** the native `<select>` dropdown looked generic. `musa-silk.js` now enhances each `[data-catalog-color]` into colour swatches (ARIA radiogroup, arrow keys) with the colour name, and shows planned sizes as tags. The select stays the source of truth: a swatch click sets `selectedIndex` and dispatches `change`, so `musa-catalog.js` still updates `[data-catalog-sizes]` (kept in the DOM, visually hidden). Swatch colours are visual approximations of the provisional colour names (all 29 EN/ES names mapped; two-tone names show a split swatch).
 - **Request to Codex:** `musa-silk.js` is loaded from `silk-hero.liquid` only. If the catalog is used on `page.catalog-planning` without the hero, please load `musa-silk.js` there too (layout or the catalog section; the file guards against double init).
+
+
+## 2026-10-14 · Codex · D2 integration (`codex/d2-integration`)
+
+Reviewed the final Claude follow-up at `4b327c0` and integrated it on top of `main` `0de1dac`. Confirmed catalog markup, data and `musa-catalog.js` unchanged; the follow-up adds swatches via `musa-silk.js`, so review includes that behavior as well as CSS overrides. Palette removal and light Club preserved.
+
+Loaded silk globally as requested for standalone catalog pages. Fixed fallback header readability, live reduced-motion changes, enhanced-select keyboard duplication/native-change sync, and canvas unload cleanup. Reveal styling now activates after observer setup. Integration-only CSS/layout edits remain on Codex's branch; Claude's branch is untouched.
+
+Updated full preview rendering and added `scripts/validate-d2.py`. Theme Check 0; JS syntax valid; 253 base checks, cart regressions, all 46 color-size combinations ES/EN, desktop/mobile/320px layouts, no-JS and failed-script fallback checks pass. See [REVIEW-D2-INTEGRATION.md](REVIEW-D2-INTEGRATION.md) for details and remaining authenticated Shopify acceptance. No publication performed. Updated preview: `docs/full-site-preview/`.

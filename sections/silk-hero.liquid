@@ -3,7 +3,6 @@
   the original logo and the slogan. An optional campaign image or video replaces the silk later.
   The bottom wave edge takes the colour of the section that follows (setting "edge").
 {%- endcomment -%}
-<script src="{{ 'musa-silk.js' | asset_url }}" defer></script>
 <section class="silk-stage{% if section.settings.image != blank or section.settings.video != blank %} silk-stage--media{% endif %}" data-silk-stage aria-labelledby="SilkTitle-{{ section.id }}" style="--silk-edge: {% if section.settings.edge == 'sand' %}#ebe5dc{% else %}var(--paper){% endif %}">
   {%- if section.settings.video != blank -%}
     {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, class: 'silk-media', image_size: '1920x' }}

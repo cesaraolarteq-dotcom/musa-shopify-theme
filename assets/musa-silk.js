@@ -4,7 +4,9 @@
 (() => {
   if (window.musaSilk) return;
   window.musaSilk = true;
-  const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const reduced = () => motion.matches;
+  const canvases = new Map();
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------- silk canvas ---------- */
@@ -15,6 +17,8 @@
     if (!ctx) return;
     canvas.dataset.ready = 'true';
     let W = 0, H = 0, t = 0, px = .5, py = .5, tx = .5, ty = .5, visible = true, running = false, last = 0;
+    let frameId;
+    const events = new AbortController();
     const bands = Array.from({ length: 9 }, (_, i) => ({ y: -.15 + i * .16, amp: .07 + (i % 3) * .025, f: 1.1 + (i % 4) * .22, sp: .12 + (i % 5) * .03, ph: i * 1.7, th: .085 + (i % 2) * .03 }));
     const size = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -51,14 +55,16 @@
       t += dt;
       if (!finePointer) { tx = .5 + Math.sin(t * .25) * .3; ty = .5 + Math.cos(t * .19) * .2; }
       draw();
-      requestAnimationFrame(frame);
+      frameId = requestAnimationFrame(frame);
     };
-    const start = () => { if (!running && visible && !document.hidden && !reduced()) { running = true; last = 0; requestAnimationFrame(frame); } };
+    const start = () => { if (!running && visible && !document.hidden && !reduced()) { running = true; last = 0; frameId = requestAnimationFrame(frame); } };
     size(); t = 2; draw(); canvas.classList.add('is-live'); start();
-    addEventListener('resize', () => { size(); draw(); }, { passive: true });
-    if (finePointer) addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; }, { passive: true });
-    document.addEventListener('visibilitychange', start);
-    if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visible = e.isIntersecting; start(); }).observe(stage);
+    addEventListener('resize', () => { size(); draw(); }, { passive: true, signal: events.signal });
+    if (finePointer) addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; }, { passive: true, signal: events.signal });
+    document.addEventListener('visibilitychange', start, { signal: events.signal });
+    let observer;
+    if ('IntersectionObserver' in window) { observer = new IntersectionObserver(([e]) => { visible = e.isIntersecting; start(); }); observer.observe(stage); }
+    canvases.set(stage, { start, stop() { cancelAnimationFrame(frameId); running = false; }, destroy() { cancelAnimationFrame(frameId); events.abort(); observer?.disconnect(); canvases.delete(stage); } });
   }
 
   /* ---------- header + entrance recede on scroll ---------- */
@@ -85,6 +91,7 @@
     const first = main && main.firstElementChild;
     stage = first && (first.matches('[data-silk-stage]') ? first : first.querySelector(':scope > [data-silk-stage]'));
     inner = stage && stage.querySelector('[data-silk-inner]');
+    document.body.classList.toggle('silk-ready', Boolean(stage));
     if (!stage) { document.body.classList.remove('silk-solid'); return; }
     const toggle = document.querySelector('.menu-toggle');
     if (toggle && !toggle.dataset.silkWatch) {
@@ -231,6 +238,9 @@
       control.insertBefore(group, control.firstChild);
       control.insertBefore(head, group);
       if (sizesOut) { sizesOut.classList.add('is-enhanced'); sizesOut.parentNode.append(tags); }
+      select.tabIndex = -1;
+      select.setAttribute('aria-hidden', 'true');
+      select.addEventListener('change', () => choose(Math.max(0, select.selectedIndex), false));
       control.classList.add('is-enhanced');
       choose(Math.max(0, select.selectedIndex), false);
     });
@@ -246,5 +256,16 @@
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', onScroll, { passive: true });
   document.addEventListener('shopify:section:load', e => init(e.target));
-  document.addEventListener('shopify:section:unload', () => setTimeout(headerState, 0));
+  document.addEventListener('shopify:section:reorder', headerState);
+  document.addEventListener('shopify:section:unload', e => {
+    canvases.forEach((instance, el) => { if (e.target.contains(el)) instance.destroy(); });
+    setTimeout(headerState, 0);
+  });
+  motion.addEventListener('change', () => {
+    if (reduced()) {
+      document.querySelectorAll('[data-silk-inner], [data-magnetic]').forEach(el => { el.style.transform = ''; el.style.opacity = ''; });
+      document.querySelectorAll('.ink-w').forEach(el => el.style.removeProperty('--ink'));
+      canvases.forEach(instance => instance.stop());
+    } else { canvases.forEach(instance => instance.start()); onScroll(); }
+  });
 })();

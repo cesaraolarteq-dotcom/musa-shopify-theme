@@ -7,7 +7,7 @@ Brand signature: **musa — welcome to your new era**.
 
 ![MUSA integrated design](docs/full-site-preview/portada.png)
 
-Current I1 preview: [complete page](docs/full-site-preview/pagina-completa.png), [mobile](docs/full-site-preview/pagina-movil.png), [downloadable bilingual preview](docs/full-site-preview/MUSA-preview-completo.zip). Integration review: [I1](docs/REVIEW-I1.md). The homepage includes 15 preliminary order references; photos and retail prices remain pending.
+Current D2 preview: [complete page](docs/full-site-preview/pagina-completa.png), [mobile](docs/full-site-preview/pagina-movil.png), [downloadable bilingual preview](docs/full-site-preview/MUSA-preview-completo.zip). Integration review: [D2](docs/REVIEW-D2-INTEGRATION.md). The homepage includes 15 preliminary order references; photos and retail prices remain pending.
 
 Legacy component QA references: [English](docs/preview/index-en.html), [Spanish](docs/preview/index-es.html), and [mobile screenshot](docs/preview/MUSA-mobile.png). Download and open the HTML files locally to explore the design; shopping and email submission are disconnected in these previews.
 
