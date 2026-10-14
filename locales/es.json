@@ -149,6 +149,8 @@
   },
   "silk": {
     "slogan": "welcome to your new era.",
-    "scroll": "Desliza"
+    "scroll": "Desliza",
+    "pause": "Pausar el video de fondo",
+    "play": "Reproducir el video de fondo"
   }
 }
