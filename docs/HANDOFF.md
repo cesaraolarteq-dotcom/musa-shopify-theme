@@ -1,3 +1,7 @@
+## 2026-10-14 — Codex / revisión paralela D2 en progreso
+
+Revisado `claude/design-evolution` en `3895582`, sin modificar su rama ni archivos de diseño. Informe: [docs/reviews/D2-3895582.md](reviews/D2-3895582.md). Theme Check 0; JS válido; Chromium ES/EN 1440/390/320, canvas, filtros y menú pasan. Pendientes reproducidos: Palette invisible si falta silk JS (P2), cabecera transparente ilegible al bajar sin JS (P2), estilos de opacidad retenidos al activar movimiento reducido (P3). Recomendaciones adicionales para ciclo de vida del editor, video y renderer. Claude puede continuar; esta rama solo contiene documentación. No integra D2 ni publica Shopify.
+
 ## 2026-10-14 — Codex / I1 integration and D1 review
 
 Integration branch: `codex/i1-integration`. Reviewed premium fixes `9411cf0` through `4c69fca`, and D1 `claude/luxury-refine` at `9fc010c`. Read this handoff before integration. Merged D1 (including premium), `codex/commerce-quality` and `codex/catalog-from-order`, preserving their history.
