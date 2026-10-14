@@ -1,10 +1,10 @@
 """Run structural and Chromium checks of the theme and its generated preview."""
-import json, re, threading, functools, http.server
+import json, re, threading, functools, http.server, os, shutil
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 root = Path(__file__).resolve().parents[1]
-out = Path('/workspace/musa-deliverables')
+out = Path(os.environ.get('MUSA_OUTPUT_DIR', root.parent/'musa-deliverables')).resolve()
 count = 0
 def check(value, message):
     global count
@@ -35,7 +35,10 @@ server=http.server.ThreadingHTTPServer(('127.0.0.1',0),handler)
 threading.Thread(target=server.serve_forever,daemon=True).start()
 base=f'http://127.0.0.1:{server.server_port}'
 with sync_playwright() as p:
-    browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox'])
+    chromium=os.environ.get('MUSA_CHROMIUM_PATH') or shutil.which('chromium') or shutil.which('google-chrome')
+    launch_options={'headless':True}
+    if chromium: launch_options['executable_path']=chromium
+    browser=p.chromium.launch(**launch_options)
     page=browser.new_page(viewport={'width':1440,'height':1000},device_scale_factor=1)
     errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
     for language,heading in [('en','your new era.'),('es','tu nueva era.')]:
