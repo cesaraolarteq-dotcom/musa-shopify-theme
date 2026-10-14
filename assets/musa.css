@@ -279,7 +279,7 @@
 #MainContent .musa-catalog-intro{max-width:none;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);column-gap:clamp(30px,5vw,90px);align-items:end}
 #MainContent .musa-catalog-intro>*{grid-column:1}
 #MainContent .musa-catalog-intro>p:last-child{grid-column:2;grid-row:2;margin-bottom:.6em;max-width:380px}
-#MainContent .musa-catalog-intro h2{font-weight:300;font-size:clamp(52px,8.4vw,136px);line-height:.9;letter-spacing:-.035em;max-width:14ch;text-wrap:balance;margin-bottom:0}
+#MainContent .musa-catalog-intro :is(h1,h2){font-weight:300;font-size:clamp(52px,8.4vw,136px);line-height:.9;letter-spacing:-.035em;max-width:14ch;text-wrap:balance;margin-bottom:0}
 #MainContent .musa-catalog-intro>p:last-child{color:var(--muted);font-size:15.5px}
 #MainContent .musa-catalog-filters{border-top:0;padding-top:0;gap:10px}
 #MainContent .musa-catalog-filters button{border-radius:999px;border-color:var(--line);padding:10px 20px;letter-spacing:.06em;transition:background .3s,color .3s,border-color .3s}
@@ -299,7 +299,7 @@
 .silk-reveal.is-in{opacity:1;transform:none}
 
 @media(max-width:900px){
-  #MainContent .musa-catalog-intro{display:block}#MainContent .musa-catalog-intro h2{margin-bottom:24px}
+  #MainContent .musa-catalog-intro{display:block}#MainContent .musa-catalog-intro :is(h1,h2){margin-bottom:24px}
   #MainContent .musa-catalog-art{aspect-ratio:4/3}
 }
 @media(max-width:550px){

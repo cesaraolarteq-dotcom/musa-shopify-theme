@@ -6,6 +6,7 @@
       const cards = [...section.querySelectorAll('[data-catalog-card]')];
       const filters = section.querySelector('[data-catalog-filters]');
       const status = section.querySelector('[data-catalog-count]');
+      if (filters && status) {
       filters.hidden = false;
       filters.addEventListener('click', event => {
         const button = event.target.closest('[data-catalog-filter]');
@@ -15,6 +16,7 @@
         cards.forEach(card => { card.hidden = category !== 'all' && card.dataset.category !== category; });
         status.textContent = `${cards.filter(card => !card.hidden).length} ${status.dataset.label}`;
       });
+      }
       cards.forEach(card => {
         const select = card.querySelector('[data-catalog-color]');
         card.querySelector('[data-catalog-color-control]').hidden = false;

@@ -1,3 +1,5 @@
+Current continuation: Home shows six references and links to the full catalog. Empty All products shows all 15. Supplier reference photos are provisional and replaceable; final photography/prices remain pending. MUSA Club uses editable event blocks with a truthful empty state. See STOREFRONT-COMPLETION.md for activation instructions.
+
 I1 update: the homepage now uses `catalog-planning` with 15 order references. Sets are sold complete; prices and photographs are pending. The four concept garments described below remain only in the optional featured-collection demo. Replace the preliminary section with a real Shopify collection when verified product records are ready.
 
 # Content setup

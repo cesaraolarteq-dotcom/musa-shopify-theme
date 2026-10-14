@@ -152,5 +152,17 @@
     "scroll": "Desliza",
     "pause": "Pausar el video de fondo",
     "play": "Reproducir el video de fondo"
+  },
+  "events": {
+    "title": "Un poco más cerca.",
+    "intro": "Movimiento, conexión y momentos para hacer tuyos. Descubre los próximos encuentros de MUSA.",
+    "gathering": "Juntas, en movimiento",
+    "when": "Cuándo:",
+    "where": "Dónde:",
+    "details": "Detalles e inscripción",
+    "coming": "Pronto nos encontramos",
+    "empty_title": "Tu próxima conexión empieza aquí.",
+    "empty_text": "Estamos preparando nuestros próximos encuentros. Suscríbete abajo para recibir novedades.",
+    "explore": "Descubre MUSA Club"
   }
 }

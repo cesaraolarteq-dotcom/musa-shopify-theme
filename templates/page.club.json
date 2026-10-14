@@ -3,9 +3,14 @@
     "club": {
       "type": "newsletter",
       "settings": {}
+    },
+    "events": {
+      "type": "club-events",
+      "settings": {}
     }
   },
   "order": [
+    "events",
     "club"
   ]
 }

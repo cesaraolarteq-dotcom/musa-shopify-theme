@@ -1,9 +1,11 @@
 {
   "sections": {
     "catalog": {
-      "type": "catalog-planning",
+      "type": "catalog-page",
       "settings": {}
     }
   },
-  "order": ["catalog"]
+  "order": [
+    "catalog"
+  ]
 }

@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "MUSA — Atelier",
+    "theme_name": "MUSA \u2014 Atelier",
     "theme_version": "1.0.0",
     "theme_author": "MUSA",
     "theme_documentation_url": "https://shopify.dev/docs/storefronts/themes",
@@ -56,6 +56,23 @@
         "label": "Free shipping threshold (store currency, 0 = hide the bar)",
         "info": "Only set this to a threshold your shipping rates actually honor.",
         "default": 0
+      }
+    ]
+  },
+  {
+    "name": "MUSA contact & community",
+    "settings": [
+      {
+        "type": "text",
+        "id": "support_email",
+        "label": "Support and privacy email",
+        "default": "musawellnesssportwear@gmail.com"
+      },
+      {
+        "type": "page",
+        "id": "club_page",
+        "label": "MUSA Club events page",
+        "info": "Create a page with the club template, then select it here."
       }
     ]
   }

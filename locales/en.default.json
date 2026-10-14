@@ -152,5 +152,17 @@
     "scroll": "Scroll",
     "pause": "Pause background video",
     "play": "Play background video"
+  },
+  "events": {
+    "title": "A little closer.",
+    "intro": "Movement, connection and moments to make your own. Discover the next MUSA gatherings.",
+    "gathering": "Together, in motion",
+    "when": "When:",
+    "where": "Where:",
+    "details": "Details & registration",
+    "coming": "Coming together soon",
+    "empty_title": "Your next connection starts here.",
+    "empty_text": "Our next gatherings are taking shape. Join the mailing list below for updates.",
+    "explore": "Discover MUSA Club"
   }
 }

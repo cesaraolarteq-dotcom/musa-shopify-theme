@@ -9,7 +9,7 @@ try { ({Liquid} = require('liquidjs')); } catch (error) {
 const output=path.resolve(process.env.MUSA_CATALOG_OUTPUT_DIR || path.join(root,'..','musa-catalog-preview'));
 fs.mkdirSync(output,{recursive:true});
 const engine=new Liquid({root:path.join(root,'snippets'),partials:path.join(root,'snippets'),extname:'.liquid'});
-engine.registerFilter('asset_url',x=>x);
+engine.registerFilter('asset_url',x=>'data:'+(x.endsWith('.jpg')?'image/jpeg':'application/octet-stream')+';base64,'+fs.readFileSync(path.join(root,'assets',x)).toString('base64'));
 engine.registerFilter('stylesheet_tag',()=> '');
 const section=fs.readFileSync(path.join(root,'sections/catalog-planning.liquid'),'utf8').replace(/\{% schema %\}[\s\S]*?\{% endschema %\}/g,'').replace(/<script[^>]+src=[\s\S]*?<\/script>/g,'');
 const css=fs.readFileSync(path.join(root,'assets/musa-catalog.css'),'utf8');

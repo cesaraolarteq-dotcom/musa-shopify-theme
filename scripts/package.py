@@ -9,7 +9,7 @@ if out.is_relative_to(root):
     raise ValueError('MUSA_OUTPUT_DIR must be outside the checkout to avoid packaging generated files.')
 out.mkdir(exist_ok=True)
 theme_dirs={'assets','config','layout','locales','sections','snippets','templates'}
-source_dirs=theme_dirs | {'docs','scripts','catalog'}
+source_dirs=theme_dirs | {'docs','scripts','catalog','imports'}
 source_files={'.gitignore','README.md','CLAUDE.md','AGENTS.md'}
 files=[p for p in root.rglob('*') if p.is_file() and (p.relative_to(root).parts[0] in source_dirs or p.relative_to(root).as_posix() in source_files) and '__pycache__' not in p.parts]
 with ZipFile(out/'MUSA-Atelier-Shopify.zip','w',ZIP_DEFLATED) as z:

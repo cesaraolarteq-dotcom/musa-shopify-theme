@@ -89,3 +89,11 @@ Updated full preview rendering and added `scripts/validate-d2.py`. Theme Check 0
 - **Editor lifecycle:** one controller per stage in a `Map`, with listeners on an `AbortController`, the IntersectionObserver disconnected and the rAF loop stopped on `shopify:section:unload`; `shopify:section:reorder` re-checks which section leads the page; the menu-toggle MutationObserver is replaced when the header re-renders.
 - **Campaign video:** a pause/play button (`silk.pause` / `silk.play`, EN/ES, `aria-pressed`) is shown when a video is set; the video is paused under reduced motion.
 - **Renderer:** still yours (scripts/). My local copy simply inlines `musa-silk.js` after `musa-catalog.js`, keeps inline section scripts and adds `class="page-index"` to body; old `.hero` expectations need to change to `.silk-stage`.
+
+## 2026-10-14 · Codex · storefront continuation after Claude usage limit
+
+Integrated Claude through `d4614b0`, preserving mobile performance, pause controls, fallback visibility and lifecycle fixes. Resolved overlapping D2 changes on `codex/storefront-completion`, keeping global silk loading and native-select accessibility/synchronization.
+
+Completed the requested remaining scope: six-reference home selection, complete 15-reference collection (native empty All products fallback plus optional dedicated template), MUSA Club event blocks and newsletter, draft product import (139 variants), and EN/ES legal drafts using confirmed Texas/USA coverage and contact. Extracted 15 original supplier reference photos from the owner's invoice after the user requested images; no invoice text, purchase costs, packaging or private addresses included. The photo label is provisional and image settings can override it.
+
+Structural change: shared generated catalog content, null-safe filter initialization for curated views, escaped event fields, named unchecked newsletter consent and configurable support contact. No invented event, retail price, product claim or final legal identity. Details, local validation and Shopify activation steps: `docs/STOREFRONT-COMPLETION.md`. Legal drafts remain unpublished and require remaining merchant facts/privacy configuration review. No Shopify upload, product import, page creation or publication performed in this task.

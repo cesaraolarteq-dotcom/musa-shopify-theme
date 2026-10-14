@@ -13,14 +13,15 @@ with sync_playwright() as p:
   for width in [1440,390,320]:
    page.set_viewport_size({'width':width,'height':1000});page.goto(f'http://127.0.0.1:{server.server_port}/index-{lang}.html')
    page.evaluate('document.querySelectorAll("img").forEach(i=>i.loading="eager")');page.evaluate('document.fonts.ready');page.wait_for_function('Array.from(document.images).every(i=>i.complete)')
-   assert page.locator('[data-catalog-card]').count()==15
+   assert page.locator('[data-catalog-card]').count()==6
    assert page.locator('.silk-stage').count()==1 and page.locator('.site-footer').count()==1 and page.locator('.club').count()==1
    assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'),f'Overflow {lang} {width}'
    assert page.locator('img').evaluate_all('(imgs)=>imgs.every(i=>i.naturalWidth>0)')
+   page.add_style_tag(content='*{content-visibility:visible!important}')
    if lang=='es' and width in [1440,390]:
     page.screenshot(path=str(out/('pagina-completa.png' if width==1440 else 'pagina-movil.png')),full_page=True)
     if width==1440:page.screenshot(path=str(out/'portada.png'))
-   page.locator('[data-catalog-filter="sets-3"]').click();assert page.locator('[data-catalog-card]:visible').count()==4
+   assert page.locator('.musa-catalog a[href="catalog-'+lang+'.html"]').count()==1
    print('PASS full homepage',lang,width,'images, fonts, structure, filters and no overflow')
  page.evaluate('window.scrollTo(0,0)');page.locator('.menu-toggle').click();page.locator('#MobileMenu [name=locale_code]').select_option('es');page.wait_for_url('**/index-es.html');assert page.locator('html').get_attribute('lang')=='es'
  print('PASS mobile language switch; JS errors:',errors);assert not errors

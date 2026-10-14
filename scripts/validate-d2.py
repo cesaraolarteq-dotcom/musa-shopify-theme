@@ -16,6 +16,8 @@ with sync_playwright() as p:
  for lang in ['es','en']:
   page.goto(f'{base}/index-{lang}.html')
   assert page.locator('.silk-canvas.is-live').count()==1
+  assert page.locator('[role=radiogroup]').count()==6
+  page.goto(f'{base}/catalog-{lang}.html')
   assert page.locator('[role=radiogroup]').count()==15
   # All 46 ordered color/size combinations retain the native source of truth.
   for control in page.locator('[data-catalog-color-control]').all():
@@ -32,6 +34,7 @@ with sync_playwright() as p:
   assert control.locator('select').evaluate('e=>e.selectedIndex')==1
   control.locator('select').evaluate("e=>{e.selectedIndex=0;e.dispatchEvent(new Event('change',{bubbles:true}));}")
   assert control.locator('[role=radio]').first.get_attribute('aria-checked')=='true'
+  page.goto(f'{base}/index-{lang}.html')
   page.evaluate('scrollTo(0,0)');page.locator('.menu-toggle').click();page.wait_for_timeout(650)
   assert round(page.locator('#MobileMenu').bounding_box()['y'])==92
   page.keyboard.press('Escape')
@@ -46,14 +49,14 @@ with sync_playwright() as p:
  page.evaluate('''() => { const stage=document.querySelector('[data-silk-stage]'); const ctx=stage.querySelector('canvas').getContext('2d'); const fill=ctx.fillRect.bind(ctx); window.draws=0; ctx.fillRect=(...args)=>{window.draws++;fill(...args)}; stage.dispatchEvent(new CustomEvent('shopify:section:unload',{bubbles:true})); stage.remove(); }''')
  page.wait_for_timeout(250)
  assert page.evaluate('window.draws')==0
- assert not page.locator('body').evaluate("e=>e.classList.contains('silk-ready')")
+ assert not page.locator('html').evaluate("e=>e.classList.contains('silk-float')")
  print('PASS section unload stops canvas and clears floating header')
  html=(out/'index-en.html').read_text()
- without_hero=re.sub(r'<section class="silk-stage[\s\S]*?</section>','',html,count=1)
+ without_hero=(out/'catalog-en.html').read_text()
  page.route('**/standalone.html',lambda r:r.fulfill(content_type='text/html',body=without_hero))
  page.goto(base+'/standalone.html')
  assert page.locator('[role=radiogroup]').count()==15
- assert not page.locator('body').evaluate("e=>e.classList.contains('silk-ready')")
+ assert not page.locator('html').evaluate("e=>e.classList.contains('silk-float')")
  print('PASS catalog swatches without silk hero')
  failed=re.sub(r'<script data-silk-script>[\s\S]*?</script>','',html)
  page.route('**/failed.html',lambda r:r.fulfill(content_type='text/html',body=failed))
@@ -62,7 +65,7 @@ with sync_playwright() as p:
  assert page.locator('.brand-logo').evaluate('e=>getComputedStyle(e).opacity')=='1'
  assert page.locator('[data-catalog-color]').first.is_visible()
  print('PASS failed silk download keeps native controls and solid header')
- ctx=b.new_context(java_script_enabled=False);no=ctx.new_page();no.goto(base+'/index-en.html')
+ ctx=b.new_context(java_script_enabled=False);no=ctx.new_page();no.goto(base+'/catalog-en.html')
  assert no.locator('[data-catalog-matrix]:visible').count()==15
  assert no.locator('.site-header').evaluate('e=>getComputedStyle(e).backgroundColor')!='rgba(0, 0, 0, 0)'
  print('PASS no-JS catalog matrices and solid header')

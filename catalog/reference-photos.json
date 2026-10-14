@@ -1,0 +1,122 @@
+[
+  {
+    "id": "PI-01",
+    "file": "catalog-reference-pi-01.jpg",
+    "width": 160,
+    "height": 342,
+    "source_image": "p1-1",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-02",
+    "file": "catalog-reference-pi-02.jpg",
+    "width": 251,
+    "height": 350,
+    "source_image": "p1-4",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-03",
+    "file": "catalog-reference-pi-03.jpg",
+    "width": 232,
+    "height": 417,
+    "source_image": "p1-6",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-04",
+    "file": "catalog-reference-pi-04.jpg",
+    "width": 268,
+    "height": 390,
+    "source_image": "p1-9",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-05",
+    "file": "catalog-reference-pi-05.jpg",
+    "width": 185,
+    "height": 375,
+    "source_image": "p1-11",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-06",
+    "file": "catalog-reference-pi-06.jpg",
+    "width": 148,
+    "height": 195,
+    "source_image": "p2-2",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-07",
+    "file": "catalog-reference-pi-07.jpg",
+    "width": 191,
+    "height": 375,
+    "source_image": "p2-5",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-08",
+    "file": "catalog-reference-pi-08.jpg",
+    "width": 146,
+    "height": 282,
+    "source_image": "p2-8",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-09",
+    "file": "catalog-reference-pi-09.jpg",
+    "width": 194,
+    "height": 283,
+    "source_image": "p2-13",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-10",
+    "file": "catalog-reference-pi-10.jpg",
+    "width": 165,
+    "height": 343,
+    "source_image": "p2-1",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-11",
+    "file": "catalog-reference-pi-11.jpg",
+    "width": 178,
+    "height": 368,
+    "source_image": "p2-12",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-12",
+    "file": "catalog-reference-pi-12.jpg",
+    "width": 216,
+    "height": 261,
+    "source_image": "p3-5",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-13",
+    "file": "catalog-reference-pi-13.jpg",
+    "width": 195,
+    "height": 243,
+    "source_image": "p3-20",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-14",
+    "file": "catalog-reference-pi-14.jpg",
+    "width": 242,
+    "height": 291,
+    "source_image": "p3-9",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  },
+  {
+    "id": "PI-15",
+    "file": "catalog-reference-pi-15.jpg",
+    "width": 179,
+    "height": 318,
+    "source_image": "p3-17",
+    "note": "Supplier reference extracted from owner-provided purchase order; not final MUSA campaign photography."
+  }
+]

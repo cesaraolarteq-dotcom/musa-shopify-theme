@@ -1,0 +1,14 @@
+269 structural/product checks passed.
+PASS draft-only CSV: 15 handles / 139 unique variants, no costs/prices
+PASS es home/catalog/Club, photos, responsive layouts, links, consent and escaped event rendering
+PASS en home/catalog/Club, photos, responsive layouts, links, consent and escaped event rendering
+PASS full homepage es 1440 images, fonts, structure, filters and no overflow
+PASS full homepage es 390 images, fonts, structure, filters and no overflow
+PASS full homepage es 320 images, fonts, structure, filters and no overflow
+PASS full homepage en 1440 images, fonts, structure, filters and no overflow
+PASS full homepage en 390 images, fonts, structure, filters and no overflow
+PASS full homepage en 320 images, fonts, structure, filters and no overflow
+PASS mobile language switch; JS errors: []
+Cart change-error, section-refetch, no-duplicate-add and close/reopen regressions passed.
+D2 tests passed: 46 color-size combinations per language, keyboard, native sync, reduced motion, section unload and script/no-JS fallbacks.
+Catalog counts/no-JS matrix checks passed: 15 references / 46 colors / 139 variants.

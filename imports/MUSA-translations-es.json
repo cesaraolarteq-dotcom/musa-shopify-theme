@@ -1,0 +1,291 @@
+[
+  {
+    "handle": "musa-pi-01",
+    "title_es": "Set de top, pantalón y manga larga",
+    "description_es": "Set de top, pantalón y manga larga. Se vende como set completo de 3 piezas.",
+    "colors": [
+      {
+        "en": "Blue with light blue",
+        "es": "Azul con azul claro"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-02",
+    "title_es": "Set de bra y short",
+    "description_es": "Set de bra y short. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "Deep blue",
+        "es": "Azul profundo"
+      },
+      {
+        "en": "Strawberry pink",
+        "es": "Rosa fresa"
+      },
+      {
+        "en": "Dark brown with yellow",
+        "es": "Marrón oscuro con amarillo"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-03",
+    "title_es": "Set de chaqueta, bra y leggings",
+    "description_es": "Set de chaqueta, bra y leggings. Se vende como set completo de 3 piezas.",
+    "colors": [
+      {
+        "en": "Deep blue",
+        "es": "Azul profundo"
+      },
+      {
+        "en": "Strawberry pink",
+        "es": "Rosa fresa"
+      },
+      {
+        "en": "Dark brown with yellow",
+        "es": "Marrón oscuro con amarillo"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-04",
+    "title_es": "Set de top y short",
+    "description_es": "Set de top y short. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "Deep blue",
+        "es": "Azul profundo"
+      },
+      {
+        "en": "Black",
+        "es": "Negro"
+      },
+      {
+        "en": "Ivory yellow",
+        "es": "Amarillo marfil"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-05",
+    "title_es": "Set de chaqueta, top y leggings",
+    "description_es": "Set de chaqueta, top y leggings. Se vende como set completo de 3 piezas.",
+    "colors": [
+      {
+        "en": "Deep blue",
+        "es": "Azul profundo"
+      },
+      {
+        "en": "Strawberry pink",
+        "es": "Rosa fresa"
+      },
+      {
+        "en": "Black",
+        "es": "Negro"
+      },
+      {
+        "en": "Ivory yellow",
+        "es": "Amarillo marfil"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-06",
+    "title_es": "Set de chaqueta y short",
+    "description_es": "Set de chaqueta y short. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "Dark coffee",
+        "es": "Café oscuro"
+      },
+      {
+        "en": "Black",
+        "es": "Negro"
+      },
+      {
+        "en": "Indigo blue",
+        "es": "Azul índigo"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-07",
+    "title_es": "Set de bra y leggings",
+    "description_es": "Set de bra y leggings. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "Black",
+        "es": "Negro"
+      },
+      {
+        "en": "Cherry blossom pink",
+        "es": "Rosa cerezo"
+      },
+      {
+        "en": "Wine",
+        "es": "Vino"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-08",
+    "title_es": "Set de bra y pantalón capri",
+    "description_es": "Set de bra y pantalón capri. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "Wine",
+        "es": "Vino"
+      },
+      {
+        "en": "Blue",
+        "es": "Azul"
+      },
+      {
+        "en": "Black",
+        "es": "Negro"
+      },
+      {
+        "en": "Chocolate brown",
+        "es": "Marrón chocolate"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-09",
+    "title_es": "Set de bra y short",
+    "description_es": "Set de bra y short. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "Purple",
+        "es": "Morado"
+      },
+      {
+        "en": "Black",
+        "es": "Negro"
+      },
+      {
+        "en": "Orange",
+        "es": "Naranja"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-10",
+    "title_es": "Set de bra y pantalón",
+    "description_es": "Set de bra y pantalón. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "White",
+        "es": "Blanco"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-11",
+    "title_es": "Set de bra y pantalón",
+    "description_es": "Set de bra y pantalón. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "Butter yellow",
+        "es": "Amarillo mantequilla"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-12",
+    "title_es": "Set de top y leggings",
+    "description_es": "Set de top y leggings. Se vende como set completo de 2 piezas.",
+    "colors": [
+      {
+        "en": "Fig brown",
+        "es": "Marrón higo"
+      },
+      {
+        "en": "Mocha",
+        "es": "Moca"
+      },
+      {
+        "en": "Taupe / truffle",
+        "es": "Topo / trufa"
+      },
+      {
+        "en": "Almond / khaki",
+        "es": "Almendra / caqui"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-13",
+    "title_es": "Set de top, bra y leggings",
+    "description_es": "Set de top, bra y leggings. Se vende como set completo de 3 piezas.",
+    "colors": [
+      {
+        "en": "Brown",
+        "es": "Marrón"
+      },
+      {
+        "en": "Black",
+        "es": "Negro"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-14",
+    "title_es": "Enterizo de manga larga",
+    "description_es": "Enterizo de manga larga. Se vende como prenda individual.",
+    "colors": [
+      {
+        "en": "Wine / berry",
+        "es": "Vino / baya"
+      },
+      {
+        "en": "Pine green",
+        "es": "Verde pino"
+      },
+      {
+        "en": "Ice blue",
+        "es": "Azul hielo"
+      },
+      {
+        "en": "Deep coffee",
+        "es": "Café intenso"
+      },
+      {
+        "en": "Black",
+        "es": "Negro"
+      }
+    ]
+  },
+  {
+    "handle": "musa-pi-15",
+    "title_es": "Leggings",
+    "description_es": "Leggings. Se vende como prenda individual.",
+    "colors": [
+      {
+        "en": "Ink blue",
+        "es": "Azul tinta"
+      },
+      {
+        "en": "Berry red",
+        "es": "Rojo baya"
+      },
+      {
+        "en": "Deep coffee",
+        "es": "Café intenso"
+      },
+      {
+        "en": "Black",
+        "es": "Negro"
+      },
+      {
+        "en": "Light lilac",
+        "es": "Lila claro"
+      },
+      {
+        "en": "Cream yellow",
+        "es": "Amarillo crema"
+      }
+    ]
+  }
+]

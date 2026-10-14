@@ -1,6 +1,6 @@
-MUSA — D2 Seda Viva integrated preview
-Source delivery: claude/design-evolution 4b327c0, integrated in codex/d2-integration.
-Open index-es.html or index-en.html. Fonts/images/scripts embedded.
-15 preliminary order references, color swatches and planned sizes.
-Retail prices and photography pending. Shopping and forms disconnected.
-No authenticated Shopify publication. See docs/REVIEW-D2-INTEGRATION.md.
+MUSA — Storefront continuation, October 14, 2026
+Open index-es.html or index-en.html for Home; catalog-es/en.html for all 15 references; club-es/en.html for editable events empty state and newsletter. All assets embedded.
+Home shows six references. Photos are provisional supplier references extracted from the owner-provided order, not final campaign or variant photographs.
+Final retail prices and photographs pending. Shopping and email forms are disconnected in this offline preview.
+Legal documents remain drafts; no new Shopify upload/import/page creation/publication performed in this Codex task.
+See docs/STOREFRONT-COMPLETION.md, imports/README.md and docs/legal/README.md.

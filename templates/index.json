@@ -19,7 +19,9 @@
     },
     "edit": {
       "type": "catalog-planning",
-      "settings": {}
+      "settings": {
+        "selection_only": true
+      }
     },
     "story": {
       "type": "editorial",

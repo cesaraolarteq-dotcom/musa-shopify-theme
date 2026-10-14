@@ -7,7 +7,9 @@ Brand signature: **musa — welcome to your new era**.
 
 ![MUSA integrated design](docs/full-site-preview/portada.png)
 
-Current D2 preview: [complete page](docs/full-site-preview/pagina-completa.png), [mobile](docs/full-site-preview/pagina-movil.png), [downloadable bilingual preview](docs/full-site-preview/MUSA-preview-completo.zip). Integration review: [D2](docs/REVIEW-D2-INTEGRATION.md). The homepage includes 15 preliminary order references; photos and retail prices remain pending.
+Current storefront preview: [complete page](docs/full-site-preview/pagina-completa.png), [mobile](docs/full-site-preview/pagina-movil.png), [downloadable bilingual preview](docs/full-site-preview/MUSA-preview-completo.zip). Delivery: [storefront completion](docs/STOREFRONT-COMPLETION.md). The homepage shows six references; the full catalog contains 15 with provisional supplier photos. Retail prices and final photography remain pending.
+
+[Full catalog screenshot](docs/full-site-preview/catalog-1440.png) · [MUSA Club screenshot](docs/full-site-preview/club-1440.png) · [Draft product import](imports/README.md) · [Legal drafts EN/ES](docs/legal/README.md).
 
 Legacy component QA references: [English](docs/preview/index-en.html), [Spanish](docs/preview/index-es.html), and [mobile screenshot](docs/preview/MUSA-mobile.png). Download and open the HTML files locally to explore the design; shopping and email submission are disconnected in these previews.
 
@@ -25,6 +27,11 @@ Portable setup (run from your checkout; Node >=22.12.0, Python >=3.9):
 npm install --prefix ../.musa-tools @shopify/cli@4.9.3 liquidjs@10.21.1
 node scripts/render-preview.cjs
 python scripts/validate.py
+node scripts/render-full-preview.cjs
+python scripts/validate-full-preview.py
+python scripts/validate-d2.py
+python scripts/validate-storefront.py
+python scripts/build-shopify-import.py
 python scripts/package.py
 ```
 

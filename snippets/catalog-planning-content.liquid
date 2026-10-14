@@ -1,0 +1,23 @@
+{{ 'musa-catalog.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'musa-catalog.js' | asset_url }}" defer></script>
+<section id="the-edit" class="musa-catalog" data-musa-catalog aria-labelledby="CatalogTitle-{{ section.id }}">
+{% assign catalog_heading = heading_tag | default: 'h2' %}<header class="musa-catalog-intro"><p class="musa-catalog-eyebrow">MUSA — WELCOME TO YOUR NEW ERA</p><{{ catalog_heading }} id="CatalogTitle-{{ section.id }}">{% if request.locale.iso_code == 'es' %}Tu próxima era, en movimiento.{% else %}Your next era, in motion.{% endif %}</{{ catalog_heading }}><p>{% if request.locale.iso_code == 'es' %}Descubre los modelos de nuestra próxima colección. Los sets se venden completos. Fotografías finales y precios de venta próximamente.{% else %}Explore the styles in our upcoming collection. Sets are sold complete. Final photography and retail pricing coming soon.{% endif %}</p></header>
+{% unless section.settings.selection_only and force_full != true %}<div class="musa-catalog-filters" data-catalog-filters hidden role="group" aria-label="{% if request.locale.iso_code == 'es' %}Tipo de producto{% else %}Product type{% endif %}"><button type="button" data-catalog-filter="all" aria-pressed="true">{% if request.locale.iso_code == 'es' %}Todos{% else %}All styles{% endif %}</button><button type="button" data-catalog-filter="sets-2" aria-pressed="false">{% if request.locale.iso_code == 'es' %}Sets de 2 piezas{% else %}2-piece sets{% endif %}</button><button type="button" data-catalog-filter="sets-3" aria-pressed="false">{% if request.locale.iso_code == 'es' %}Sets de 3 piezas{% else %}3-piece sets{% endif %}</button><button type="button" data-catalog-filter="bodysuits" aria-pressed="false">{% if request.locale.iso_code == 'es' %}Enterizos{% else %}Bodysuits{% endif %}</button><button type="button" data-catalog-filter="leggings" aria-pressed="false">{% if request.locale.iso_code == 'es' %}Leggings{% else %}Leggings{% endif %}</button></div>
+<p class="musa-catalog-count" role="status" data-catalog-count data-label="{% if request.locale.iso_code == 'es' %}modelos{% else %}styles{% endif %}">15 {% if request.locale.iso_code == 'es' %}modelos{% else %}styles{% endif %}</p>
+{% endunless %}<div class="musa-catalog-grid">{% render 'catalog-planning-pi-01', section: section %}
+{% render 'catalog-planning-pi-02', section: section %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-03', section: section %}{% endunless %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-04', section: section %}{% endunless %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-05', section: section %}{% endunless %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-06', section: section %}{% endunless %}
+{% render 'catalog-planning-pi-07', section: section %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-08', section: section %}{% endunless %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-09', section: section %}{% endunless %}
+{% render 'catalog-planning-pi-10', section: section %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-11', section: section %}{% endunless %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-12', section: section %}{% endunless %}
+{% unless section.settings.selection_only and force_full != true %}{% render 'catalog-planning-pi-13', section: section %}{% endunless %}
+{% render 'catalog-planning-pi-14', section: section %}
+{% render 'catalog-planning-pi-15', section: section %}</div><p class="musa-catalog-note">{% if request.locale.iso_code == 'es' %}Los nombres de color son descriptivos y se confirmarán con las fotografías finales. Las tallas corresponden al pedido; no indican disponibilidad actual.{% else %}Color names are descriptive and will be confirmed with final photography. Sizes reflect the order, not current availability.{% endif %}</p>
+{% if section.settings.selection_only and force_full != true %}<a class="text-link" href="{{ routes.all_products_collection_url }}">{% if request.locale.iso_code == 'es' %}Explora los 15 modelos{% else %}Explore all 15 styles{% endif %} {% render 'icon', name: 'arrow' %}</a>{% endif %}
+</section>
