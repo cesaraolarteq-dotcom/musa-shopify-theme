@@ -9,7 +9,7 @@ Brand signature: **musa — welcome to your new era**.
 
 Offline references: [English](docs/preview/index-en.html), [Spanish](docs/preview/index-es.html), and [mobile screenshot](docs/preview/MUSA-mobile.png). Download and open the HTML files locally to explore the design; shopping and email submission are disconnected in these previews.
 
-Claude Code collaborators: start with [CLAUDE.md](CLAUDE.md).
+Claude Code collaborators: start with [CLAUDE.md](CLAUDE.md). Codex: [AGENTS.md](AGENTS.md). Change log between agents: [docs/HANDOFF.md](docs/HANDOFF.md).
 
 Additional brand direction: [light/dark organic-wave references](docs/DESIGN-REFERENCES.md).
 
@@ -30,6 +30,6 @@ Set the featured collection, navigation, contact page, size guide and campaign i
 
 Publish English and Spanish in Shopify > Settings > Languages, with Shopify Markets configured for the intended regions. The theme has complete custom UI dictionaries; Shopify-managed product titles/descriptions, navigation, custom section overrides, pages, policies and notification messages require their own translations, e.g. with Translate & Adapt. Default translated headings work automatically. Do not replace the default with a custom heading unless both versions are translated.
 
-The display type is deliberately Georgia italic for this editorial concept; body type is the system sans-serif. No commercial font or demo-font extraction is used. Original logo PNGs remain unchanged; SVG wrappers display their original pixels using a tighter viewBox.
+Display type is Cormorant Garamond and body type is Jost, both open-licensed (OFL) and self-hosted in `assets/` as variable woff2. No commercial font is used. Original logo PNGs remain unchanged; SVG wrappers display their original pixels using a tighter viewBox.
 
 See `docs/ACCEPTANCE.md` and `docs/CONTENT.md`. This theme does not create products, charge customers, configure shipping/payments, or publish the live storefront. Real Shopify rendering and checkout acceptance need authenticated store access. Use existing checkouts; each cloud task is isolated and no Git worktree is needed.

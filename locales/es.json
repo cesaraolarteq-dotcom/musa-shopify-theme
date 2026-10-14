@@ -17,7 +17,8 @@
     "next": "Página siguiente",
     "not_found": "Un pequeño desvío.",
     "home": "Volver a MUSA",
-    "collections": "Las colecciones"
+    "collections": "Las colecciones",
+    "close": "Cerrar"
   },
   "brand": {
     "announcement": "musa — bienvenida a tu nueva era",
@@ -97,7 +98,11 @@
     "reset": "Quitar filtros",
     "empty": "Aún no hay productos. Un nuevo capítulo está por llegar.",
     "min_price": "Precio mínimo",
-    "max_price": "Precio máximo"
+    "max_price": "Precio máximo",
+    "decrease": "Restar cantidad",
+    "increase": "Sumar cantidad",
+    "adding": "Añadiendo…",
+    "quick_view": "Vista rápida"
   },
   "cart": {
     "eyebrow": "Tu selección personal",
@@ -109,7 +114,12 @@
     "subtotal": "Subtotal",
     "taxes": "Impuestos, envío y descuentos calculados al finalizar la compra.",
     "note": "Nota del pedido",
-    "checkout": "Finalizar compra"
+    "checkout": "Finalizar compra",
+    "drawer_title": "Tu bolsa",
+    "view_bag": "Ver bolsa completa",
+    "error": "No pudimos añadirlo a tu bolsa. Inténtalo de nuevo.",
+    "free_shipping_remaining": "Te faltan {{ amount }} para el envío gratis",
+    "free_shipping_unlocked": "Ya tienes envío gratis"
   },
   "search": {
     "title": "Encuentra tu musa.",

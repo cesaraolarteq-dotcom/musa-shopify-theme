@@ -2,13 +2,14 @@
 
 This repository contains MUSA — Atelier, a native Shopify Online Store 2.0 theme for `kypp5e-bz.myshopify.com`.
 
-Read `README.md`, `docs/CONTENT.md`, `docs/DELIVERY.md` and `docs/ACCEPTANCE.md` first. Current local validation evidence is in `docs/theme-check.json` and `docs/local-validation.txt`. Those results do not establish authenticated Shopify acceptance.
+Read `README.md`, `docs/CONTENT.md`, `docs/DELIVERY.md`, `docs/ACCEPTANCE.md` and `docs/HANDOFF.md` first. `AGENTS.md` holds the same rules for Codex; keep the two consistent. Current local validation evidence is in `docs/theme-check.json` and `docs/local-validation.txt`. Those results do not establish authenticated Shopify acceptance.
 
 ## Design and product requirements
 
 - Brand slogan: **musa — welcome to your new era**. Spanish hero: **Bienvenida a tu nueva era**. The footer retains the English brand signature.
-- Direction: modern editorial luxury, warm espresso/ivory/sand, generous spacing, original supplied logos, responsive layouts and reduced-motion support.
+- Direction: modern editorial luxury, warm espresso/ivory/sand, generous spacing, original supplied logos, responsive layouts and reduced-motion support. Fonts: Cormorant Garamond (headings) + Jost (body), self-hosted. Body text at least 15px.
 - Additional user-supplied visual references: read `docs/DESIGN-REFERENCES.md`. They show broad organic waves in light and dark tonal compositions, with the original wordmark and `@hellomusa.us` signature. The note records design guidance; the two original images are not archived here. This reference update does not itself request a storefront redesign.
+- Collaboration: work on a branch (`claude/<topic>`, Codex uses `codex/<topic>`), open a PR into `main`, and log every task in `docs/HANDOFF.md`.
 - Keep English and Spanish custom UI dictionaries in sync. Shopify-managed content requires separate translations and language publication in store settings.
 - There are no real products yet. Four original garment illustrations are clearly labeled design concepts. Do not invent actual pricing, inventory, fabric claims, reviews, policies or photography.
 - Native Shopify product/cart/newsletter/contact forms must remain functional. Do not replace commerce routes with mock interactions.
