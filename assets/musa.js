@@ -229,6 +229,28 @@
     }
     root.querySelectorAll('[data-product-section]').forEach(initProduct);
   }
+  /* ---------- language: switch on change (the Apply button stays for no-JS) ---------- */
+  document.addEventListener('change', e => {
+    const select = e.target.closest('.locale-form select');
+    if (select) select.form.submit();
+  });
+
+  /* ---------- quiet reveal on scroll ---------- */
+  function reveal(root = document) {
+    if (reduced() || !('IntersectionObserver' in window)) return;
+    const targets = root.querySelectorAll('.manifesto > *, .section-heading, .product-card, .demo-card, .editorial-copy > :not(.editorial-number), .club > div, .collection-tile');
+    const io = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: .12 });
+    targets.forEach((el, i) => {
+      if (el.classList.contains('reveal') || el.closest('.is-quick')) return;
+      el.classList.add('reveal');
+      if (el.matches('.product-card, .demo-card')) el.style.setProperty('--reveal-delay', `${(i % 4) * 0.08}s`);
+      io.observe(el);
+    });
+  }
+
   init();
-  document.addEventListener('shopify:section:load', () => init());
+  reveal();
+  document.addEventListener('shopify:section:load', e => { init(); reveal(e.target); });
 })();

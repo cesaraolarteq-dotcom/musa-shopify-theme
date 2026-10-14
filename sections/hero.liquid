@@ -6,7 +6,7 @@
   <div class="hero-meta"><span>01 — {{ 'hero.meta' | t }}</span><span>{{ 'brand.edition' | t }}</span></div></div>
   <div class="hero-art">
   {% if section.settings.image != blank %}<picture>{% if section.settings.mobile_image %}<source media="(max-width: 700px)" srcset="{{ section.settings.mobile_image | image_url: width: 900 }}">{% endif %}{{ section.settings.image | image_url: width: 2000 | image_tag: widths: '600,900,1200,1600,2000', sizes: '(min-width: 900px) 56vw, 100vw', loading: 'eager', fetchpriority: 'high', class: 'hero-photo' }}</picture>
-  {% else %}<div class="sculpture" aria-hidden="true"><div class="sculpture-halo"></div><div class="sculpture-ribbon ribbon-one"></div><div class="sculpture-ribbon ribbon-two"></div><div class="sculpture-orb"></div><div class="sculpture-shadow"></div></div>{% endif %}
+  {% else %}<div class="brand-art" aria-hidden="true">{% render 'organic-waves', tone: 'light' %}<div class="brand-art-mark"><img src="{{ 'logo-espresso.svg' | asset_url }}" width="420" height="99" alt="" loading="eager"><span>@hellomusa.us</span></div></div>{% endif %}
   <span class="art-label">MUSA — {{ 'hero.art_label' | t }}</span><div class="art-caption"><span>{{ 'hero.art_caption' | t }}</span><span>{% render 'icon', name: 'arrow' %}</span></div>
   </div>
 </section>

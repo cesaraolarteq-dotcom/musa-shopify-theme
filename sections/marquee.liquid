@@ -1,0 +1,20 @@
+{%- liquid
+  assign phrases = section.blocks
+-%}
+<section class="marquee{% if section.settings.scheme == 'dark' %} marquee--dark{% endif %}" aria-label="{{ 'marquee.label' | t }}">
+  <div class="marquee-track">
+    {%- for n in (1..2) -%}
+      <ul class="marquee-list"{% if n == 2 %} aria-hidden="true"{% endif %}>
+        {%- if phrases.size > 0 -%}
+          {%- for block in phrases -%}<li {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</li>{%- endfor -%}
+        {%- else -%}
+          <li>{{ 'marquee.one' | t }}</li><li>{{ 'marquee.two' | t }}</li><li>{{ 'marquee.three' | t }}</li><li>{{ 'marquee.four' | t }}</li>
+        {%- endif -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{"name": "MUSA Marquee", "settings": [{"type": "select", "id": "scheme", "label": "Colour scheme", "options": [{"value": "light", "label": "Light"}, {"value": "dark", "label": "Dark"}], "default": "light"}], "blocks": [{"type": "phrase", "name": "Phrase", "settings": [{"type": "text", "id": "text", "label": "Text"}]}], "presets": [{"name": "MUSA Marquee"}]}
+{% endschema %}

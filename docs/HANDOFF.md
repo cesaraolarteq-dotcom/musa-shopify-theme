@@ -2,6 +2,20 @@
 
 Newest first. Each entry: date, author, branch, what changed, files, verification, open items.
 
+## 2026-10-14 · Claude Code · `claude/luxury-refine` (based on `claude/premium-ux`)
+**What changed (modern minimalist luxury pass, asked for by the owner)**
+- **Organic-wave brand art** (`snippets/organic-waves.liquid`, light/dark SVG), following `docs/DESIGN-REFERENCES.md`. It replaces the CSS sculpture in the hero and the striped editorial art. It is only the default: a campaign image set in the editor still wins. Centered original wordmark plus the `@hellomusa.us` signature (kept as a separate element, not merged into the logo). The waves drift slowly, with no motion under reduced-motion.
+- **Dark editorial band:** "Movement story" has a new **Colour scheme** setting (dark by default), which gives a light → dark → light rhythm.
+- **Marquee** (`sections/marquee.liquid`): slow italic brand phrases (EN/ES defaults; merchants can add Phrase blocks). It sits after the hero in `templates/index.json`.
+- **Finer controls:** uppercase tracked buttons and text links, arrows that nudge on hover, more vertical breathing room, refined product badges.
+- **Colour dots on product cards** for products with a Color option (up to 5, plus a "+N" count).
+- **Language picker** switches on change; the Apply button is hidden with JS but stays for no-JS.
+- **Quiet reveal on scroll** for section content and cards (IntersectionObserver; off under reduced motion).
+- Fix: missing space between "ser." and "Esta" in the Spanish manifesto on mobile.
+
+**Verification:** Theme Check 4.9.3 reports 0 offenses and `node --check` passes. Local liquidjs render at 1440 and 390 px in EN/ES, with no horizontal overflow.
+**Open:** review the waves against the original reference images, which aren't archived in the repo; swap in campaign photography once it exists.
+
 ## 2026-10-14 · Claude Code · `claude/premium-ux`
 **What changed (5 improvements requested by the owner)**
 1. **Variant picker:** colour swatches and size chips replace the single "Color / Size" dropdown (`snippets/variant-picker.liquid`, `snippets/swatch-color.liquid`). Swatches use Shopify's option swatch (colour or image) when the merchant sets one; otherwise they use a built-in EN/ES colour-name map. The hidden `<select name="id">` is still the source of truth and the no-JS fallback. A combination that is sold out or doesn't exist is crossed out; clicking it jumps to the nearest valid combination.

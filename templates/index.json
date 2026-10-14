@@ -14,15 +14,24 @@
     },
     "story": {
       "type": "editorial",
-      "settings": {}
+      "settings": {
+        "scheme": "dark"
+      }
     },
     "club": {
       "type": "newsletter",
       "settings": {}
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "scheme": "light"
+      }
     }
   },
   "order": [
     "hero",
+    "marquee",
     "manifesto",
     "edit",
     "story",

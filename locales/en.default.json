@@ -102,7 +102,8 @@
     "decrease": "Decrease quantity",
     "increase": "Increase quantity",
     "adding": "Adding…",
-    "quick_view": "Quick view"
+    "quick_view": "Quick view",
+    "colors_count": "Available in {{ count }} colours"
   },
   "cart": {
     "eyebrow": "Your considered collection",
@@ -137,5 +138,12 @@
     "title": "A new rhythm is coming.",
     "label": "Store password",
     "enter": "Enter"
+  },
+  "marquee": {
+    "label": "MUSA",
+    "one": "Welcome to your new era",
+    "two": "Movement, reimagined",
+    "three": "Made for every version of you",
+    "four": "In a state of flow"
   }
 }

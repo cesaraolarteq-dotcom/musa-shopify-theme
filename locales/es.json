@@ -102,7 +102,8 @@
     "decrease": "Restar cantidad",
     "increase": "Sumar cantidad",
     "adding": "Añadiendo…",
-    "quick_view": "Vista rápida"
+    "quick_view": "Vista rápida",
+    "colors_count": "Disponible en {{ count }} colores"
   },
   "cart": {
     "eyebrow": "Tu selección personal",
@@ -137,5 +138,12 @@
     "title": "Un nuevo ritmo está por llegar.",
     "label": "Contraseña de la tienda",
     "enter": "Entrar"
+  },
+  "marquee": {
+    "label": "MUSA",
+    "one": "Bienvenida a tu nueva era",
+    "two": "El movimiento, reinventado",
+    "three": "Hecho para cada versión de ti",
+    "four": "En estado de fluidez"
   }
 }
