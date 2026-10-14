@@ -1,0 +1,4 @@
+PASS: 15 sale references, 46 colour combinations, 139 variants; sets complete, prices pending.
+PASS: es categories, dependent sizes, no checkout, desktop/mobile/320px layouts.
+PASS: en categories, dependent sizes, no checkout, desktop/mobile/320px layouts.
+PASS: all 15 colour/size matrices accessible without JavaScript; no browser errors.
