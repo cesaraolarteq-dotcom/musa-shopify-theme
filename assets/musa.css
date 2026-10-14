@@ -336,3 +336,9 @@
 .cat-sizes{display:flex;flex-wrap:wrap;gap:6px;width:100%}
 .cat-size{display:inline-grid;place-items:center;min-width:42px;height:34px;padding:0 10px;border:1px solid var(--line);font-size:13px;letter-spacing:.06em;text-transform:none;font-variant-numeric:tabular-nums;animation:cat-in .45s var(--ease-silk) both;animation-delay:calc(var(--n) * 30ms)}
 @keyframes cat-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* --- rendering budget: skip hidden layers, pause off-screen motion, defer below-the-fold paint --- */
+.silk-stage.is-live .silk-fallback{display:none}
+.silk-stage.is-offscreen .silk-grain,.silk-stage.is-offscreen .silk-cue i{animation-play-state:paused}
+.brand-art.is-offscreen .waves-drift{animation-play-state:paused}
+.page-index #MainContent>.shopify-section:nth-child(n+4),.page-index #MainContent>section:nth-child(n+4){content-visibility:auto;contain-intrinsic-size:auto 900px}

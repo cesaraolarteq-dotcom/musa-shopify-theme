@@ -28,7 +28,7 @@
     let W = 0, H = 0, t = 2, px = .5, py = .5, tx = .5, ty = .5, visible = true, running = false, last = 0, alive = true;
     const bands = Array.from({ length: 9 }, (_, i) => ({ y: -.15 + i * .16, amp: .07 + (i % 3) * .025, f: 1.1 + (i % 4) * .22, sp: .12 + (i % 5) * .03, ph: i * 1.7, th: .085 + (i % 2) * .03 }));
     const size = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, finePointer ? 2 : 1.25);
       W = canvas.clientWidth; H = canvas.clientHeight;
       canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -58,6 +58,7 @@
     };
     const frame = now => {
       if (!alive || !visible || document.hidden || reduced()) { running = false; return; }
+      if (!finePointer && last && now - last < 30) { requestAnimationFrame(frame); return; }
       const dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
       t += dt;
       if (!finePointer) { tx = .5 + Math.sin(t * .25) * .3; ty = .5 + Math.cos(t * .19) * .2; }
@@ -65,13 +66,13 @@
       requestAnimationFrame(frame);
     };
     ctl.start = () => { if (alive && !running && visible && !document.hidden && !reduced()) { running = true; last = 0; requestAnimationFrame(frame); } };
-    size(); draw(); canvas.classList.add('is-live'); ctl.start();
+    size(); draw(); canvas.classList.add('is-live'); stage.classList.add('is-live'); ctl.start();
     const opts = { passive: true, signal: off.signal };
     addEventListener('resize', () => { size(); draw(); }, opts);
     if (finePointer) addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; }, opts);
     document.addEventListener('visibilitychange', ctl.start, { signal: off.signal });
     let io = null;
-    if ('IntersectionObserver' in window) { io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; ctl.start(); }); io.observe(stage); }
+    if ('IntersectionObserver' in window) { io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; stage.classList.toggle('is-offscreen', !visible); ctl.start(); }); io.observe(stage); }
     ctl.destroy = () => { alive = false; off.abort(); io && io.disconnect(); };
   }
 
@@ -293,7 +294,16 @@
     });
   }
 
+  /* ---------- pause decorative SVG wave drift while off screen ---------- */
+  let waveIO = null;
+  function pauseWaves(scope = document) {
+    if (!('IntersectionObserver' in window)) return;
+    waveIO = waveIO || new IntersectionObserver(entries => entries.forEach(e => e.target.classList.toggle('is-offscreen', !e.isIntersecting)));
+    scope.querySelectorAll('.brand-art').forEach(el => { if (!el.dataset.waveWatch) { el.dataset.waveWatch = 'true'; waveIO.observe(el); } });
+  }
+
   function init(scope = document) {
+    pauseWaves(scope);
     scope.querySelectorAll('[data-silk-stage]').forEach(silk);
     catalogSwatches(scope);
     prepareInk(scope); magnetic(scope); reveal(scope); headerState();
