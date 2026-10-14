@@ -2,6 +2,8 @@
 
 This repository contains MUSA — Atelier, a native Shopify Online Store 2.0 theme for `kypp5e-bz.myshopify.com`.
 
+Read `docs/COLLABORATION.md` before editing. The owner now requests coordinated development: Claude Code owns the visual evolution, Codex owns commerce logic and QA. Follow the file ownership, branch workflow and handoff rules there. Claude's initial tasks are D1/D2; this is authorization to evolve the design using the supplied references, beyond the earlier reference-only documentation update.
+
 Read `README.md`, `docs/CONTENT.md`, `docs/DELIVERY.md`, `docs/ACCEPTANCE.md` and `docs/HANDOFF.md` first. `AGENTS.md` holds the same rules for Codex; keep the two consistent. Current local validation evidence is in `docs/theme-check.json` and `docs/local-validation.txt`. Those results do not establish authenticated Shopify acceptance.
 
 ## Design and product requirements

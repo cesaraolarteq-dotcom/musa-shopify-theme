@@ -11,6 +11,8 @@ Offline references: [English](docs/preview/index-en.html), [Spanish](docs/previe
 
 Claude Code collaborators: start with [CLAUDE.md](CLAUDE.md). Codex: [AGENTS.md](AGENTS.md). Change log between agents: [docs/HANDOFF.md](docs/HANDOFF.md).
 
+Roles, file ownership, branches and current tasks: [collaboration workflow](docs/COLLABORATION.md).
+
 Additional brand direction: [light/dark organic-wave references](docs/DESIGN-REFERENCES.md).
 
 ## Local validation
