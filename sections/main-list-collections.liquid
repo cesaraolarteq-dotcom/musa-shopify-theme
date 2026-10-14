@@ -1,0 +1,5 @@
+<section class="section-pad"><div class="page-intro"><p class="eyebrow">MUSA / {{ 'brand.edition' | t }}</p><h1>{{ 'general.collections' | t }}</h1></div>{% paginate collections by 12 %}<div class="collection-grid">{% for collection in collections %}<a class="collection-tile" href="{{ collection.url }}">{% if collection.featured_image %}{{ collection.featured_image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '400,600,1000', sizes: '(min-width: 900px) 33vw, 100vw' }}{% else %}{{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}{% endif %}<h2>{{ collection.title | escape }} <span>↗</span></h2></a>{% else %}<p>{{ 'products.empty' | t }}</p>{% endfor %}</div>{% render 'pagination', paginate: paginate %}{% endpaginate %}</section>
+
+{% schema %}
+{"name": "Collections", "settings": []}
+{% endschema %}

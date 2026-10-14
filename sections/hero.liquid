@@ -1,0 +1,16 @@
+<section class="hero" aria-labelledby="HeroTitle-{{ section.id }}">
+  <div class="hero-copy"><p class="eyebrow"><span class="little-star" aria-hidden="true">*</span> {{ 'brand.chapter' | t }}</p>
+  <h1 id="HeroTitle-{{ section.id }}">{% if section.settings.heading != blank %}{{ section.settings.heading | escape }}{% else %}{{ 'hero.line_one' | t }}<br><em>{{ 'hero.line_two' | t }}</em>{% endif %}</h1>
+  <p class="hero-description">{% if section.settings.text != blank %}{{ section.settings.text | escape }}{% else %}{{ 'hero.description' | t }}{% endif %}</p>
+  <a class="button" href="{% if section.settings.link != blank %}{{ section.settings.link }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">{{ 'hero.cta' | t }} {% render 'icon', name: 'arrow' %}</a>
+  <div class="hero-meta"><span>01 — {{ 'hero.meta' | t }}</span><span>{{ 'brand.edition' | t }}</span></div></div>
+  <div class="hero-art">
+  {% if section.settings.image != blank %}<picture>{% if section.settings.mobile_image %}<source media="(max-width: 700px)" srcset="{{ section.settings.mobile_image | image_url: width: 900 }}">{% endif %}{{ section.settings.image | image_url: width: 2000 | image_tag: widths: '600,900,1200,1600,2000', sizes: '(min-width: 900px) 56vw, 100vw', loading: 'eager', fetchpriority: 'high', class: 'hero-photo' }}</picture>
+  {% else %}<div class="sculpture" aria-hidden="true"><div class="sculpture-halo"></div><div class="sculpture-ribbon ribbon-one"></div><div class="sculpture-ribbon ribbon-two"></div><div class="sculpture-orb"></div><div class="sculpture-shadow"></div></div>{% endif %}
+  <span class="art-label">MUSA — {{ 'hero.art_label' | t }}</span><div class="art-caption"><span>{{ 'hero.art_caption' | t }}</span><span>{% render 'icon', name: 'arrow' %}</span></div>
+  </div>
+</section>
+
+{% schema %}
+{"name": "MUSA Editorial hero", "settings": [{"type": "image_picker", "id": "image", "label": "Campaign image"}, {"type": "image_picker", "id": "mobile_image", "label": "Mobile campaign image"}, {"type": "text", "id": "heading", "label": "Custom heading (optional)"}, {"type": "textarea", "id": "text", "label": "Custom description (optional)"}, {"type": "url", "id": "link", "label": "Button destination"}], "presets": [{"name": "MUSA Editorial hero"}]}
+{% endschema %}

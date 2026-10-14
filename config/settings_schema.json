@@ -1,0 +1,44 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "MUSA — Atelier",
+    "theme_version": "1.0.0",
+    "theme_author": "MUSA",
+    "theme_documentation_url": "https://shopify.dev/docs/storefronts/themes",
+    "theme_support_url": "https://help.shopify.com/"
+  },
+  {
+    "name": "Palette",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_espresso",
+        "label": "Espresso",
+        "default": "#3F2519"
+      },
+      {
+        "type": "color",
+        "id": "color_paper",
+        "label": "Ivory",
+        "default": "#F6F3EE"
+      },
+      {
+        "type": "color",
+        "id": "color_sand",
+        "label": "Sand",
+        "default": "#C3B8B2"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Ink",
+        "default": "#2B2B2B"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  }
+]

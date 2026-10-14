@@ -1,0 +1,131 @@
+{
+  "general": {
+    "skip": "Ir al contenido",
+    "language": "Idioma",
+    "country": "País / moneda",
+    "apply": "Aplicar",
+    "menu": "Menú",
+    "navigation": "Navegación principal",
+    "shop": "Ver la colección",
+    "world": "Nuestro universo",
+    "search": "Buscar",
+    "bag": "Tu bolsa",
+    "contact": "Contacto",
+    "account": "Mi cuenta",
+    "pagination": "Paginación",
+    "previous": "Página anterior",
+    "next": "Página siguiente",
+    "not_found": "Un pequeño desvío.",
+    "home": "Volver a MUSA",
+    "collections": "Las colecciones"
+  },
+  "brand": {
+    "announcement": "musa — bienvenida a tu nueva era",
+    "chapter": "Capítulo 01 / El comienzo",
+    "edition": "La primera edición",
+    "philosophy": "La filosofía MUSA"
+  },
+  "hero": {
+    "line_one": "Bienvenida a",
+    "line_two": "tu nueva era.",
+    "description": "Un guardarropa para cada versión de ti. Descubre el arte de moverte por la vida, a tu manera.",
+    "cta": "Descubre la colección",
+    "meta": "El movimiento, reinventado",
+    "art_label": "En estado de fluidez",
+    "art_caption": "Una exploración de forma y movimiento"
+  },
+  "manifesto": {
+    "first": "Más que un momento.",
+    "emphasis": "Una forma de ser.",
+    "last": "Esta es tu MUSA.",
+    "description": "Del primer estiramiento a la última luz. Un universo donde el movimiento es expresión y tú marcas el ritmo."
+  },
+  "featured": {
+    "eyebrow": "El guardarropa / Capítulo 01",
+    "title": "Tu día a día,",
+    "emphasis": "elevado.",
+    "all": "Explora la colección",
+    "empty": "Una nueva colección está tomando forma."
+  },
+  "demo": {
+    "name_1": "Form — Legging Sculpt",
+    "name_2": "Muse — Top de estudio",
+    "name_3": "Flow — Short ciclista",
+    "name_4": "Ease — Camiseta esencial",
+    "label": "Concepto de diseño",
+    "type": "MUSA / Esenciales de movimiento",
+    "soon": "Próximamente",
+    "disclaimer": "Prendas conceptuales para un primer vistazo. Las ilustraciones son de muestra; todavía no hay productos disponibles para comprar."
+  },
+  "editorial": {
+    "image_label": "Estudios de movimiento",
+    "eyebrow": "El espíritu MUSA",
+    "first": "Encuentra tu ritmo.",
+    "emphasis": "Hazlo tuyo.",
+    "description": "Mañanas lentas. Nuevos comienzos. Espacio para respirar. MUSA es una invitación a sentirte en casa en tu propio movimiento.",
+    "cta": "Entra al universo MUSA"
+  },
+  "club": {
+    "eyebrow": "Una invitación / MUSA Club",
+    "first": "Tu comunidad.",
+    "emphasis": "Tu MUSA.",
+    "description": "Únete a nuestra comunidad por correo para recibir noticias del lanzamiento e historias del universo MUSA.",
+    "email": "Correo electrónico",
+    "placeholder": "Tu correo electrónico",
+    "join": "Unirme a MUSA Club",
+    "consent": "Acepto recibir correos de marketing de MUSA. Puedo cancelar mi suscripción en cualquier momento.",
+    "privacy": "Política de privacidad",
+    "success": "Bienvenida al universo MUSA. Ya estás en la lista.",
+    "footnote": "Un poco de inspiración. Un poco de movimiento."
+  },
+  "footer": {
+    "tagline": "El arte de moverte. La libertad de ser.",
+    "explore": "Explora",
+    "care": "Atención al cliente",
+    "follow": "Sigue el ritmo",
+    "signature": "musa — welcome to your new era"
+  },
+  "products": {
+    "sold_out": "Agotado",
+    "from": "Desde",
+    "options": "Elige tu opción",
+    "quantity": "Cantidad",
+    "add": "Añadir a la bolsa",
+    "size_guide": "Guía de tallas",
+    "care": "Tejido y cuidados",
+    "sort": "Ordenar por",
+    "reset": "Quitar filtros",
+    "empty": "Aún no hay productos. Un nuevo capítulo está por llegar.",
+    "min_price": "Precio mínimo",
+    "max_price": "Precio máximo"
+  },
+  "cart": {
+    "eyebrow": "Tu selección personal",
+    "empty": "Tu bolsa espera su primera musa.",
+    "attachment": "Archivo adjunto",
+    "remove": "Eliminar",
+    "update": "Actualizar bolsa",
+    "summary": "Los detalles",
+    "subtotal": "Subtotal",
+    "taxes": "Impuestos, envío y descuentos calculados al finalizar la compra.",
+    "note": "Nota del pedido",
+    "checkout": "Finalizar compra"
+  },
+  "search": {
+    "title": "Encuentra tu musa.",
+    "placeholder": "Busca productos, historias y más",
+    "results": "{{ count }} resultados",
+    "empty": "No hay resultados. Prueba otra búsqueda."
+  },
+  "contact": {
+    "name": "Tu nombre",
+    "message": "Tu mensaje",
+    "send": "Enviar mensaje",
+    "success": "Gracias. Tu mensaje ha sido enviado."
+  },
+  "password": {
+    "title": "Un nuevo ritmo está por llegar.",
+    "label": "Contraseña de la tienda",
+    "enter": "Entrar"
+  }
+}

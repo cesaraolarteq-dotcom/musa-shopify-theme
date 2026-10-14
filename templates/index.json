@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "manifesto": {
+      "type": "manifesto",
+      "settings": {}
+    },
+    "edit": {
+      "type": "featured-collection",
+      "settings": {}
+    },
+    "story": {
+      "type": "editorial",
+      "settings": {}
+    },
+    "club": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "manifesto",
+    "edit",
+    "story",
+    "club"
+  ]
+}

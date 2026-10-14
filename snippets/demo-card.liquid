@@ -1,0 +1,2 @@
+{% assign demo_key = 'demo.name_' | append: index %}
+<article class="product-card demo-card"><div class="product-card-image demo-tone-{{ index }}"><img src="{{ 'sample-' | append: index | append: '.svg' | asset_url }}" width="600" height="750" alt="{{ demo_key | t }} — {{ 'demo.label' | t }}" loading="lazy"><span class="product-badge">{{ 'demo.label' | t }}</span></div><div class="product-card-info"><div><h3>{{ demo_key | t }}</h3><span class="product-type">{{ 'demo.type' | t }}</span></div><span class="sample-note">{{ 'demo.soon' | t }}</span></div></article>

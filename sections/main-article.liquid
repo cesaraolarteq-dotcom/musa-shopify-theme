@@ -1,0 +1,5 @@
+<article class="section-pad prose-page"><p class="eyebrow">{{ article.published_at | date: '%d.%m.%Y' }}</p><h1>{{ article.title | escape }}</h1>{% if article.image %}{{ article.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600,900,1400', sizes: '90vw' }}{% endif %}<div class="rte">{{ article.content }}</div></article><script type="application/ld+json">{{ article | structured_data }}</script>
+
+{% schema %}
+{"name": "Article", "settings": []}
+{% endschema %}

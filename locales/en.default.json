@@ -1,0 +1,131 @@
+{
+  "general": {
+    "skip": "Skip to content",
+    "language": "Language",
+    "country": "Country / currency",
+    "apply": "Apply",
+    "menu": "Menu",
+    "navigation": "Main navigation",
+    "shop": "Shop the edit",
+    "world": "Our world",
+    "search": "Search",
+    "bag": "Your bag",
+    "contact": "Contact",
+    "account": "My account",
+    "pagination": "Pagination",
+    "previous": "Previous page",
+    "next": "Next page",
+    "not_found": "A little off course.",
+    "home": "Back to MUSA",
+    "collections": "The collections"
+  },
+  "brand": {
+    "announcement": "musa — welcome to your new era",
+    "chapter": "Chapter 01 / The beginning",
+    "edition": "The inaugural edit",
+    "philosophy": "The MUSA philosophy"
+  },
+  "hero": {
+    "line_one": "Welcome to",
+    "line_two": "your new era.",
+    "description": "A considered wardrobe for every version of you. Discover the art of moving through life, your way.",
+    "cta": "Discover the edit",
+    "meta": "Movement, reimagined",
+    "art_label": "In a state of flow",
+    "art_caption": "An exploration of form & movement"
+  },
+  "manifesto": {
+    "first": "More than a moment.",
+    "emphasis": "A way of being.",
+    "last": "This is your MUSA.",
+    "description": "From the first stretch to the last light. A world where movement meets expression, and you set the pace."
+  },
+  "featured": {
+    "eyebrow": "The wardrobe / Chapter 01",
+    "title": "Your everyday,",
+    "emphasis": "elevated.",
+    "all": "Explore the collection",
+    "empty": "A new collection is taking shape."
+  },
+  "demo": {
+    "name_1": "Form — Sculpt Legging",
+    "name_2": "Muse — Studio Bra",
+    "name_3": "Flow — Biker Short",
+    "name_4": "Ease — Everyday Tank",
+    "label": "Design concept",
+    "type": "MUSA / Movement essentials",
+    "soon": "Coming soon",
+    "disclaimer": "Concept garments for a first look. Illustrations are placeholders; no products are currently available to purchase."
+  },
+  "editorial": {
+    "image_label": "Studies in movement",
+    "eyebrow": "The MUSA state of mind",
+    "first": "Find your rhythm.",
+    "emphasis": "Make it your own.",
+    "description": "Slow mornings. Bold beginnings. Room to breathe. MUSA is an invitation to feel at home in your own movement.",
+    "cta": "Enter the MUSA world"
+  },
+  "club": {
+    "eyebrow": "An invitation / MUSA Club",
+    "first": "Your people.",
+    "emphasis": "Your MUSA.",
+    "description": "Join our email community for launch news and stories from the MUSA world.",
+    "email": "Email address",
+    "placeholder": "Your email address",
+    "join": "Join MUSA Club",
+    "consent": "I agree to receive marketing emails from MUSA. I can unsubscribe at any time.",
+    "privacy": "Privacy policy",
+    "success": "Welcome to the MUSA world. You are on the list.",
+    "footnote": "A little inspiration. A little movement."
+  },
+  "footer": {
+    "tagline": "The art of movement. The freedom to be.",
+    "explore": "Explore",
+    "care": "Customer care",
+    "follow": "Stay in the flow",
+    "signature": "musa — welcome to your new era"
+  },
+  "products": {
+    "sold_out": "Sold out",
+    "from": "From",
+    "options": "Choose your option",
+    "quantity": "Quantity",
+    "add": "Add to bag",
+    "size_guide": "Size guide",
+    "care": "Fabric & care",
+    "sort": "Sort by",
+    "reset": "Clear filters",
+    "empty": "Nothing here yet. A new chapter is on its way.",
+    "min_price": "Minimum price",
+    "max_price": "Maximum price"
+  },
+  "cart": {
+    "eyebrow": "Your considered collection",
+    "empty": "Your bag is waiting for its first muse.",
+    "attachment": "Attachment",
+    "remove": "Remove",
+    "update": "Update bag",
+    "summary": "The details",
+    "subtotal": "Subtotal",
+    "taxes": "Taxes, shipping and discounts calculated at checkout.",
+    "note": "Order note",
+    "checkout": "Continue to checkout"
+  },
+  "search": {
+    "title": "Find your muse.",
+    "placeholder": "Search products, stories and more",
+    "results": "{{ count }} results",
+    "empty": "No results. Try another search."
+  },
+  "contact": {
+    "name": "Your name",
+    "message": "Your message",
+    "send": "Send message",
+    "success": "Thank you. Your message has been sent."
+  },
+  "password": {
+    "title": "A new rhythm is coming.",
+    "label": "Store password",
+    "enter": "Enter"
+  }
+}

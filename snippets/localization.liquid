@@ -1,0 +1,10 @@
+{% if localization.available_languages.size > 1 or localization.available_countries.size > 1 %}
+{% assign locale_form_id = 'Localization-' | append: location %}{% form 'localization', id: locale_form_id, class: 'locale-form' %}
+  {% if localization.available_languages.size > 1 %}<label class="visually-hidden" for="Language-{{ location }}">{{ 'general.language' | t }}</label>
+  <select id="Language-{{ location }}" name="locale_code" aria-label="{{ 'general.language' | t }}">
+  {% for language in localization.available_languages %}<option value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}selected{% endif %}>{{ language.iso_code | upcase }}</option>{% endfor %}
+  </select>{% endif %}
+  {% if localization.available_countries.size > 1 %}<label class="visually-hidden" for="Country-{{ location }}">{{ 'general.country' | t }}</label><select name="country_code" id="Country-{{ location }}">{% for country in localization.available_countries %}<option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>{{ country.name }} ({{ country.currency.iso_code }})</option>{% endfor %}</select>{% endif %}
+  <button type="submit" class="locale-submit">{{ 'general.apply' | t }}</button>
+{% endform %}
+{% endif %}

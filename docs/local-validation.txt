@@ -1,0 +1,221 @@
+127.0.0.1 - - [14/Oct/2026 19:15:43] "GET /index-en.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Oct/2026 19:15:43] code 404, message File not found
+127.0.0.1 - - [14/Oct/2026 19:15:43] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [14/Oct/2026 19:15:44] "GET /index-en.html HTTP/1.1" 304 -
+127.0.0.1 - - [14/Oct/2026 19:15:44] "GET /index-en.html HTTP/1.1" 304 -
+127.0.0.1 - - [14/Oct/2026 19:15:44] "GET /index-es.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Oct/2026 19:15:45] "GET /index-es.html HTTP/1.1" 304 -
+127.0.0.1 - - [14/Oct/2026 19:15:45] "GET /index-es.html HTTP/1.1" 304 -
+127.0.0.1 - - [14/Oct/2026 19:15:45] "GET /index-en.html HTTP/1.1" 304 -
+127.0.0.1 - - [14/Oct/2026 19:15:45] "GET /qa/product.html?campaign=musa HTTP/1.1" 200 -
+PASS: English and Spanish translation keys match
+PASS: page.json: section references resolve
+PASS: product.json: section references resolve
+PASS: blog.json: section references resolve
+PASS: page.contact.json: section references resolve
+PASS: 404.json: section references resolve
+PASS: list-collections.json: section references resolve
+PASS: collection.json: section references resolve
+PASS: search.json: section references resolve
+PASS: cart.json: section references resolve
+PASS: page.club.json: section references resolve
+PASS: password.json: section references resolve
+PASS: index.json: section references resolve
+PASS: article.json: section references resolve
+PASS: footer-group.json: section references resolve
+PASS: header-group.json: section references resolve
+PASS: main-search.liquid: schema parses
+PASS: main-product.liquid: schema parses
+PASS: header.liquid: schema parses
+PASS: featured-collection.liquid: schema parses
+PASS: main-cart.liquid: schema parses
+PASS: main-blog.liquid: schema parses
+PASS: main-contact.liquid: schema parses
+PASS: main-404.liquid: schema parses
+PASS: hero.liquid: schema parses
+PASS: main-article.liquid: schema parses
+PASS: newsletter.liquid: schema parses
+PASS: manifesto.liquid: schema parses
+PASS: main-page.liquid: schema parses
+PASS: main-collection.liquid: schema parses
+PASS: editorial.liquid: schema parses
+PASS: footer.liquid: schema parses
+PASS: main-list-collections.liquid: schema parses
+PASS: main-password.liquid: schema parses
+PASS: Reduced motion styling exists
+PASS: Translation general.search resolves
+PASS: Translation search.title resolves
+PASS: Translation general.search resolves
+PASS: Translation search.placeholder resolves
+PASS: Translation general.search resolves
+PASS: Translation search.results resolves
+PASS: Translation search.empty resolves
+PASS: Translation products.options resolves
+PASS: Translation products.sold_out resolves
+PASS: Translation products.quantity resolves
+PASS: Translation products.add resolves
+PASS: Translation products.sold_out resolves
+PASS: Translation products.add resolves
+PASS: Translation products.sold_out resolves
+PASS: Translation products.size_guide resolves
+PASS: Translation products.care resolves
+PASS: Translation brand.announcement resolves
+PASS: Translation general.menu resolves
+PASS: Translation general.navigation resolves
+PASS: Translation general.shop resolves
+PASS: Translation general.world resolves
+PASS: Translation general.search resolves
+PASS: Translation general.bag resolves
+PASS: Translation general.navigation resolves
+PASS: Translation general.shop resolves
+PASS: Translation general.world resolves
+PASS: Translation featured.eyebrow resolves
+PASS: Translation featured.title resolves
+PASS: Translation featured.emphasis resolves
+PASS: Translation featured.all resolves
+PASS: Translation featured.empty resolves
+PASS: Translation demo.disclaimer resolves
+PASS: Translation cart.eyebrow resolves
+PASS: Translation general.bag resolves
+PASS: Translation cart.empty resolves
+PASS: Translation general.shop resolves
+PASS: Translation cart.attachment resolves
+PASS: Translation products.quantity resolves
+PASS: Translation cart.remove resolves
+PASS: Translation cart.update resolves
+PASS: Translation cart.summary resolves
+PASS: Translation cart.subtotal resolves
+PASS: Translation cart.taxes resolves
+PASS: Translation cart.note resolves
+PASS: Translation cart.checkout resolves
+PASS: Translation general.contact resolves
+PASS: Translation contact.success resolves
+PASS: Translation contact.name resolves
+PASS: Translation club.email resolves
+PASS: Translation contact.message resolves
+PASS: Translation contact.send resolves
+PASS: Translation general.not_found resolves
+PASS: Translation general.home resolves
+PASS: Translation brand.chapter resolves
+PASS: Translation hero.line_one resolves
+PASS: Translation hero.line_two resolves
+PASS: Translation hero.description resolves
+PASS: Translation hero.cta resolves
+PASS: Translation hero.meta resolves
+PASS: Translation brand.edition resolves
+PASS: Translation hero.art_label resolves
+PASS: Translation hero.art_caption resolves
+PASS: Translation club.eyebrow resolves
+PASS: Translation club.first resolves
+PASS: Translation club.emphasis resolves
+PASS: Translation club.description resolves
+PASS: Translation club.success resolves
+PASS: Translation club.email resolves
+PASS: Translation club.placeholder resolves
+PASS: Translation club.join resolves
+PASS: Translation club.consent resolves
+PASS: Translation club.privacy resolves
+PASS: Translation club.footnote resolves
+PASS: Translation brand.philosophy resolves
+PASS: Translation manifesto.first resolves
+PASS: Translation manifesto.emphasis resolves
+PASS: Translation manifesto.last resolves
+PASS: Translation manifesto.description resolves
+PASS: Translation brand.edition resolves
+PASS: Translation products.min_price resolves
+PASS: Translation products.max_price resolves
+PASS: Translation products.sort resolves
+PASS: Translation general.apply resolves
+PASS: Translation products.reset resolves
+PASS: Translation products.empty resolves
+PASS: Translation demo.disclaimer resolves
+PASS: Translation editorial.image_label resolves
+PASS: Translation editorial.eyebrow resolves
+PASS: Translation editorial.first resolves
+PASS: Translation editorial.emphasis resolves
+PASS: Translation editorial.description resolves
+PASS: Translation editorial.cta resolves
+PASS: Translation footer.tagline resolves
+PASS: Translation footer.explore resolves
+PASS: Translation general.shop resolves
+PASS: Translation general.world resolves
+PASS: Translation general.search resolves
+PASS: Translation footer.care resolves
+PASS: Translation general.contact resolves
+PASS: Translation general.account resolves
+PASS: Translation footer.follow resolves
+PASS: Translation footer.signature resolves
+PASS: Translation brand.edition resolves
+PASS: Translation general.collections resolves
+PASS: Translation products.empty resolves
+PASS: Translation brand.edition resolves
+PASS: Translation password.title resolves
+PASS: Translation password.label resolves
+PASS: Translation password.enter resolves
+PASS: Translation general.pagination resolves
+PASS: Translation general.previous resolves
+PASS: Translation general.next resolves
+PASS: Translation demo.label resolves
+PASS: Translation demo.label resolves
+PASS: Translation demo.type resolves
+PASS: Translation demo.soon resolves
+PASS: Translation products.sold_out resolves
+PASS: Translation products.from resolves
+PASS: Translation general.language resolves
+PASS: Translation general.language resolves
+PASS: Translation general.country resolves
+PASS: Translation general.apply resolves
+PASS: en/1440: slogan rendered
+PASS: en/1440: four concept garments rendered
+PASS: en/1440: concept disclosure rendered
+PASS: en/1440: no horizontal overflow
+PASS: en/1440: all images decode
+PASS: en/390: slogan rendered
+PASS: en/390: four concept garments rendered
+PASS: en/390: concept disclosure rendered
+PASS: en/390: no horizontal overflow
+PASS: en/390: all images decode
+PASS: Mobile menu opens
+PASS: Escape closes menu
+PASS: Escape restores focus
+PASS: en/320: slogan rendered
+PASS: en/320: four concept garments rendered
+PASS: en/320: concept disclosure rendered
+PASS: en/320: no horizontal overflow
+PASS: en/320: all images decode
+PASS: Mobile menu opens
+PASS: Escape closes menu
+PASS: Escape restores focus
+PASS: es/1440: slogan rendered
+PASS: es/1440: four concept garments rendered
+PASS: es/1440: concept disclosure rendered
+PASS: es/1440: no horizontal overflow
+PASS: es/1440: all images decode
+PASS: es/390: slogan rendered
+PASS: es/390: four concept garments rendered
+PASS: es/390: concept disclosure rendered
+PASS: es/390: no horizontal overflow
+PASS: es/390: all images decode
+PASS: Mobile menu opens
+PASS: Escape closes menu
+PASS: Escape restores focus
+PASS: es/320: slogan rendered
+PASS: es/320: four concept garments rendered
+PASS: es/320: concept disclosure rendered
+PASS: es/320: no horizontal overflow
+PASS: es/320: all images decode
+PASS: Mobile menu opens
+PASS: Escape closes menu
+PASS: Escape restores focus
+PASS: Preview language switch works
+PASS: Initial variant localized price rendered
+PASS: Sold-out variant disables purchase
+PASS: Variant price updates with localized text
+PASS: Non-sale variant hides old price
+PASS: Quantity clamps to variant maximum
+PASS: Variant URL preserves other parameters
+PASS: Available variant re-enables purchase
+PASS: Variant quantity increment updates
+PASS: No stale maximum remains
+PASS: No browser JavaScript errors
+210 checks passed.
