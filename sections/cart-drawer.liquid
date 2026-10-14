@@ -18,6 +18,7 @@
         <div class="free-ship-bar" aria-hidden="true"><span></span></div>
       </div>
     {%- endif -%}
+    <p class="drawer-error" role="alert" data-drawer-error hidden></p>
     <div class="drawer-body">
       {%- if cart.item_count == 0 -%}
         <div class="drawer-empty"><p class="drawer-empty-title">{{ 'cart.empty' | t }}</p><a class="button" href="{{ routes.all_products_collection_url }}">{{ 'general.shop' | t }} {% render 'icon', name: 'arrow' %}</a></div>

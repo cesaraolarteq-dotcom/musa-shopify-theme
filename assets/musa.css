@@ -128,8 +128,7 @@
 @media(prefers-reduced-motion:reduce){.drawer-panel,.drawer-overlay,.sticky-atc,.quick-view,.free-ship-bar span{transition:none}.quick-view-loading{animation:none}}
 .product-form>label{text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin:26px 0 12px}
 
-/* ==========================================================================
-   Luxury refinement (Claude): organic-wave brand art, dark editorial band,
+/* ===================================================================   Luxury refinement (Claude): organic-wave brand art, dark editorial band,
    marquee, finer buttons, colour dots, quiet reveal motion.
    ========================================================================== */
 /* brand art (default when no campaign image is set) */
@@ -192,3 +191,5 @@
 .product-badge{white-space:nowrap}
 @media(max-width:550px){.product-badge{font-size:10px;letter-spacing:.08em;top:10px;left:10px;padding:4px 6px}}
 .product-type{line-height:1.5;display:block;margin-top:4px}
+=======
+.drawer-error{margin:0;padding:12px 26px;font-size:14px;background:#9b2c2c12;border-bottom:1px solid #9b2c2c33;color:#6e1f1f}

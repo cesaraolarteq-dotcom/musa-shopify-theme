@@ -21,7 +21,7 @@
   {{ content_for_header }}
   {{ 'musa.css' | asset_url | stylesheet_tag }}
   <style>:root{--espresso:{{ settings.color_espresso }};--paper:{{ settings.color_paper }};--sand:{{ settings.color_sand }};--ink:{{ settings.color_ink }}}</style>
-  <script>window.musa = {cartDrawer: {{ settings.cart_drawer | json }}, routes: {cartAdd: {{ routes.cart_add_url | append: '.js' | json }}, cartChange: {{ routes.cart_change_url | append: '.js' | json }}, root: {{ routes.root_url | json }}}, strings: {error: {{ 'cart.error' | t | json }}, close: {{ 'general.close' | t | json }}}};</script>
+  <script>window.musa = {cartDrawer: {{ settings.cart_drawer | json }}, routes: {cartAdd: {{ routes.cart_add_url | append: '.js' | json }}, cartChange: {{ routes.cart_change_url | append: '.js' | json }}, root: {{ routes.root_url | json }}, cart: {{ routes.cart_url | json }}}, strings: {error: {{ 'cart.error' | t | json }}, changeError: {{ 'cart.change_error' | t | json }}, close: {{ 'general.close' | t | json }}}};</script>
   <script src="{{ 'musa.js' | asset_url }}" defer></script>
 </head>
 <body class="page-{{ request.page_type }}">

@@ -6,8 +6,10 @@
   const drawer = {
     el: () => document.querySelector('[data-cart-drawer]'),
     lastFocus: null,
+    closeTimer: null,
     open() {
       const el = this.el(); if (!el) return false;
+      clearTimeout(this.closeTimer); this.closeTimer = null; // a pending close must not hide a reopened drawer
       this.lastFocus = document.activeElement;
       el.hidden = false;
       requestAnimationFrame(() => el.classList.add('is-open'));
@@ -21,19 +23,35 @@
       el.classList.remove('is-open');
       document.documentElement.classList.remove('drawer-locked');
       document.querySelectorAll('[data-cart-open]').forEach(a => a.setAttribute('aria-expanded', 'false'));
-      setTimeout(() => { el.hidden = true; }, reduced() ? 0 : 320);
+      clearTimeout(this.closeTimer);
+      this.closeTimer = setTimeout(() => { this.closeTimer = null; if (!el.classList.contains('is-open')) el.hidden = true; }, reduced() ? 0 : 320);
       if (this.lastFocus) this.lastFocus.focus();
     },
+    /* Returns true only when fresh drawer markup was applied. */
     render(html) {
-      const el = this.el(); if (!el || !html) return;
+      const el = this.el(); if (!el || !html) return false;
       const doc = new DOMParser().parseFromString(html, 'text/html');
-      const fresh = doc.querySelector('[data-cart-drawer]'); if (!fresh) return;
+      const fresh = doc.querySelector('[data-cart-drawer]'); if (!fresh) return false;
       const wasOpen = !el.hidden;
       el.replaceWith(fresh);
       if (wasOpen) { fresh.hidden = false; fresh.classList.add('is-open'); }
       const count = fresh.dataset.count;
       document.querySelectorAll('[data-cart-count]').forEach(c => { c.textContent = count; });
       document.querySelectorAll('[data-cart-open]').forEach(a => a.setAttribute('aria-label', a.getAttribute('aria-label').replace(/\(\d+\)/, `(${count})`)));
+      return true;
+    },
+    /* The cart already changed but its markup didn't come back: fetch the section on its own (never repeat the mutation),
+       and if that also fails, send the shopper to the native cart page so they never see stale contents. */
+    refresh() {
+      const url = (config.routes.root || '/') + '?sections=cart-drawer';
+      return fetch(url, { headers: { Accept: 'application/json' } })
+        .then(r => (r.ok ? r.json() : Promise.reject(new Error('render'))))
+        .then(data => { if (!this.render(data['cart-drawer'])) throw new Error('render'); })
+        .catch(() => { window.location.href = config.routes.cart || '/cart'; throw new Error('redirect'); });
+    },
+    showError(message) {
+      const box = this.el()?.querySelector('[data-drawer-error]'); if (!box) return;
+      box.textContent = message; box.hidden = false;
     }
   };
 
@@ -44,15 +62,21 @@
     const change = e.target.closest('[data-cart-change]');
     if (change) {
       const line = change.closest('[data-line]');
-      const panel = change.closest('.drawer-panel');
-      panel?.classList.add('is-busy');
+      const panel = () => document.querySelector('[data-cart-drawer] .drawer-panel');
+      panel()?.classList.add('is-busy');
       fetch(config.routes.cartChange, {
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ line: Number(line.dataset.line), quantity: Math.max(0, Number(change.dataset.cartChange)), sections: ['cart-drawer'], sections_url: location.pathname })
-      }).then(r => r.json()).then(data => {
-        if (data.sections) drawer.render(data.sections['cart-drawer']);
-        document.querySelector('[data-cart-drawer] .drawer-panel')?.focus();
-      }).catch(() => panel?.classList.remove('is-busy'));
+      })
+        .then(r => r.json().catch(() => ({})).then(data => ({ ok: r.ok, data })))
+        .then(({ ok, data }) => {
+          if (!ok || data.status) throw Object.assign(new Error(data.description || data.message || config.strings.changeError), { shopper: true });
+          if (drawer.render(data.sections && data.sections['cart-drawer'])) return;
+          return drawer.refresh();
+        })
+        .then(() => panel()?.focus())
+        .catch(err => { if (err.message !== 'redirect') drawer.showError(err.shopper ? err.message : config.strings.changeError); })
+        .finally(() => panel()?.classList.remove('is-busy'));
     }
   });
   document.addEventListener('keydown', e => {
@@ -194,8 +218,9 @@
           .then(({ ok, data }) => {
             if (!ok) throw new Error(data.description || data.message || config.strings.error);
             quickDialog()?.open && quickDialog().close();
-            drawer.render(data.sections && data.sections['cart-drawer']);
-            drawer.open();
+            // The item is in the cart now. If its fresh markup is missing, refresh the drawer (no second add).
+            const shown = drawer.render(data.sections && data.sections['cart-drawer']) ? Promise.resolve() : drawer.refresh();
+            return shown.then(() => drawer.open(), () => {});
           })
           .catch(err => { if (errorBox) { errorBox.textContent = err.message || config.strings.error; errorBox.hidden = false; } })
           .finally(() => {

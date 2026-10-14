@@ -120,7 +120,8 @@
     "view_bag": "Ver bolsa completa",
     "error": "No pudimos añadirlo a tu bolsa. Inténtalo de nuevo.",
     "free_shipping_remaining": "Te faltan {{ amount }} para el envío gratis",
-    "free_shipping_unlocked": "Ya tienes envío gratis"
+    "free_shipping_unlocked": "Ya tienes envío gratis",
+    "change_error": "No pudimos actualizar tu bolsa. Inténtalo de nuevo."
   },
   "search": {
     "title": "Encuentra tu musa.",
