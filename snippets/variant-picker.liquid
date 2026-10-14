@@ -1,0 +1,42 @@
+{%- comment -%}
+  Colour swatches + size buttons. The hidden <select name="id"> stays the source of truth
+  (and the no-JS fallback); assets/musa.js keeps both in sync.
+  Params: product, section_id, size_guide (boolean)
+{%- endcomment -%}
+{%- unless product.has_only_default_variant -%}
+<div class="variant-picker" data-variant-picker>
+  {%- for option in product.options_with_values -%}
+    {%- assign option_name = option.name | downcase -%}
+    {%- assign is_color = false -%}
+    {%- assign is_size = false -%}
+    {%- if option_name contains 'color' or option_name contains 'colour' -%}{%- assign is_color = true -%}{%- endif -%}
+    {%- if option_name contains 'size' or option_name contains 'talla' -%}{%- assign is_size = true -%}{%- endif -%}
+    {%- assign option_index = forloop.index0 -%}
+    <fieldset class="option-group{% if is_color %} option-group--color{% endif %}" data-option-group="{{ option_index }}">
+      <legend class="option-legend">
+        <span class="option-name">{{ option.name | escape }}<span class="option-colon">:</span> <span class="option-current" data-option-current>{{ option.selected_value | escape }}</span></span>
+        {%- if is_size and size_guide -%}
+          <button type="button" class="size-guide-link" data-size-guide-open>{% render 'icon', name: 'ruler' %}{{ 'products.size_guide' | t }}</button>
+        {%- endif -%}
+      </legend>
+      <div class="option-values">
+        {%- for value in option.values -%}
+          {%- if is_color -%}
+            {%- capture swatch_bg -%}{% if value.swatch.image %}url({{ value.swatch.image | image_url: width: 80 }}) center / cover{% elsif value.swatch.color %}{{ value.swatch.color }}{% else %}{% render 'swatch-color', name: value.name %}{% endif %}{%- endcapture -%}
+            <label class="swatch" title="{{ value.name | escape }}">
+              <input type="radio" class="visually-hidden" name="{{ section_id }}-option-{{ option_index }}" value="{{ value.name | escape }}" {% if value.selected %}checked{% endif %} data-option-input>
+              <span class="swatch-dot" style="--swatch: {{ swatch_bg | strip }}" aria-hidden="true"></span>
+              <span class="visually-hidden">{{ value.name | escape }}</span>
+            </label>
+          {%- else -%}
+            <label class="option-chip">
+              <input type="radio" class="visually-hidden" name="{{ section_id }}-option-{{ option_index }}" value="{{ value.name | escape }}" {% if value.selected %}checked{% endif %} data-option-input>
+              <span>{{ value.name | escape }}</span>
+            </label>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </fieldset>
+  {%- endfor -%}
+</div>
+{%- endunless -%}

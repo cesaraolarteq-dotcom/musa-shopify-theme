@@ -5,17 +5,32 @@ Warm editorial art direction, original supplied wordmarks, responsive layouts, E
 
 Brand signature: **musa — welcome to your new era**.
 
-![MUSA desktop design](docs/preview/MUSA-desktop.png)
+![MUSA integrated design](docs/full-site-preview/portada.png)
 
-Offline references: [English](docs/preview/index-en.html), [Spanish](docs/preview/index-es.html), and [mobile screenshot](docs/preview/MUSA-mobile.png). Download and open the HTML files locally to explore the design; shopping and email submission are disconnected in these previews.
+Current I1 preview: [complete page](docs/full-site-preview/pagina-completa.png), [mobile](docs/full-site-preview/pagina-movil.png), [downloadable bilingual preview](docs/full-site-preview/MUSA-preview-completo.zip). Integration review: [I1](docs/REVIEW-I1.md). The homepage includes 15 preliminary order references; photos and retail prices remain pending.
 
-Claude Code collaborators: start with [CLAUDE.md](CLAUDE.md).
+Legacy component QA references: [English](docs/preview/index-en.html), [Spanish](docs/preview/index-es.html), and [mobile screenshot](docs/preview/MUSA-mobile.png). Download and open the HTML files locally to explore the design; shopping and email submission are disconnected in these previews.
+
+Claude Code collaborators: start with [CLAUDE.md](CLAUDE.md). Codex: [AGENTS.md](AGENTS.md). Change log between agents: [docs/HANDOFF.md](docs/HANDOFF.md).
 
 Roles, file ownership, branches and current tasks: [collaboration workflow](docs/COLLABORATION.md).
 
 Additional brand direction: [light/dark organic-wave references](docs/DESIGN-REFERENCES.md).
 
 ## Local validation
+
+Portable setup (run from your checkout; Node >=22.12.0, Python >=3.9):
+
+```sh
+npm install --prefix ../.musa-tools @shopify/cli@4.9.3 liquidjs@10.21.1
+node scripts/render-preview.cjs
+python scripts/validate.py
+python scripts/package.py
+```
+
+Browser QA requires the Python `playwright` package plus Chromium (system Chromium/Chrome or Playwright's installed browser). Set `MUSA_CHROMIUM_PATH` to select a browser executable. Preview, validation and packaging share optional `MUSA_OUTPUT_DIR`; by default they use `../musa-deliverables`. Keep packaging output outside the checkout. Preview snippets use an automatically cleaned temporary directory. No helper requires the original `/workspace` checkout path.
+
+The following commands describe the prepared Codex cloud instance:
 Node >=22.12.0. Tools are installed outside the theme:
 ```sh
 npm --cache /workspace/.npm-cache install --prefix /workspace/.musa-tools @shopify/cli@4.9.3
@@ -32,6 +47,6 @@ Set the featured collection, navigation, contact page, size guide and campaign i
 
 Publish English and Spanish in Shopify > Settings > Languages, with Shopify Markets configured for the intended regions. The theme has complete custom UI dictionaries; Shopify-managed product titles/descriptions, navigation, custom section overrides, pages, policies and notification messages require their own translations, e.g. with Translate & Adapt. Default translated headings work automatically. Do not replace the default with a custom heading unless both versions are translated.
 
-The display type is deliberately Georgia italic for this editorial concept; body type is the system sans-serif. No commercial font or demo-font extraction is used. Original logo PNGs remain unchanged; SVG wrappers display their original pixels using a tighter viewBox.
+Display type is Cormorant Garamond and body type is Jost, both open-licensed (OFL) and self-hosted in `assets/` as variable woff2. No commercial font is used. Original logo PNGs remain unchanged; SVG wrappers display their original pixels using a tighter viewBox.
 
 See `docs/ACCEPTANCE.md` and `docs/CONTENT.md`. This theme does not create products, charge customers, configure shipping/payments, or publish the live storefront. Real Shopify rendering and checkout acceptance need authenticated store access. Use existing checkouts; each cloud task is isolated and no Git worktree is needed.

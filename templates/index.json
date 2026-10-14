@@ -2,27 +2,39 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "link": "#the-edit"
+      }
     },
     "manifesto": {
       "type": "manifesto",
       "settings": {}
     },
     "edit": {
-      "type": "featured-collection",
+      "type": "catalog-planning",
       "settings": {}
     },
     "story": {
       "type": "editorial",
-      "settings": {}
+      "settings": {
+        "scheme": "dark",
+        "link": "#the-edit"
+      }
     },
     "club": {
       "type": "newsletter",
       "settings": {}
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "scheme": "light"
+      }
     }
   },
   "order": [
     "hero",
+    "marquee",
     "manifesto",
     "edit",
     "story",

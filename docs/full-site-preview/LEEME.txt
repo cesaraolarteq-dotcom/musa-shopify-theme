@@ -1,0 +1,7 @@
+MUSA — I1 integrated preview, 2026-10-14
+Generated from codex/i1-integration using the actual merged theme sections.
+Open index-es.html or index-en.html in a browser.
+Includes D1 visual design and 15 preliminary order references.
+Images and fonts are embedded. Forms and checkout are disconnected.
+Retail prices and photography are pending. No authenticated Shopify preview or publication.
+See docs/REVIEW-I1.md and docs/HANDOFF.md.

@@ -1,0 +1,25 @@
+{%- comment -%}
+  Fallback swatch colour for an option value name (EN/ES) when Shopify has no swatch configured.
+  Usage: {% render 'swatch-color', name: value.name %}
+{%- endcomment -%}
+{%- assign n = name | downcase -%}
+{%- assign c = '#cfc3b6' -%}
+{%- if n contains 'black' or n contains 'negro' or n contains 'onyx' -%}{%- assign c = '#1f1a17' -%}
+{%- elsif n contains 'espresso' or n contains 'chocolate' or n contains 'brown' or n contains 'café' or n contains 'cafe' or n contains 'marrón' or n contains 'marron' -%}{%- assign c = '#4a2c1f' -%}
+{%- elsif n contains 'mocha' or n contains 'moca' or n contains 'cocoa' or n contains 'cacao' -%}{%- assign c = '#7a5642' -%}
+{%- elsif n contains 'ivory' or n contains 'marfil' or n contains 'cream' or n contains 'crema' or n contains 'off white' -%}{%- assign c = '#f1e9dc' -%}
+{%- elsif n contains 'white' or n contains 'blanco' -%}{%- assign c = '#fbfaf7' -%}
+{%- elsif n contains 'sand' or n contains 'arena' or n contains 'beige' or n contains 'nude' or n contains 'taupe' -%}{%- assign c = '#cbb8a2' -%}
+{%- elsif n contains 'butter' or n contains 'mantequilla' or n contains 'yellow' or n contains 'amarillo' or n contains 'vanilla' or n contains 'vainilla' -%}{%- assign c = '#efe0a8' -%}
+{%- elsif n contains 'navy' or n contains 'marino' -%}{%- assign c = '#1f2a44' -%}
+{%- elsif n contains 'sky' or n contains 'celeste' or n contains 'baby blue' or n contains 'light blue' -%}{%- assign c = '#b9d3e6' -%}
+{%- elsif n contains 'blue' or n contains 'azul' -%}{%- assign c = '#3b7fd1' -%}
+{%- elsif n contains 'olive' or n contains 'oliva' or n contains 'army' or n contains 'militar' -%}{%- assign c = '#555a3c' -%}
+{%- elsif n contains 'sage' or n contains 'salvia' or n contains 'green' or n contains 'verde' -%}{%- assign c = '#8e9c86' -%}
+{%- elsif n contains 'burgundy' or n contains 'wine' or n contains 'vino' or n contains 'borgoña' or n contains 'cherry' or n contains 'cereza' -%}{%- assign c = '#6b1f2b' -%}
+{%- elsif n contains 'red' or n contains 'rojo' -%}{%- assign c = '#b3282d' -%}
+{%- elsif n contains 'pink' or n contains 'rosa' or n contains 'blush' -%}{%- assign c = '#e8b7c0' -%}
+{%- elsif n contains 'lilac' or n contains 'lila' or n contains 'lavender' or n contains 'lavanda' or n contains 'purple' or n contains 'morado' -%}{%- assign c = '#b9a6cf' -%}
+{%- elsif n contains 'grey' or n contains 'gray' or n contains 'gris' or n contains 'charcoal' or n contains 'carbón' -%}{%- assign c = '#8b8682' -%}
+{%- endif -%}
+{{- c -}}

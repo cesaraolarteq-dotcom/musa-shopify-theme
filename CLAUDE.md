@@ -4,13 +4,14 @@ This repository contains MUSA — Atelier, a native Shopify Online Store 2.0 the
 
 Read `docs/COLLABORATION.md` before editing. The owner now requests coordinated development: Claude Code owns the visual evolution, Codex owns commerce logic and QA. Follow the file ownership, branch workflow and handoff rules there. Claude's initial tasks are D1/D2; this is authorization to evolve the design using the supplied references, beyond the earlier reference-only documentation update.
 
-Read `README.md`, `docs/CONTENT.md`, `docs/DELIVERY.md` and `docs/ACCEPTANCE.md` first. Current local validation evidence is in `docs/theme-check.json` and `docs/local-validation.txt`. Those results do not establish authenticated Shopify acceptance.
+Read `README.md`, `docs/CONTENT.md`, `docs/DELIVERY.md`, `docs/ACCEPTANCE.md` and `docs/HANDOFF.md` first. `AGENTS.md` holds the same rules for Codex; keep the two consistent. Current local validation evidence is in `docs/theme-check.json` and `docs/local-validation.txt`. Those results do not establish authenticated Shopify acceptance.
 
 ## Design and product requirements
 
 - Brand slogan: **musa — welcome to your new era**. Spanish hero: **Bienvenida a tu nueva era**. The footer retains the English brand signature.
-- Direction: modern editorial luxury, warm espresso/ivory/sand, generous spacing, original supplied logos, responsive layouts and reduced-motion support.
+- Direction: modern editorial luxury, warm espresso/ivory/sand, generous spacing, original supplied logos, responsive layouts and reduced-motion support. Fonts: Cormorant Garamond (headings) + Jost (body), self-hosted. Body text at least 15px.
 - Additional user-supplied visual references: read `docs/DESIGN-REFERENCES.md`. They show broad organic waves in light and dark tonal compositions, with the original wordmark and `@hellomusa.us` signature. The note records design guidance; the two original images are not archived here. This reference update does not itself request a storefront redesign.
+- Collaboration: work on a branch (`claude/<topic>`, Codex uses `codex/<topic>`), open a PR into `main`, and log every task in `docs/HANDOFF.md`.
 - Keep English and Spanish custom UI dictionaries in sync. Shopify-managed content requires separate translations and language publication in store settings.
 - There are no real products yet. Four original garment illustrations are clearly labeled design concepts. Do not invent actual pricing, inventory, fabric claims, reviews, policies or photography.
 - Native Shopify product/cart/newsletter/contact forms must remain functional. Do not replace commerce routes with mock interactions.
@@ -27,7 +28,7 @@ node --check assets/musa.js
 
 Cloud-specific preview generation and Chromium QA are documented in README.md. Browser-ready design references and screenshots are also retained in `docs/preview/`; these HTML files are offline previews with shopping and email submission disconnected.
 
-`scripts/render-preview.cjs` and `scripts/package.py` currently use `/workspace` output/tool paths. Adapt those helper paths if running outside the Codex cloud machine; do not confuse that constraint with a Shopify theme runtime dependency. The theme itself requires no Node build step to upload.
+The helpers resolve the checkout automatically and use `../musa-deliverables` by default. Optional `MUSA_OUTPUT_DIR` changes output consistently across rendering, QA and packaging; keep it outside the checkout when packaging. Install LiquidJS in the normal Node resolution path or the sibling `../.musa-tools` directory, as documented in README.md. The theme itself requires no Node build step to upload.
 
 ## Shopify integration
 

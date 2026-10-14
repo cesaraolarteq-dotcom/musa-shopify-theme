@@ -28,12 +28,14 @@ Los hooks `data-*` usados por `assets/musa.js`, nombres de campos/formularios Sh
 
 | Tarea | Responsable | Estado |
 | --- | --- | --- |
-| C1: hacer portables las herramientas de preview/QA/empaquetado fuera de `/workspace` | Codex | Pendiente de entrega técnica |
-| C2: comprobar que el código de variantes, agotados y cantidades sigue funcionando | Codex | Se ejecuta junto con C1 |
-| D1: proponer y aplicar una evolución visual usando las referencias de ondas orgánicas claras/oscuras | Claude Code | Lista para iniciar en su sesión; no iniciada desde Codex |
+| C1: hacer portables las herramientas de preview/QA/empaquetado fuera de `/workspace` | Codex | Implementada y verificada en `codex/commerce-quality` |
+| C2: comprobar que el código de variantes, agotados y cantidades sigue funcionando | Codex | 210 checks pasan en el checkout original y en otra ruta con espacios |
+| D1: proponer y aplicar una evolución visual usando las referencias de ondas orgánicas claras/oscuras | Claude Code | Entregada en `claude/luxury-refine`; revisada e integrada en I1 |
 | D2: entregar capturas desktop/móvil ES/EN y revisar jerarquía, contraste y navegación | Claude Code | Después de D1 |
-| I1: integrar diseño y lógica y repetir controles afectados | Codex | Después de ambas entregas |
+| I1: integrar diseño y lógica y repetir controles afectados | Codex | Completada en `codex/i1-integration`; pendiente de merge vía PR |
 | S1: instalar como tema sin publicar y probar en Shopify | Codex + propietario | Pendiente de acceso autenticado |
+
+Entrega adicional recibida: `claude/premium-ux`. Codex leyó `docs/HANDOFF.md` de esa rama y documentó su revisión en `docs/REVIEW-premium-ux.md`. La revisión no integra ni modifica la rama de Claude.
 
 ## Condiciones de entrega
 

@@ -40,5 +40,23 @@
         "label": "Favicon"
       }
     ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_drawer",
+        "label": "Open the bag as a slide-out drawer",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (store currency, 0 = hide the bar)",
+        "info": "Only set this to a threshold your shipping rates actually honor.",
+        "default": 0
+      }
+    ]
   }
 ]

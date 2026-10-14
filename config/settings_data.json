@@ -3,6 +3,8 @@
     "color_espresso": "#3F2519",
     "color_paper": "#F6F3EE",
     "color_sand": "#C3B8B2",
-    "color_ink": "#2B2B2B"
+    "color_ink": "#2B2B2B",
+    "cart_drawer": true,
+    "free_shipping_threshold": 0
   }
 }

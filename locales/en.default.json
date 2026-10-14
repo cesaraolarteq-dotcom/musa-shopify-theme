@@ -17,7 +17,8 @@
     "next": "Next page",
     "not_found": "A little off course.",
     "home": "Back to MUSA",
-    "collections": "The collections"
+    "collections": "The collections",
+    "close": "Close"
   },
   "brand": {
     "announcement": "musa — welcome to your new era",
@@ -97,7 +98,12 @@
     "reset": "Clear filters",
     "empty": "Nothing here yet. A new chapter is on its way.",
     "min_price": "Minimum price",
-    "max_price": "Maximum price"
+    "max_price": "Maximum price",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "adding": "Adding…",
+    "quick_view": "Quick view",
+    "colors_count": "Available in {{ count }} colours"
   },
   "cart": {
     "eyebrow": "Your considered collection",
@@ -109,7 +115,13 @@
     "subtotal": "Subtotal",
     "taxes": "Taxes, shipping and discounts calculated at checkout.",
     "note": "Order note",
-    "checkout": "Continue to checkout"
+    "checkout": "Continue to checkout",
+    "drawer_title": "Your bag",
+    "view_bag": "View full bag",
+    "error": "We couldn't add this to your bag. Please try again.",
+    "free_shipping_remaining": "You're {{ amount }} away from free shipping",
+    "free_shipping_unlocked": "You've unlocked free shipping",
+    "change_error": "We couldn't update your bag. Please try again."
   },
   "search": {
     "title": "Find your muse.",
@@ -127,5 +139,12 @@
     "title": "A new rhythm is coming.",
     "label": "Store password",
     "enter": "Enter"
+  },
+  "marquee": {
+    "label": "MUSA",
+    "one": "Welcome to your new era",
+    "two": "Movement, reimagined",
+    "three": "Made for every version of you",
+    "four": "In a state of flow"
   }
 }

@@ -1,0 +1,803 @@
+{
+  "version": 1,
+  "source": "Owner-confirmed purchase order JY20260930",
+  "status": "prelaunch_catalog",
+  "sets_sold_complete": true,
+  "inventory_received_confirmed": false,
+  "color_names_provisional": true,
+  "products": [
+    {
+      "id": "PI-01",
+      "supplier_reference": "9639 (top + pantalón + manga larga)",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Tank, pants & long-sleeve set",
+        "es": "Set de top, pantalón y manga larga"
+      },
+      "category": "sets-3",
+      "pieces_per_sale_unit": 3,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Azul con azul claro",
+            "en": "Blue with light blue"
+          },
+          "supplier_label": "blue 毛青蓝撞浅蓝",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-02",
+      "supplier_reference": "6116-1 + 9300",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Bra & shorts set",
+        "es": "Set de bra y short"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Azul profundo",
+            "en": "Deep blue"
+          },
+          "supplier_label": "blue 深井蓝",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Rosa fresa",
+            "en": "Strawberry pink"
+          },
+          "supplier_label": "pink 草莓粉",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Marrón oscuro con amarillo",
+            "en": "Dark brown with yellow"
+          },
+          "supplier_label": "brown 深棕撞黄",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-03",
+      "supplier_reference": "6116-1 + 6116 (leggings y chaqueta)",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Jacket, bra & leggings set",
+        "es": "Set de chaqueta, bra y leggings"
+      },
+      "category": "sets-3",
+      "pieces_per_sale_unit": 3,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Azul profundo",
+            "en": "Deep blue"
+          },
+          "supplier_label": "blue 深井蓝",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Rosa fresa",
+            "en": "Strawberry pink"
+          },
+          "supplier_label": "pink 草莓粉",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Marrón oscuro con amarillo",
+            "en": "Dark brown with yellow"
+          },
+          "supplier_label": "brown 深棕撞黄",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-04",
+      "supplier_reference": "4518 + 9300",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Tank & shorts set",
+        "es": "Set de top y short"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Azul profundo",
+            "en": "Deep blue"
+          },
+          "supplier_label": "navy 深井蓝",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 高级黑",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Amarillo marfil",
+            "en": "Ivory yellow"
+          },
+          "supplier_label": "yellow 象牙黄",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-05",
+      "supplier_reference": "4518 + 6116 (leggings y chaqueta)",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Jacket, tank & leggings set",
+        "es": "Set de chaqueta, top y leggings"
+      },
+      "category": "sets-3",
+      "pieces_per_sale_unit": 3,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Azul profundo",
+            "en": "Deep blue"
+          },
+          "supplier_label": "navy 深井蓝",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Rosa fresa",
+            "en": "Strawberry pink"
+          },
+          "supplier_label": "pink 草莓粉",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 高级黑",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Amarillo marfil",
+            "en": "Ivory yellow"
+          },
+          "supplier_label": "yellow 象牙黄",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-06",
+      "supplier_reference": "2136 (chaqueta y short)",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Jacket & shorts set",
+        "es": "Set de chaqueta y short"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Café oscuro",
+            "en": "Dark coffee"
+          },
+          "supplier_label": "brown 黑咖啡",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 高级黑",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Azul índigo",
+            "en": "Indigo blue"
+          },
+          "supplier_label": "navy 靛蓝色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-07",
+      "supplier_reference": "5558 + 8519",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Bra & leggings set",
+        "es": "Set de bra y leggings"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 高级黑",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Rosa cerezo",
+            "en": "Cherry blossom pink"
+          },
+          "supplier_label": "pink 落樱粉",
+          "sizes": [
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Vino",
+            "en": "Wine"
+          },
+          "supplier_label": "wine 酒渍红",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-08",
+      "supplier_reference": "5555",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Bra & capri pants set",
+        "es": "Set de bra y pantalón capri"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Vino",
+            "en": "Wine"
+          },
+          "supplier_label": "wine 酒渍红",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Azul",
+            "en": "Blue"
+          },
+          "supplier_label": "blue 幻蓝色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 高级黑",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Marrón chocolate",
+            "en": "Chocolate brown"
+          },
+          "supplier_label": "brown 巧克力棕",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-09",
+      "supplier_reference": "TZ5555-1",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Bra & shorts set",
+        "es": "Set de bra y short"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Morado",
+            "en": "Purple"
+          },
+          "supplier_label": "purple 舒云紫",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 高级黑",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Naranja",
+            "en": "Orange"
+          },
+          "supplier_label": "orange 暖阳橙",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-10",
+      "supplier_reference": "NY6084 + CK6090",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Bra & pants set",
+        "es": "Set de bra y pantalón"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Blanco",
+            "en": "White"
+          },
+          "supplier_label": "white 白蛋白色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-11",
+      "supplier_reference": "NY6084 + CK6173",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Bra & pants set",
+        "es": "Set de bra y pantalón"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Amarillo mantequilla",
+            "en": "Butter yellow"
+          },
+          "supplier_label": "yellow 奶油黄",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-12",
+      "supplier_reference": "PENDIENTE: no indicado",
+      "supplier_reference_confirmed": false,
+      "title": {
+        "en": "Top & leggings set",
+        "es": "Set de top y leggings"
+      },
+      "category": "sets-2",
+      "pieces_per_sale_unit": 2,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Marrón higo",
+            "en": "Fig brown"
+          },
+          "supplier_label": "brown 无花果",
+          "sizes": [
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Moca",
+            "en": "Mocha"
+          },
+          "supplier_label": "Mocha 摩卡色",
+          "sizes": [
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Topo / trufa",
+            "en": "Taupe / truffle"
+          },
+          "supplier_label": "Greyish-brown 松露色",
+          "sizes": [
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Almendra / caqui",
+            "en": "Almond / khaki"
+          },
+          "supplier_label": "khaki 杏仁酱",
+          "sizes": [
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-13",
+      "supplier_reference": "PENDIENTE: no indicado",
+      "supplier_reference_confirmed": false,
+      "title": {
+        "en": "Top, bra & leggings set",
+        "es": "Set de top, bra y leggings"
+      },
+      "category": "sets-3",
+      "pieces_per_sale_unit": 3,
+      "sell_as": "complete_set",
+      "colors": [
+        {
+          "label": {
+            "es": "Marrón",
+            "en": "Brown"
+          },
+          "supplier_label": "brown 褐棕色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 黑色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-14",
+      "supplier_reference": "2796",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Long-sleeve bodysuit",
+        "es": "Enterizo de manga larga"
+      },
+      "category": "bodysuits",
+      "pieces_per_sale_unit": 1,
+      "sell_as": "individual_garment",
+      "colors": [
+        {
+          "label": {
+            "es": "Vino / baya",
+            "en": "Wine / berry"
+          },
+          "supplier_label": "wine 冬莓色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Verde pino",
+            "en": "Pine green"
+          },
+          "supplier_label": "green 松绿色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Azul hielo",
+            "en": "Ice blue"
+          },
+          "supplier_label": "blue 冰蓝",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Café intenso",
+            "en": "Deep coffee"
+          },
+          "supplier_label": "brown 浓咖色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        },
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 黑色",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    },
+    {
+      "id": "PI-15",
+      "supplier_reference": "5496",
+      "supplier_reference_confirmed": true,
+      "title": {
+        "en": "Leggings",
+        "es": "Leggings"
+      },
+      "category": "leggings",
+      "pieces_per_sale_unit": 1,
+      "sell_as": "individual_garment",
+      "colors": [
+        {
+          "label": {
+            "es": "Azul tinta",
+            "en": "Ink blue"
+          },
+          "supplier_label": "blue 墨蓝色",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+        {
+          "label": {
+            "es": "Rojo baya",
+            "en": "Berry red"
+          },
+          "supplier_label": "red 冬莓色",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+        {
+          "label": {
+            "es": "Café intenso",
+            "en": "Deep coffee"
+          },
+          "supplier_label": "brown 浓咖色",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+        {
+          "label": {
+            "es": "Negro",
+            "en": "Black"
+          },
+          "supplier_label": "black 黑色",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+        {
+          "label": {
+            "es": "Lila claro",
+            "en": "Light lilac"
+          },
+          "supplier_label": "purple 浅紫",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        },
+        {
+          "label": {
+            "es": "Amarillo crema",
+            "en": "Cream yellow"
+          },
+          "supplier_label": "cream 奶油黄",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ]
+        }
+      ],
+      "sale_price": null,
+      "photography": null
+    }
+  ]
+}

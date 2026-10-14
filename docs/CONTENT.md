@@ -1,3 +1,5 @@
+I1 update: the homepage now uses `catalog-planning` with 15 order references. Sets are sold complete; prices and photographs are pending. The four concept garments described below remain only in the optional featured-collection demo. Replace the preliminary section with a real Shopify collection when verified product records are ready.
+
 # Content setup
 
 The default concept collection contains Form (leggings), Muse (studio bra), Flow (biker shorts), and Ease (tank). These are illustrative names, not actual Shopify product records. No composition, technical performance, size measurements, reviews, discounts, prices or stock have been invented.
