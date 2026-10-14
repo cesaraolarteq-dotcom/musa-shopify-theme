@@ -1,27 +1,34 @@
-/* MUSA "Seda Viva" (Claude, design layer): living-silk canvas, floating header state on the home,
-   ink-in manifesto, magnetic CTA and reveal for the new blocks. Presentation only; commerce
-   logic stays in assets/musa.js. Everything degrades to the static page without this file. */
+/* MUSA "Seda Viva" (Claude, design layer): living-silk canvas, floating header on the home,
+   ink-in manifesto, magnetic CTA, reveal and catalog swatches. Presentation only; commerce
+   logic stays in assets/musa.js and assets/musa-catalog.js.
+   Robustness rules (Codex review D2-3895582):
+   - Content is visible by default; motion classes are added only after the controller is running.
+   - The floating header exists only while html.silk-float is set (inline flag in silk-hero.liquid,
+     confirmed here, removed if this file never runs).
+   - Turning on reduced motion mid-session removes every inline motion style. */
 (() => {
   if (window.musaSilk) return;
   window.musaSilk = true;
-  const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const reduced = () => motion.matches;
-  const canvases = new Map();
+  const root = document.documentElement;
+  const motionQuery = matchMedia('(prefers-reduced-motion: reduce)');
+  const reduced = () => motionQuery.matches;
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  /* ---------- silk canvas ---------- */
+  /* ---------- silk canvas (one controller per stage, cleaned up on section unload) ---------- */
+  const stages = new Map();
   function silk(stage) {
+    if (stages.has(stage)) return;
     const canvas = stage.querySelector('[data-silk-canvas]');
-    if (!canvas || canvas.dataset.ready) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas && canvas.getContext('2d');
+    const off = new AbortController();
+    const ctl = { start() {}, destroy() { off.abort(); } };
+    stages.set(stage, ctl);
+    videoControl(stage, off.signal);
     if (!ctx) return;
-    canvas.dataset.ready = 'true';
-    let W = 0, H = 0, t = 0, px = .5, py = .5, tx = .5, ty = .5, visible = true, running = false, last = 0;
-    let frameId;
-    const events = new AbortController();
+    let W = 0, H = 0, t = 2, px = .5, py = .5, tx = .5, ty = .5, visible = true, running = false, last = 0, alive = true;
     const bands = Array.from({ length: 9 }, (_, i) => ({ y: -.15 + i * .16, amp: .07 + (i % 3) * .025, f: 1.1 + (i % 4) * .22, sp: .12 + (i % 5) * .03, ph: i * 1.7, th: .085 + (i % 2) * .03 }));
     const size = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, finePointer ? 2 : 1.25);
       W = canvas.clientWidth; H = canvas.clientHeight;
       canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -50,61 +57,89 @@
       });
     };
     const frame = now => {
-      if (!visible || document.hidden || reduced()) { running = false; return; }
+      if (!alive || !visible || document.hidden || reduced()) { running = false; return; }
+      if (!finePointer && last && now - last < 30) { requestAnimationFrame(frame); return; }
       const dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
       t += dt;
       if (!finePointer) { tx = .5 + Math.sin(t * .25) * .3; ty = .5 + Math.cos(t * .19) * .2; }
       draw();
-      frameId = requestAnimationFrame(frame);
+      requestAnimationFrame(frame);
     };
-    const start = () => { if (!running && visible && !document.hidden && !reduced()) { running = true; last = 0; frameId = requestAnimationFrame(frame); } };
-    size(); t = 2; draw(); canvas.classList.add('is-live'); start();
-    addEventListener('resize', () => { size(); draw(); }, { passive: true, signal: events.signal });
-    if (finePointer) addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; }, { passive: true, signal: events.signal });
-    document.addEventListener('visibilitychange', start, { signal: events.signal });
-    let observer;
-    if ('IntersectionObserver' in window) { observer = new IntersectionObserver(([e]) => { visible = e.isIntersecting; start(); }); observer.observe(stage); }
-    canvases.set(stage, { start, stop() { cancelAnimationFrame(frameId); running = false; }, destroy() { cancelAnimationFrame(frameId); events.abort(); observer?.disconnect(); canvases.delete(stage); } });
+    ctl.start = () => { if (alive && !running && visible && !document.hidden && !reduced()) { running = true; last = 0; requestAnimationFrame(frame); } };
+    size(); draw(); canvas.classList.add('is-live'); stage.classList.add('is-live'); ctl.start();
+    const opts = { passive: true, signal: off.signal };
+    addEventListener('resize', () => { size(); draw(); }, opts);
+    if (finePointer) addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = e.clientY / innerHeight; }, opts);
+    document.addEventListener('visibilitychange', ctl.start, { signal: off.signal });
+    let io = null;
+    if ('IntersectionObserver' in window) { io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; stage.classList.toggle('is-offscreen', !visible); ctl.start(); }); io.observe(stage); }
+    ctl.destroy = () => { alive = false; off.abort(); io && io.disconnect(); };
   }
 
-  /* ---------- header + entrance recede on scroll ---------- */
-  let stage = null, inner = null, ticking = false;
+  /* ---------- campaign video: accessible pause, paused under reduced motion ---------- */
+  function videoControl(stage, signal) {
+    const video = stage.querySelector('video.silk-media');
+    const button = stage.querySelector('[data-silk-video-toggle]');
+    if (!video) return;
+    const sync = () => {
+      if (!button) return;
+      const paused = video.paused;
+      button.setAttribute('aria-pressed', String(paused));
+      button.setAttribute('aria-label', paused ? button.dataset.playLabel : button.dataset.pauseLabel);
+      button.classList.toggle('is-paused', paused);
+    };
+    if (reduced()) video.pause();
+    if (button) {
+      button.hidden = false;
+      button.addEventListener('click', () => { video.paused ? video.play().catch(() => {}) : video.pause(); }, { signal });
+    }
+    video.addEventListener('play', sync, { signal });
+    video.addEventListener('pause', sync, { signal });
+    sync();
+  }
+
+  /* ---------- floating header + entrance recede on scroll ---------- */
+  let stage = null, inner = null, ticking = false, toggleWatch = null;
+  const menuOpen = () => document.querySelector('.menu-toggle')?.getAttribute('aria-expanded') === 'true';
   function onScroll() {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(() => {
       ticking = false;
-      if (!stage) return;
-      const h = stage.offsetHeight, s = scrollY;
-      document.body.classList.toggle('silk-solid', s > h - 100 || menuOpen());
-      if (inner && !reduced() && s < h) {
-        const p = s / h;
-        inner.style.transform = `translateY(${p * 120}px) scale(${1 - p * .08})`;
-        inner.style.opacity = String(Math.max(0, 1 - p * 1.3));
+      if (stage) {
+        const h = stage.offsetHeight, s = scrollY;
+        root.classList.toggle('silk-solid', s > h - 100 || menuOpen());
+        if (inner && reduced()) { inner.style.transform = ''; inner.style.opacity = ''; }
+        else if (inner) {
+          const p = Math.min(1, s / h);
+          inner.style.transform = `translateY(${p * 120}px) scale(${1 - p * .08})`;
+          inner.style.opacity = String(Math.max(0, 1 - p * 1.3));
+        }
       }
       ink();
     });
   }
-  const menuOpen = () => document.querySelector('.menu-toggle')?.getAttribute('aria-expanded') === 'true';
   function headerState() {
     const main = document.getElementById('MainContent');
     const first = main && main.firstElementChild;
-    stage = first && (first.matches('[data-silk-stage]') ? first : first.querySelector(':scope > [data-silk-stage]'));
+    stage = first ? (first.matches('[data-silk-stage]') ? first : first.querySelector(':scope > [data-silk-stage]')) : null;
     inner = stage && stage.querySelector('[data-silk-inner]');
-    document.body.classList.toggle('silk-ready', Boolean(stage));
-    if (!stage) { document.body.classList.remove('silk-solid'); return; }
+    root.classList.toggle('silk-float', !!stage);
+    if (!stage) { root.classList.remove('silk-solid'); return; }
     const toggle = document.querySelector('.menu-toggle');
-    if (toggle && !toggle.dataset.silkWatch) {
-      toggle.dataset.silkWatch = 'true';
-      new MutationObserver(onScroll).observe(toggle, { attributes: true, attributeFilter: ['aria-expanded'] });
+    if (toggle && toggleWatch?.target !== toggle) {
+      toggleWatch?.observer.disconnect();
+      const observer = new MutationObserver(onScroll);
+      observer.observe(toggle, { attributes: true, attributeFilter: ['aria-expanded'] });
+      toggleWatch = { target: toggle, observer };
     }
     onScroll();
   }
 
   /* ---------- manifesto inks in, word by word ---------- */
-  let inkWords = [], inkEl = null;
-  function prepareInk(root = document) {
-    root.querySelectorAll('[data-ink]').forEach(el => {
+  let inkTargets = [];
+  function prepareInk(scope = document) {
+    scope.querySelectorAll('[data-ink]').forEach(el => {
       if (el.dataset.inkReady) return;
       el.dataset.inkReady = 'true';
       const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
@@ -121,24 +156,27 @@
         });
         node.replaceWith(frag);
       });
-      inkEl = el; inkWords = [...el.querySelectorAll('.ink-w')];
+      inkTargets.push({ el, words: [...el.querySelectorAll('.ink-w')] });
     });
   }
   function ink() {
-    if (!inkEl || reduced()) return;
-    const r = inkEl.getBoundingClientRect();
-    const p = Math.max(0, Math.min(1, (innerHeight * .88 - r.top) / (r.height + innerHeight * .3)));
-    const n = inkWords.length;
-    inkWords.forEach((w, i) => w.style.setProperty('--ink', (.2 + Math.max(0, Math.min(1, p * n - i)) * .8).toFixed(3)));
+    inkTargets = inkTargets.filter(x => x.el.isConnected);
+    if (reduced()) return;
+    inkTargets.forEach(({ el, words }) => {
+      const r = el.getBoundingClientRect();
+      const p = Math.max(0, Math.min(1, (innerHeight * .88 - r.top) / (r.height + innerHeight * .3)));
+      words.forEach((w, i) => w.style.setProperty('--ink', (.2 + Math.max(0, Math.min(1, p * words.length - i)) * .8).toFixed(3)));
+    });
   }
 
   /* ---------- magnetic CTA ---------- */
-  function magnetic(root = document) {
-    if (!finePointer || reduced()) return;
-    root.querySelectorAll('[data-magnetic]').forEach(el => {
+  function magnetic(scope = document) {
+    if (!finePointer) return;
+    scope.querySelectorAll('[data-magnetic]').forEach(el => {
       if (el.dataset.magReady) return;
       el.dataset.magReady = 'true';
       el.addEventListener('pointermove', e => {
+        if (reduced()) return;
         const r = el.getBoundingClientRect();
         el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .18}px, ${(e.clientY - r.top - r.height / 2) * .28}px)`;
       });
@@ -146,21 +184,34 @@
     });
   }
 
-  /* ---------- reveal for palette panels and catalog cards ---------- */
-  function reveal(root = document) {
-    const targets = root.querySelectorAll('[data-reveal], .musa-catalog-card, .musa-catalog-intro');
+  /* ---------- reveal: hidden state is added only once the observer is watching ---------- */
+  let revealIO = null;
+  function reveal(scope = document) {
     if (reduced() || !('IntersectionObserver' in window)) return;
-    const io = new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    revealIO = revealIO || new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); revealIO.unobserve(e.target); }
     }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
-    targets.forEach((el, i) => {
-      if (el.dataset.revealReady) return;
-      el.dataset.revealReady = 'true';
-      if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '');
+    scope.querySelectorAll('[data-reveal], .musa-catalog-card, .musa-catalog-intro').forEach((el, i) => {
+      if (el.classList.contains('silk-reveal')) return;
+      if (el.getBoundingClientRect().top < innerHeight) return;
       el.style.setProperty('--reveal-delay', `${(i % 3) * .09}s`);
-      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('is-in');
-      io.observe(el);
+      el.classList.add('silk-reveal');
+      revealIO.observe(el);
     });
+  }
+
+  /* ---------- reduced motion switched on/off without reloading ---------- */
+  function settleMotion() {
+    if (reduced()) {
+      if (inner) { inner.style.transform = ''; inner.style.opacity = ''; }
+      inkTargets.forEach(({ words }) => words.forEach(w => w.style.removeProperty('--ink')));
+      document.querySelectorAll('[data-magnetic]').forEach(el => { el.style.transform = ''; });
+      document.querySelectorAll('.silk-reveal').forEach(el => el.classList.add('is-in'));
+      document.querySelectorAll('video.silk-media').forEach(v => v.pause());
+    } else {
+      stages.forEach(ctl => ctl.start());
+      onScroll();
+    }
   }
 
   /* ---------- catalog: colour swatches + size tags over the native select ----------
@@ -246,26 +297,30 @@
     });
   }
 
-  function init(root = document) {
-    root.querySelectorAll('[data-silk-stage]').forEach(silk);
-    catalogSwatches(root);
-    prepareInk(root); magnetic(root); reveal(root); headerState();
+  /* ---------- pause decorative SVG wave drift while off screen ---------- */
+  let waveIO = null;
+  function pauseWaves(scope = document) {
+    if (!('IntersectionObserver' in window)) return;
+    waveIO = waveIO || new IntersectionObserver(entries => entries.forEach(e => e.target.classList.toggle('is-offscreen', !e.isIntersecting)));
+    scope.querySelectorAll('.brand-art').forEach(el => { if (!el.dataset.waveWatch) { el.dataset.waveWatch = 'true'; waveIO.observe(el); } });
+  }
+
+  function init(scope = document) {
+    pauseWaves(scope);
+    scope.querySelectorAll('[data-silk-stage]').forEach(silk);
+    catalogSwatches(scope);
+    prepareInk(scope); magnetic(scope); reveal(scope); headerState();
+  }
+  function unload(scope) {
+    stages.forEach((ctl, el) => { if (scope.contains(el)) { ctl.destroy(); stages.delete(el); } });
+    setTimeout(headerState, 0);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());
   else init();
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', onScroll, { passive: true });
+  motionQuery.addEventListener('change', settleMotion);
   document.addEventListener('shopify:section:load', e => init(e.target));
-  document.addEventListener('shopify:section:reorder', headerState);
-  document.addEventListener('shopify:section:unload', e => {
-    canvases.forEach((instance, el) => { if (e.target.contains(el)) instance.destroy(); });
-    setTimeout(headerState, 0);
-  });
-  motion.addEventListener('change', () => {
-    if (reduced()) {
-      document.querySelectorAll('[data-silk-inner], [data-magnetic]').forEach(el => { el.style.transform = ''; el.style.opacity = ''; });
-      document.querySelectorAll('.ink-w').forEach(el => el.style.removeProperty('--ink'));
-      canvases.forEach(instance => instance.stop());
-    } else { canvases.forEach(instance => instance.start()); onScroll(); }
-  });
+  document.addEventListener('shopify:section:unload', e => unload(e.target));
+  document.addEventListener('shopify:section:reorder', () => setTimeout(headerState, 0));
 })();

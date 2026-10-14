@@ -103,10 +103,10 @@
     "increase": "Increase quantity",
     "adding": "Adding…",
     "quick_view": "Quick view",
-    "colors_count": "Available in {{ count }} colours"
+    "colors_count": "Available in {{ count }} colors"
   },
   "cart": {
-    "eyebrow": "Your considered collection",
+    "eyebrow": "Your selection",
     "empty": "Your bag is waiting for its first muse.",
     "attachment": "Attachment",
     "remove": "Remove",
@@ -149,6 +149,8 @@
   },
   "silk": {
     "slogan": "welcome to your new era.",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "pause": "Pause background video",
+    "play": "Play background video"
   }
 }

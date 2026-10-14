@@ -12,6 +12,7 @@
     <div class="silk-fallback" aria-hidden="true">{% render 'organic-waves', tone: 'dark' %}</div>
     <canvas class="silk-canvas" data-silk-canvas aria-hidden="true"></canvas>
   {%- endif -%}
+  <script>(function(){var m=document.getElementById('MainContent'),f=m&&m.firstElementChild,r=document.documentElement;if(f&&f.contains(document.currentScript)){r.classList.add('silk-float');addEventListener('load',function(){if(!window.musaSilk)r.classList.remove('silk-float','silk-solid');});}})();</script>
   <div class="silk-vignette" aria-hidden="true"></div>
   <div class="silk-grain" aria-hidden="true"></div>
 
@@ -30,6 +31,9 @@
     <span class="silk-foot-side">{{ 'hero.meta' | t }}</span>
   </div>
 
+  {%- if section.settings.video != blank -%}
+    <button type="button" class="silk-video-toggle" data-silk-video-toggle data-pause-label="{{ 'silk.pause' | t | escape }}" data-play-label="{{ 'silk.play' | t | escape }}" aria-label="{{ 'silk.pause' | t | escape }}" aria-pressed="false" hidden><span class="silk-video-icon" aria-hidden="true"></span></button>
+  {%- endif -%}
   <svg class="silk-edge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 120V70C180 20 330 10 520 46s360 70 560 34S1330 4 1440 30v90z"/></svg>
 </section>
 
