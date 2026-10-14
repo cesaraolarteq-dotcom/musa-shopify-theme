@@ -1,0 +1,53 @@
+{
+  "source_commit": "734ded8506b189bfe6df56ed593bf34bdd1c1b60",
+  "theme": {
+    "id": "gid://shopify/OnlineStoreTheme/189409722589",
+    "name": "MUSA Seda Viva — 734ded8",
+    "role": "UNPUBLISHED",
+    "processing": false
+  },
+  "checksum_verification": {
+    "byte_identical": 106,
+    "normalized_settings_json_equivalent": true,
+    "missing_files": [],
+    "extra_files": []
+  },
+  "themes_before": [
+    {
+      "id": "gid://shopify/OnlineStoreTheme/189396517085",
+      "name": "Horizon",
+      "role": "MAIN"
+    },
+    {
+      "id": "gid://shopify/OnlineStoreTheme/189405003997",
+      "name": "MUSA Atelier — preview",
+      "role": "UNPUBLISHED"
+    }
+  ],
+  "themes_after": [
+    {
+      "id": "gid://shopify/OnlineStoreTheme/189396517085",
+      "name": "Horizon",
+      "role": "MAIN"
+    },
+    {
+      "id": "gid://shopify/OnlineStoreTheme/189405003997",
+      "name": "MUSA Atelier — preview",
+      "role": "UNPUBLISHED"
+    },
+    {
+      "id": "gid://shopify/OnlineStoreTheme/189409722589",
+      "name": "MUSA Seda Viva — 734ded8",
+      "role": "UNPUBLISHED"
+    }
+  ],
+  "storefront_check": {
+    "unauthenticated_preview": "redirects_to_store_password",
+    "server_rendering_verified": false
+  },
+  "preview_url": "https://kypp5e-bz.myshopify.com/?preview_theme_id=189409722589",
+  "editor_url": "https://admin.shopify.com/store/kypp5e-bz/themes/189409722589/editor",
+  "connection_method": "Theme Access GraphQL via environment HTTPS proxy; credential from SHOPIFY_CLI_THEME_TOKEN",
+  "date": "2026-10-14",
+  "uploaded_file_count": 107
+}

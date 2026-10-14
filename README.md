@@ -49,7 +49,7 @@ python scripts/validate.py
 ```
 
 ## Store integration
-Upload the supplied theme ZIP in Shopify > Online Store > Themes > Add theme > Upload ZIP. It must be a new unpublished theme. No authenticated upload or publication has been performed.
+Uploaded on 2026-10-14 as **MUSA Seda Viva — 734ded8**, a new unpublished theme. [Open in Shopify](https://admin.shopify.com/store/kypp5e-bz/themes/189409722589/editor). All 107 files were verified; the active Horizon theme remains unchanged. See [connection and delivery details](docs/SHOPIFY-CONNECTION.md). The storefront is password protected, so anonymous preview requests do not verify the rendered design. For manual installations, upload the supplied ZIP as a new unpublished theme.
 Set the featured collection, navigation, contact page, size guide and campaign images in the theme editor. Product illustrations appear only when the selected collection is empty and its demonstration setting is enabled. They are explicitly labeled concepts, have no checkout links or fake prices, and disappear when real products are selected.
 
 Publish English and Spanish in Shopify > Settings > Languages, with Shopify Markets configured for the intended regions. The theme has complete custom UI dictionaries; Shopify-managed product titles/descriptions, navigation, custom section overrides, pages, policies and notification messages require their own translations, e.g. with Translate & Adapt. Default translated headings work automatically. Do not replace the default with a custom heading unless both versions are translated.
