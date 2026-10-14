@@ -127,3 +127,4 @@
 @media(hover:none){.quick-view{display:none}}
 @media(prefers-reduced-motion:reduce){.drawer-panel,.drawer-overlay,.sticky-atc,.quick-view,.free-ship-bar span{transition:none}.quick-view-loading{animation:none}}
 .product-form>label{text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin:26px 0 12px}
+.drawer-error{margin:0;padding:12px 26px;font-size:14px;background:#9b2c2c12;border-bottom:1px solid #9b2c2c33;color:#6e1f1f}

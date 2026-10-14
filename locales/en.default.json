@@ -119,7 +119,8 @@
     "view_bag": "View full bag",
     "error": "We couldn't add this to your bag. Please try again.",
     "free_shipping_remaining": "You're {{ amount }} away from free shipping",
-    "free_shipping_unlocked": "You've unlocked free shipping"
+    "free_shipping_unlocked": "You've unlocked free shipping",
+    "change_error": "We couldn't update your bag. Please try again."
   },
   "search": {
     "title": "Find your muse.",
