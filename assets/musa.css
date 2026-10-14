@@ -195,3 +195,150 @@
 
 /* I1: align mobile navigation with the D1 92px header and 32px announcement. */
 .mobile-menu{--menu-top:124px}
+
+/* ==========================================================================
+   Seda Viva (Claude, D2): living-silk entrance, overlay header on the home,
+   ink-in manifesto, palette panels, dark club, editorial catalog finish.
+   ========================================================================== */
+:root{--night:#1a100b;--ease-silk:cubic-bezier(.16,1,.3,1)}
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
+
+/* --- entrance stage --- */
+.silk-stage{position:relative;height:100svh;min-height:640px;max-height:1100px;overflow:hidden;background:var(--night);color:var(--paper);isolation:isolate}
+.silk-fallback{position:absolute;inset:0;background:#151210}
+.silk-canvas,.silk-media{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;max-width:none}
+.silk-canvas{opacity:0;transition:opacity 1.2s ease}
+.silk-canvas.is-live{opacity:1}
+.silk-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 62% 56% at 50% 48%,transparent 0,rgba(26,16,11,.5) 70%,rgba(26,16,11,.9) 100%)}
+.silk-stage--media .silk-vignette{background:linear-gradient(rgba(26,16,11,.55),rgba(26,16,11,.35) 40%,rgba(26,16,11,.65)),radial-gradient(ellipse 62% 56% at 50% 48%,transparent 0,rgba(26,16,11,.6) 100%)}
+.silk-grain{position:absolute;inset:-50%;pointer-events:none;opacity:.1;background:url('grain.svg');animation:silk-grain 1.2s steps(6) infinite}
+@keyframes silk-grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}}
+.silk-content{position:absolute;inset:0;z-index:2;display:grid;place-items:center;text-align:center;padding:130px var(--gutter) 170px}
+.silk-inner{display:grid;justify-items:center;gap:26px;will-change:transform,opacity}
+.silk-eyebrow{margin:0;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--sand);animation:silk-fade 1.2s ease .1s both}
+.silk-title{margin:0;line-height:0}
+.silk-logo{width:min(560px,74vw);height:auto;filter:drop-shadow(0 20px 60px rgba(0,0,0,.45));animation:silk-logo 1.8s var(--ease-silk) .25s both}
+@keyframes silk-logo{from{opacity:0;filter:blur(18px);transform:scale(1.08)}to{opacity:1;filter:blur(0) drop-shadow(0 20px 60px rgba(0,0,0,.45));transform:none}}
+.silk-slogan{margin:0;font-family:var(--font-heading);font-style:italic;font-weight:400;font-size:clamp(25px,2.6vw,38px);line-height:1.2;color:var(--sand);overflow:hidden;padding-bottom:.08em}
+.silk-slogan span{display:inline-block;animation:silk-rise 1.4s var(--ease-silk) both;animation-delay:calc(.9s + var(--i) * .1s)}
+@keyframes silk-rise{from{transform:translateY(110%);opacity:0}to{transform:none;opacity:1}}
+@keyframes silk-fade{from{opacity:0}to{opacity:1}}
+.silk-cta{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:18px;min-height:52px;margin-top:8px;padding:15px 30px;border:1px solid rgba(246,243,238,.5);border-radius:999px;font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;animation:silk-fade 1.2s ease 1.6s both;transition:color .5s var(--ease-silk),border-color .5s,transform .5s var(--ease-silk)}
+.silk-cta::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--paper);transform:translateY(101%);transition:transform .55s var(--ease-silk)}
+.silk-cta:hover,.silk-cta:focus-visible{color:var(--espresso);border-color:var(--paper)}
+.silk-cta:hover::before,.silk-cta:focus-visible::before{transform:none}
+.silk-cta .icon{transition:transform .5s var(--ease-silk)}.silk-cta:hover .icon{transform:translateX(4px)}
+.silk-foot{position:absolute;z-index:2;left:0;right:0;bottom:clamp(74px,8.5vw,146px);display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:0 var(--gutter);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(246,243,238,.66);animation:silk-fade 1.2s ease 1.9s both}
+.silk-foot-side{min-width:0}
+.silk-cue{display:grid;justify-items:center;gap:10px}
+.silk-cue i{display:block;width:1px;height:46px;background:linear-gradient(var(--sand),transparent);transform-origin:top;animation:silk-cue 2.4s var(--ease-silk) infinite}
+@keyframes silk-cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.silk-video-toggle{position:absolute;z-index:4;right:max(var(--gutter),16px);bottom:clamp(74px,8.5vw,146px);width:44px;height:44px;border-radius:50%;border:1px solid rgba(246,243,238,.5);background:rgba(26,16,11,.35);color:var(--paper);display:grid;place-items:center;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.silk-video-toggle:hover{border-color:var(--paper)}
+.silk-video-icon{width:10px;height:12px;border-left:3px solid currentColor;border-right:3px solid currentColor}
+.silk-video-toggle.is-paused .silk-video-icon{width:0;height:0;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent currentColor;margin-left:3px}
+.silk-stage--media .silk-foot{padding-right:calc(var(--gutter) + 56px)}
+.silk-edge{position:absolute;z-index:3;left:0;right:0;bottom:-1px;width:100%;height:clamp(50px,7vw,120px);color:var(--silk-edge,var(--paper));max-width:none}
+
+/* --- header floats over the entrance on the home page --- */
+.logo-on-dark{display:none}
+.brand-logo img{width:100%;height:auto}
+.silk-float .announcement{position:fixed;top:0;left:0;right:0;z-index:31;background:transparent;color:var(--sand);border-bottom:1px solid rgba(246,243,238,.1);transition:transform .5s var(--ease-silk),opacity .4s}
+.silk-float .site-header{position:fixed;top:32px;left:0;right:0;z-index:30;background:transparent;color:var(--paper);border-bottom-color:rgba(246,243,238,.12);transition:top .5s var(--ease-silk),background .5s,color .5s,border-color .5s,box-shadow .5s}
+.silk-float .logo-on-light{display:none}
+.silk-float .logo-on-dark{display:block}
+.silk-float .mobile-menu{position:fixed;--menu-top:124px}
+.silk-float .header-locale option{color:var(--espresso);background:var(--paper)}
+.silk-float .brand-logo{opacity:0;transform:translateY(-6px);transition:opacity .6s,transform .6s var(--ease-silk)}
+.silk-float.silk-solid .brand-logo{opacity:1;transform:none}
+.silk-float.silk-solid .announcement{transform:translateY(-100%);opacity:0}
+.silk-float.silk-solid .site-header{top:0;background:rgba(246,243,238,.9);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);color:var(--espresso);border-bottom-color:var(--line);box-shadow:0 12px 30px rgba(63,37,25,.06)}
+.silk-float.silk-solid .logo-on-light{display:block}
+.silk-float.silk-solid .logo-on-dark{display:none}
+.silk-float.silk-solid .mobile-menu{--menu-top:92px}
+
+/* --- manifesto inks in word by word --- */
+.ink-w{opacity:var(--ink,1);transition:opacity .2s linear}
+.manifesto h2[data-ink]{font-weight:400}
+
+/* --- dark club --- */
+.club--dark{background:var(--night);color:var(--paper)}
+.club--dark h2 em{color:var(--sand)}
+.club--dark .eyebrow,.club--dark .club-footnote{color:var(--sand)}
+.club--dark>div>p:not(.eyebrow),.club--dark .consent{color:rgba(246,243,238,.7)}
+.club--dark .newsletter-row{border-color:rgba(246,243,238,.55)}
+.club--dark .newsletter-row:focus-within{border-color:var(--paper)}
+.club--dark .newsletter-row input::placeholder{color:rgba(246,243,238,.45)}
+.club--dark input[type=checkbox]{accent-color:var(--sand)}
+.club--dark .form-success{color:var(--sand)}
+
+/* --- editorial finish for the order catalog --- */
+#MainContent .musa-catalog{padding-top:clamp(80px,9vw,140px);padding-bottom:clamp(80px,9vw,130px)}
+#MainContent .musa-catalog-eyebrow{letter-spacing:.26em;font-size:11.5px;color:var(--muted)}
+#MainContent .musa-catalog-intro{max-width:none;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);column-gap:clamp(30px,5vw,90px);align-items:end}
+#MainContent .musa-catalog-intro>*{grid-column:1}
+#MainContent .musa-catalog-intro>p:last-child{grid-column:2;grid-row:2;margin-bottom:.6em;max-width:380px}
+#MainContent .musa-catalog-intro h2{font-weight:300;font-size:clamp(52px,8.4vw,136px);line-height:.9;letter-spacing:-.035em;max-width:14ch;text-wrap:balance;margin-bottom:0}
+#MainContent .musa-catalog-intro>p:last-child{color:var(--muted);font-size:15.5px}
+#MainContent .musa-catalog-filters{border-top:0;padding-top:0;gap:10px}
+#MainContent .musa-catalog-filters button{border-radius:999px;border-color:var(--line);padding:10px 20px;letter-spacing:.06em;transition:background .3s,color .3s,border-color .3s}
+#MainContent .musa-catalog-filters button:hover{border-color:var(--espresso)}
+#MainContent .musa-catalog-grid{gap:56px 26px}
+#MainContent .musa-catalog-art{aspect-ratio:4/5;transition:transform 1.2s var(--ease-silk)}
+#MainContent .musa-catalog-art:before{inset:-35% -60%;border-width:44px;border-color:rgba(246,243,238,.35);transition:transform 1.6s var(--ease-silk)}
+#MainContent .musa-catalog-card:hover .musa-catalog-art:before{transform:rotate(-14deg) scale(1.06)}
+#MainContent .musa-catalog-number{font-weight:300;font-size:clamp(76px,7vw,120px);letter-spacing:-.04em}
+#MainContent .musa-catalog-type,#MainContent .musa-catalog-ref{letter-spacing:.2em}
+#MainContent .musa-catalog-card h3{font-size:clamp(25px,2vw,30px);font-weight:400}
+#MainContent .musa-catalog-art--photo img{transition:transform 1.4s var(--ease-silk)}
+#MainContent .musa-catalog-card:hover .musa-catalog-art--photo img{transform:scale(1.04)}
+
+/* reveal for Seda Viva blocks (visible without JS) */
+.silk-reveal{opacity:0;transform:translateY(30px);transition:opacity 1.1s var(--ease-silk),transform 1.1s var(--ease-silk);transition-delay:var(--reveal-delay,0s)}
+.silk-reveal.is-in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  #MainContent .musa-catalog-intro{display:block}#MainContent .musa-catalog-intro h2{margin-bottom:24px}
+  #MainContent .musa-catalog-art{aspect-ratio:4/3}
+}
+@media(max-width:550px){
+  .silk-stage{min-height:600px}
+  .silk-content{padding-top:120px;padding-bottom:160px}
+  .silk-foot{justify-content:center}
+  .silk-foot-side{display:none}
+  .silk-cta{padding:14px 24px;letter-spacing:.16em}
+  #MainContent .musa-catalog-art{aspect-ratio:16/10}
+  #MainContent .musa-catalog-grid{gap:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  .silk-grain,.silk-cue i{animation:none}
+  .silk-eyebrow,.silk-logo,.silk-slogan span,.silk-cta,.silk-foot{animation:none}
+  .silk-reveal{opacity:1;transform:none;transition:none}
+  /* beats inline motion styles left from before the preference changed */
+  [data-silk-inner],[data-magnetic]{transform:none!important}
+  [data-silk-inner],.ink-w{opacity:1!important}
+  @view-transition{navigation:none}
+}
+
+/* --- catalog colour swatches + size tags (enhances the native select from musa-silk.js) --- */
+#MainContent .musa-catalog [data-catalog-color-control].is-enhanced>label,#MainContent .musa-catalog [data-catalog-color-control].is-enhanced>select,#MainContent .musa-catalog [data-catalog-sizes].is-enhanced{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;margin:0;padding:0;border:0}
+.cat-color-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin:18px 0 10px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.cat-color-head span{font-size:15px;letter-spacing:.01em;text-transform:none;color:var(--muted)}
+.cat-swatches{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.cat-swatch{position:relative;display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.cat-swatch i{width:28px;height:28px;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(63,37,25,.22);transition:transform .35s var(--ease-silk)}
+.cat-swatch::after{content:'';position:absolute;inset:1px;border-radius:50%;border:1px solid transparent;transition:border-color .25s,inset .35s var(--ease-silk)}
+.cat-swatch:hover i{transform:scale(1.08)}
+.cat-swatch[aria-checked=true]::after{border-color:var(--espresso);inset:2px}
+.cat-swatch:focus-visible{outline:2px solid var(--espresso);outline-offset:2px}
+#MainContent .musa-catalog-sizes{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:14px 0 4px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase}
+.cat-sizes{display:flex;flex-wrap:wrap;gap:6px;width:100%}
+.cat-size{display:inline-grid;place-items:center;min-width:42px;height:34px;padding:0 10px;border:1px solid var(--line);font-size:13px;letter-spacing:.06em;text-transform:none;font-variant-numeric:tabular-nums;animation:cat-in .45s var(--ease-silk) both;animation-delay:calc(var(--n) * 30ms)}
+@keyframes cat-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* --- rendering budget: skip hidden layers, pause off-screen motion, defer below-the-fold paint --- */
+.silk-stage.is-live .silk-fallback{display:none}
+.silk-stage.is-offscreen .silk-grain,.silk-stage.is-offscreen .silk-cue i{animation-play-state:paused}
+.brand-art.is-offscreen .waves-drift{animation-play-state:paused}
+.page-index #MainContent>.shopify-section:nth-child(n+4),.page-index #MainContent>section:nth-child(n+4){content-visibility:auto;contain-intrinsic-size:auto 900px}

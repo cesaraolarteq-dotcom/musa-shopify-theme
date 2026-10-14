@@ -99,14 +99,14 @@
     "empty": "Aún no hay productos. Un nuevo capítulo está por llegar.",
     "min_price": "Precio mínimo",
     "max_price": "Precio máximo",
-    "decrease": "Restar cantidad",
-    "increase": "Sumar cantidad",
+    "decrease": "Reducir cantidad",
+    "increase": "Aumentar cantidad",
     "adding": "Añadiendo…",
     "quick_view": "Vista rápida",
     "colors_count": "Disponible en {{ count }} colores"
   },
   "cart": {
-    "eyebrow": "Tu selección personal",
+    "eyebrow": "Tu selección",
     "empty": "Tu bolsa espera su primera musa.",
     "attachment": "Archivo adjunto",
     "remove": "Eliminar",
@@ -146,5 +146,11 @@
     "two": "El movimiento, reinventado",
     "three": "Hecho para cada versión de ti",
     "four": "En estado de fluidez"
+  },
+  "silk": {
+    "slogan": "welcome to your new era.",
+    "scroll": "Desliza",
+    "pause": "Pausar el video de fondo",
+    "play": "Reproducir el video de fondo"
   }
 }

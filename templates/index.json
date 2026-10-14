@@ -1,9 +1,16 @@
 {
   "sections": {
     "hero": {
-      "type": "hero",
+      "type": "silk-hero",
       "settings": {
-        "link": "#the-edit"
+        "link": "#the-edit",
+        "edge": "paper"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "scheme": "light"
       }
     },
     "manifesto": {
@@ -23,10 +30,6 @@
     },
     "club": {
       "type": "newsletter",
-      "settings": {}
-    },
-    "marquee": {
-      "type": "marquee",
       "settings": {
         "scheme": "light"
       }

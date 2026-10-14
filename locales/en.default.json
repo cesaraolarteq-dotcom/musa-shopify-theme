@@ -103,10 +103,10 @@
     "increase": "Increase quantity",
     "adding": "Adding…",
     "quick_view": "Quick view",
-    "colors_count": "Available in {{ count }} colours"
+    "colors_count": "Available in {{ count }} colors"
   },
   "cart": {
-    "eyebrow": "Your considered collection",
+    "eyebrow": "Your selection",
     "empty": "Your bag is waiting for its first muse.",
     "attachment": "Attachment",
     "remove": "Remove",
@@ -146,5 +146,11 @@
     "two": "Movement, reimagined",
     "three": "Made for every version of you",
     "four": "In a state of flow"
+  },
+  "silk": {
+    "slogan": "welcome to your new era.",
+    "scroll": "Scroll",
+    "pause": "Pause background video",
+    "play": "Play background video"
   }
 }

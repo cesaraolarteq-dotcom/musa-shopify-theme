@@ -1,0 +1,43 @@
+{%- comment -%}
+  "Seda Viva" entrance: a dark espresso stage with living silk bands (canvas, assets/musa-silk.js),
+  the original logo and the slogan. An optional campaign image or video replaces the silk later.
+  The bottom wave edge takes the colour of the section that follows (setting "edge").
+{%- endcomment -%}
+<script src="{{ 'musa-silk.js' | asset_url }}" defer></script>
+<section class="silk-stage{% if section.settings.image != blank or section.settings.video != blank %} silk-stage--media{% endif %}" data-silk-stage aria-labelledby="SilkTitle-{{ section.id }}" style="--silk-edge: {% if section.settings.edge == 'sand' %}#ebe5dc{% else %}var(--paper){% endif %}">
+  {%- if section.settings.video != blank -%}
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, class: 'silk-media', image_size: '1920x' }}
+  {%- elsif section.settings.image != blank -%}
+    {{ section.settings.image | image_url: width: 2400 | image_tag: widths: '750,1100,1500,1920,2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', class: 'silk-media', alt: '' }}
+  {%- else -%}
+    <div class="silk-fallback" aria-hidden="true">{% render 'organic-waves', tone: 'dark' %}</div>
+    <canvas class="silk-canvas" data-silk-canvas aria-hidden="true"></canvas>
+  {%- endif -%}
+  <script>(function(){var m=document.getElementById('MainContent'),f=m&&m.firstElementChild,r=document.documentElement;if(f&&f.contains(document.currentScript)){r.classList.add('silk-float');addEventListener('load',function(){if(!window.musaSilk)r.classList.remove('silk-float','silk-solid');});}})();</script>
+  <div class="silk-vignette" aria-hidden="true"></div>
+  <div class="silk-grain" aria-hidden="true"></div>
+
+  <div class="silk-content">
+    <div class="silk-inner" data-silk-inner>
+      <p class="silk-eyebrow">{{ 'brand.chapter' | t }}</p>
+      <h1 id="SilkTitle-{{ section.id }}" class="silk-title"><img class="silk-logo" src="{{ 'logo-ivory.svg' | asset_url }}" width="560" height="132" alt="MUSA" loading="eager" fetchpriority="high"><span class="visually-hidden"> — {{ 'silk.slogan' | t }}</span></h1>
+      <p class="silk-slogan" aria-hidden="true">{%- assign words = 'silk.slogan' | t | split: ' ' -%}{%- for word in words -%}<span style="--i: {{ forloop.index0 }}">{{ word }}</span>{% unless forloop.last %} {% endunless %}{%- endfor -%}</p>
+      <a class="silk-cta" data-magnetic href="{% if section.settings.link != blank %}{{ section.settings.link }}{% else %}{{ routes.all_products_collection_url }}{% endif %}"><span>{{ 'hero.cta' | t }}</span>{% render 'icon', name: 'arrow' %}</a>
+    </div>
+  </div>
+
+  <div class="silk-foot">
+    <span class="silk-foot-side">{{ section.settings.handle | default: '@hellomusa.us' | escape }}</span>
+    <span class="silk-cue"><i aria-hidden="true"></i>{{ 'silk.scroll' | t }}</span>
+    <span class="silk-foot-side">{{ 'hero.meta' | t }}</span>
+  </div>
+
+  {%- if section.settings.video != blank -%}
+    <button type="button" class="silk-video-toggle" data-silk-video-toggle data-pause-label="{{ 'silk.pause' | t | escape }}" data-play-label="{{ 'silk.play' | t | escape }}" aria-label="{{ 'silk.pause' | t | escape }}" aria-pressed="false" hidden><span class="silk-video-icon" aria-hidden="true"></span></button>
+  {%- endif -%}
+  <svg class="silk-edge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 120V70C180 20 330 10 520 46s360 70 560 34S1330 4 1440 30v90z"/></svg>
+</section>
+
+{% schema %}
+{"name": "MUSA Silk entrance", "settings": [{"type": "url", "id": "link", "label": "Button destination"}, {"type": "text", "id": "handle", "label": "Social handle", "default": "@hellomusa.us"}, {"type": "select", "id": "edge", "label": "Wave edge colour (match the next section)", "options": [{"value": "paper", "label": "Paper"}, {"value": "sand", "label": "Sand"}], "default": "paper"}, {"type": "header", "content": "Campaign media (optional)"}, {"type": "paragraph", "content": "Leave empty to show the living silk. A video or image replaces it, with a dark veil so the logo stays legible."}, {"type": "video", "id": "video", "label": "Campaign video"}, {"type": "image_picker", "id": "image", "label": "Campaign image"}], "presets": [{"name": "MUSA Silk entrance"}]}
+{% endschema %}
