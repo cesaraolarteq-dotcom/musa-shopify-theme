@@ -189,6 +189,9 @@
 @media(prefers-reduced-motion:reduce){.waves-drift,.marquee-track{animation:none}.js .reveal{opacity:1;transform:none;transition:none}}
 .organic-waves{max-width:none}
 .product-badge{white-space:nowrap}
-@media(max-width:550px){.product-badge{font-size:10px;letter-spacing:.08em;top:10px;left:10px;padding:4px 6px}}
+@media(max-width:550px){.product-badge{font-size:11px;letter-spacing:.08em;top:10px;left:10px;padding:4px 6px}}
 .product-type{line-height:1.5;display:block;margin-top:4px}
 .drawer-error{margin:0;padding:12px 26px;font-size:14px;background:#9b2c2c12;border-bottom:1px solid #9b2c2c33;color:#6e1f1f}
+
+/* I1: align mobile navigation with the D1 92px header and 32px announcement. */
+.mobile-menu{--menu-top:124px}

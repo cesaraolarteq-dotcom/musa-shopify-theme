@@ -1,7 +1,7 @@
-MUSA — Vista previa completa
-
-Descomprime este ZIP y abre index-es.html o index-en.html en Chrome, Safari o Firefox. Mantén ambos archivos en la misma carpeta para cambiar de idioma.
-
-Incluye la página de inicio completa y las 15 referencias del catálogo. Imágenes y fuentes incorporadas; no requiere instalación. Los filtros de categoría y color funcionan. Compras, búsqueda de productos reales y formularios de correo no están conectados. Fotos y precios de venta pendientes.
-
-Composición visual de claude/luxury-refine 7d249902637c09d3e9b25a76cc01cc5283b0fbbf y catálogo codex/catalog-from-order 2073b006204da0bd212af15129fdf1526889b771. No supone merge de ramas ni publicación en Shopify.
+MUSA — I1 integrated preview, 2026-10-14
+Generated from codex/i1-integration using the actual merged theme sections.
+Open index-es.html or index-en.html in a browser.
+Includes D1 visual design and 15 preliminary order references.
+Images and fonts are embedded. Forms and checkout are disconnected.
+Retail prices and photography are pending. No authenticated Shopify preview or publication.
+See docs/REVIEW-I1.md and docs/HANDOFF.md.

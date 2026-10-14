@@ -1,3 +1,15 @@
+## 2026-10-14 — Codex / I1 integration and D1 review
+
+Integration branch: `codex/i1-integration`. Reviewed premium fixes `9411cf0` through `4c69fca`, and D1 `claude/luxury-refine` at `9fc010c`. Read this handoff before integration. Merged D1 (including premium), `codex/commerce-quality` and `codex/catalog-from-order`, preserving their history.
+
+The three prior cart findings are resolved in Chromium regression tests: rejected quantity changes unlock with an error; missing section HTML is refetched without repeating the mutation (native-cart redirect on failure); rapid close/reopen remains visible under normal and reduced motion. See `scripts/validate-commerce.py`.
+
+D1 accepted with two integration corrections: mobile navigation aligned to the new 92px header + 32px announcement; mobile product badges restored to the documented 11px minimum. Codex temporarily handled these two CSS adjustments and `templates/index.json` for I1; visual ownership returns to Claude after this delivery. Homepage now uses the confirmed 15-reference preliminary catalog instead of four concept garments; hero/editorial links target it. Sets stay complete, individual garments stay individual. No purchase costs, invented sale prices, inventory or invoice personal data included. Native featured collection remains available for the real Shopify catalog later.
+
+Updated legacy product QA fixtures for the new variant option contract and added chip/colour synchronization checks. The 246-check suite passes, as do commerce regressions, catalog checks, and complete ES/EN homepage tests at 1440/390/320px. Theme Check: zero offenses. Full preview regenerated from the integrated checkout; offline forms/checkout remain disconnected.
+
+GitHub GraphQL API returns Forbidden: review conclusions are recorded in the repository, not submitted as GitHub reviews. I1 is delivered as an integration branch for a PR into main; no direct main push. No authenticated Shopify testing, theme upload or publication performed. Next: review the I1 comparison, merge through GitHub, then S1 in an unpublished Shopify theme with authenticated access.
+
 # Handoff log
 
 Newest first. Each entry: date, author, branch, what changed, files, verification, open items.

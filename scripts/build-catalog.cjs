@@ -27,7 +27,7 @@ const cards=catalog.products.map((p,index)=>{
 }).join('\n');
 const section=`{{ 'musa-catalog.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'musa-catalog.js' | asset_url }}" defer></script>
-<section class="musa-catalog" data-musa-catalog aria-labelledby="CatalogTitle-{{ section.id }}">
+<section id="the-edit" class="musa-catalog" data-musa-catalog aria-labelledby="CatalogTitle-{{ section.id }}">
 <header class="musa-catalog-intro"><p class="musa-catalog-eyebrow">MUSA — WELCOME TO YOUR NEW ERA</p><h2 id="CatalogTitle-{{ section.id }}">${bilingual(copy.title)}</h2><p>${bilingual(copy.intro)}</p></header>
 <div class="musa-catalog-filters" data-catalog-filters hidden role="group" aria-label="{% if request.locale.iso_code == 'es' %}Tipo de producto{% else %}Product type{% endif %}">${['all','sets-2','sets-3','bodysuits','leggings'].map(cat=>`<button type="button" data-catalog-filter="${cat}" aria-pressed="${cat==='all'}">${bilingual(copy[cat])}</button>`).join('')}</div>
 <p class="musa-catalog-count" role="status" data-catalog-count data-label="{% if request.locale.iso_code == 'es' %}modelos{% else %}styles{% endif %}">${catalog.products.length} {% if request.locale.iso_code == 'es' %}modelos{% else %}styles{% endif %}</p>

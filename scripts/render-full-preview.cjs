@@ -8,7 +8,7 @@ const partials=fs.mkdtempSync(path.join(os.tmpdir(),'musa-full-'));
 fs.mkdirSync(output,{recursive:true});
 const clean=text=>text.replace(/\{% schema %\}[\s\S]*?\{% endschema %\}/g,'').replace(/\{% form([^%]*)%\}/g,(_,args)=>`<form data-preview-form${args.includes('localization')?' class="locale-form"':''}>`).replace(/\{% endform %\}/g,'</form>');
 for(const base of [design,catalogRoot])for(const file of fs.readdirSync(path.join(base,'snippets'))){
- if(base===catalogRoot && !file.startsWith('catalog-planning-'))continue;
+ if(base!==design && !file.startsWith('catalog-planning-'))continue;
  fs.writeFileSync(path.join(partials,file),clean(fs.readFileSync(path.join(base,'snippets',file),'utf8')));
 }
 const engine=new Liquid({root:partials,partials,extname:'.liquid'});
@@ -36,7 +36,7 @@ engine.registerFilter('default_errors',()=> '');
   let body=await render('header','header');
   body+='<main id="MainContent">';
   const index=JSON.parse(fs.readFileSync(path.join(design,'templates/index.json'),'utf8'));
-  for(const id of index.order){const section=index.sections[id];body+=section.type==='featured-collection'?`<div id="the-edit">${await render('catalog-planning','real-catalog')}</div>`:await render(section.type,id,section.settings);}
+  for(const id of index.order){const section=index.sections[id];body+=['featured-collection','catalog-planning'].includes(section.type)?await render('catalog-planning','real-catalog'):await render(section.type,id,section.settings);}
   body+='</main>'+await render('footer','footer');
   let css=fs.readFileSync(path.join(design,'assets/musa.css'),'utf8').replaceAll("url('grain.svg')",`url('${asset('grain.svg')}')`)+fs.readFileSync(path.join(catalogRoot,'assets/musa-catalog.css'),'utf8');
   const layout=fs.readFileSync(path.join(design,'layout/theme.liquid'),'utf8');

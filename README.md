@@ -5,9 +5,11 @@ Warm editorial art direction, original supplied wordmarks, responsive layouts, E
 
 Brand signature: **musa — welcome to your new era**.
 
-![MUSA desktop design](docs/preview/MUSA-desktop.png)
+![MUSA integrated design](docs/full-site-preview/portada.png)
 
-Offline references: [English](docs/preview/index-en.html), [Spanish](docs/preview/index-es.html), and [mobile screenshot](docs/preview/MUSA-mobile.png). Download and open the HTML files locally to explore the design; shopping and email submission are disconnected in these previews.
+Current I1 preview: [complete page](docs/full-site-preview/pagina-completa.png), [mobile](docs/full-site-preview/pagina-movil.png), [downloadable bilingual preview](docs/full-site-preview/MUSA-preview-completo.zip). Integration review: [I1](docs/REVIEW-I1.md). The homepage includes 15 preliminary order references; photos and retail prices remain pending.
+
+Legacy component QA references: [English](docs/preview/index-en.html), [Spanish](docs/preview/index-es.html), and [mobile screenshot](docs/preview/MUSA-mobile.png). Download and open the HTML files locally to explore the design; shopping and email submission are disconnected in these previews.
 
 Claude Code collaborators: start with [CLAUDE.md](CLAUDE.md). Codex: [AGENTS.md](AGENTS.md). Change log between agents: [docs/HANDOFF.md](docs/HANDOFF.md).
 

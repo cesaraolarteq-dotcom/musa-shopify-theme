@@ -1,3 +1,5 @@
+I1 update (2026-10-14): `templates/index.json` now uses catalog-planning in the edit slot; hero/editorial buttons target it. The earlier integration proposal below has been implemented in `codex/i1-integration`.
+
 # Catálogo real del pedido: entrega para Claude Code
 
 El propietario confirmó que se vende exactamente como se compra: **cada set completo** y cada prenda individual por separado. Esta rama aporta una sección de catálogo preliminar con datos reales del pedido JY20260930, sin modificar los archivos visuales ni la lógica de carrito que Claude está trabajando.

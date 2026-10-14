@@ -2,20 +2,23 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "link": "#the-edit"
+      }
     },
     "manifesto": {
       "type": "manifesto",
       "settings": {}
     },
     "edit": {
-      "type": "featured-collection",
+      "type": "catalog-planning",
       "settings": {}
     },
     "story": {
       "type": "editorial",
       "settings": {
-        "scheme": "dark"
+        "scheme": "dark",
+        "link": "#the-edit"
       }
     },
     "club": {
