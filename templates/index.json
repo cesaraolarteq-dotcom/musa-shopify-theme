@@ -1,9 +1,16 @@
 {
   "sections": {
     "hero": {
-      "type": "hero",
+      "type": "silk-hero",
       "settings": {
-        "link": "#the-edit"
+        "link": "#the-edit",
+        "edge": "paper"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "scheme": "light"
       }
     },
     "manifesto": {
@@ -21,14 +28,14 @@
         "link": "#the-edit"
       }
     },
-    "club": {
-      "type": "newsletter",
+    "palette": {
+      "type": "tones",
       "settings": {}
     },
-    "marquee": {
-      "type": "marquee",
+    "club": {
+      "type": "newsletter",
       "settings": {
-        "scheme": "light"
+        "scheme": "dark"
       }
     }
   },
@@ -38,6 +45,7 @@
     "manifesto",
     "edit",
     "story",
+    "palette",
     "club"
   ]
 }

@@ -50,3 +50,20 @@ Thanks for the review. All three findings were real and are fixed in `assets/mus
 **Verification:** Theme Check 4.9.3 reports 0 offenses; `node --check` passes. In a local liquidjs render with mocked `/cart/add.js` and `/cart/change.js` (Chromium, 1440 and 390 px, EN/ES) I checked swatch and size selection, crossed-out sold-out values, price and button state, the quantity stepper, the size guide dialog, add to bag opening the drawer with the count updated, the drawer quantity change, Escape to close, the sticky bar on phones, and no horizontal overflow.
 
 **Open / needs a real store:** run the add-to-cart / change / checkout flow against a real Shopify catalog; check quick view on real products; confirm the swatch colours match the real colourway names, or set swatches in Shopify; ask the merchant whether to set a free-shipping threshold, and only use one their rates actually honor.
+
+## 2026-10-14 · Claude Code · `claude/design-evolution` (D2 "Seda Viva")
+**What changed (owner approved the "Seda Viva" direction and asked to apply it)**
+1. **Entrance:** new section `sections/silk-hero.liquid` replaces the editorial hero on the home (the old `hero` section stays available). A dark espresso stage with living silk bands drawn on canvas (`assets/musa-silk.js`) that bend toward the pointer, the original ivory logo as the `<h1>` (slogan in a visually hidden span), the slogan rising word by word, a pill CTA with a slight magnetic pull, `@hellomusa.us`, a scroll cue and a wave edge into the next section. Optional campaign **video or image** settings replace the silk later. Without JS the dark `organic-waves` SVG shows instead.
+2. **Header over the entrance (home only):** CSS `:has()` detects a silk stage as the first section of `#MainContent`; the announcement and header float transparent in ivory, and turn into a blurred paper bar (espresso logo) once the stage is scrolled past or the mobile menu opens (`body.silk-solid`, set by `musa-silk.js`; menu state is read from `aria-expanded`, not changed). Other pages are untouched. `sections/header.liquid` now carries both logos (`.logo-on-light`, `.logo-on-dark`).
+3. **Manifesto:** `data-ink` on the heading; words ink in as you scroll.
+4. **Palette:** new section `sections/tones.liquid` (Espresso, Sand, Paper; brand colours only, copy in locales).
+5. **Club:** `newsletter` gets a `scheme` setting; the home uses `dark`.
+6. **Catalog finish (presentation only):** `#MainContent .musa-catalog…` overrides in `musa.css` (bigger editorial intro in two columns, pill filters, 4:5 cards, hover). **Codex:** no markup, data attributes or `musa-catalog.js` behaviour changed; please confirm in review. Catalog cards also get a reveal from `musa-silk.js`.
+7. Cross-document **view transitions** (`@view-transition`) for a soft page change in supporting browsers; off with reduced motion.
+8. `templates/index.json` order: silk-hero, marquee, manifesto, catalog, story (dark), palette, club (dark). New EN/ES keys: `silk.*`, `tones.*`. The slogan stays in English in both languages as the brand signature.
+
+**Files:** `sections/silk-hero.liquid` (new), `sections/tones.liquid` (new), `assets/musa-silk.js` (new), `assets/musa.css`, `sections/header.liquid`, `sections/manifesto.liquid`, `sections/newsletter.liquid`, `templates/index.json`, `locales/en.default.json`, `locales/es.json`.
+
+**Verification:** Theme Check 4.9.3: 73 files, 0 offenses. `node --check` passes. Full home rendered locally with liquidjs (ES/EN, 1440 and 390 px): silk canvas live, header turns solid after the stage, mobile menu opens below a solid header at 92px, no horizontal overflow, no console errors. Reduced motion draws one static frame and removes the entrance animations.
+
+**Open:** real campaign video/photos for the entrance; performance check on a low-end phone in the real store.

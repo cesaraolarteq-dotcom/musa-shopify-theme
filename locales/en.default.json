@@ -146,5 +146,19 @@
     "two": "Movement, reimagined",
     "three": "Made for every version of you",
     "four": "In a state of flow"
+  },
+  "silk": {
+    "slogan": "welcome to your new era.",
+    "scroll": "Scroll"
+  },
+  "tones": {
+    "label": "The MUSA palette",
+    "code": "Tone",
+    "t1_name": "Espresso",
+    "t1_text": "Deep and warm. The signature of MUSA.",
+    "t2_name": "Sand",
+    "t2_text": "Soft and serene. The balance between movement and calm.",
+    "t3_name": "Paper",
+    "t3_text": "Pure light. The canvas where your new era begins."
   }
 }
