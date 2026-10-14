@@ -27,7 +27,7 @@ node --check assets/musa.js
 
 Cloud-specific preview generation and Chromium QA are documented in README.md. Browser-ready design references and screenshots are also retained in `docs/preview/`; these HTML files are offline previews with shopping and email submission disconnected.
 
-`scripts/render-preview.cjs` and `scripts/package.py` currently use `/workspace` output/tool paths. Adapt those helper paths if running outside the Codex cloud machine; do not confuse that constraint with a Shopify theme runtime dependency. The theme itself requires no Node build step to upload.
+The helpers resolve the checkout automatically and use `../musa-deliverables` by default. Optional `MUSA_OUTPUT_DIR` changes output consistently across rendering, QA and packaging; keep it outside the checkout when packaging. Install LiquidJS in the normal Node resolution path or the sibling `../.musa-tools` directory, as documented in README.md. The theme itself requires no Node build step to upload.
 
 ## Shopify integration
 

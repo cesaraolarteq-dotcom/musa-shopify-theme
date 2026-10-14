@@ -1,12 +1,17 @@
 """Package Shopify upload and complete handoff without dependency caches."""
+import os
 from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
 
 root=Path(__file__).resolve().parents[1]
-out=Path('/workspace/musa-deliverables')
+out=Path(os.environ.get('MUSA_OUTPUT_DIR', root.parent/'musa-deliverables')).resolve()
+if out.is_relative_to(root):
+    raise ValueError('MUSA_OUTPUT_DIR must be outside the checkout to avoid packaging generated files.')
 out.mkdir(exist_ok=True)
 theme_dirs={'assets','config','layout','locales','sections','snippets','templates'}
-files=[p for p in root.rglob('*') if p.is_file() and '.git' not in p.relative_to(root).parts and '__pycache__' not in p.parts]
+source_dirs=theme_dirs | {'docs','scripts'}
+source_files={'.gitignore','README.md','CLAUDE.md'}
+files=[p for p in root.rglob('*') if p.is_file() and (p.relative_to(root).parts[0] in source_dirs or p.relative_to(root).as_posix() in source_files) and '__pycache__' not in p.parts]
 with ZipFile(out/'MUSA-Atelier-Shopify.zip','w',ZIP_DEFLATED) as z:
     for p in files:
         if p.relative_to(root).parts[0] in theme_dirs:z.write(p,p.relative_to(root))

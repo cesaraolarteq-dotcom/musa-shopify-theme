@@ -16,6 +16,19 @@ Roles, file ownership, branches and current tasks: [collaboration workflow](docs
 Additional brand direction: [light/dark organic-wave references](docs/DESIGN-REFERENCES.md).
 
 ## Local validation
+
+Portable setup (run from your checkout; Node >=22.12.0, Python >=3.9):
+
+```sh
+npm install --prefix ../.musa-tools @shopify/cli@4.9.3 liquidjs@10.21.1
+node scripts/render-preview.cjs
+python scripts/validate.py
+python scripts/package.py
+```
+
+Browser QA requires the Python `playwright` package plus Chromium (system Chromium/Chrome or Playwright's installed browser). Set `MUSA_CHROMIUM_PATH` to select a browser executable. Preview, validation and packaging share optional `MUSA_OUTPUT_DIR`; by default they use `../musa-deliverables`. Keep packaging output outside the checkout. Preview snippets use an automatically cleaned temporary directory. No helper requires the original `/workspace` checkout path.
+
+The following commands describe the prepared Codex cloud instance:
 Node >=22.12.0. Tools are installed outside the theme:
 ```sh
 npm --cache /workspace/.npm-cache install --prefix /workspace/.musa-tools @shopify/cli@4.9.3
