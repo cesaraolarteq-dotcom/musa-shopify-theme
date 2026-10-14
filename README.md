@@ -11,6 +11,8 @@ Offline references: [English](docs/preview/index-en.html), [Spanish](docs/previe
 
 Claude Code collaborators: start with [CLAUDE.md](CLAUDE.md).
 
+Additional brand direction: [light/dark organic-wave references](docs/DESIGN-REFERENCES.md).
+
 ## Local validation
 Node >=22.12.0. Tools are installed outside the theme:
 ```sh
