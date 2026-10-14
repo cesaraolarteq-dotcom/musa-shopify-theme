@@ -156,8 +156,89 @@
     });
   }
 
+  /* ---------- catalog: colour swatches + size tags over the native select ----------
+     The select stays the source of truth; a click sets its value and fires `change`,
+     so assets/musa-catalog.js keeps updating the sizes exactly as before.
+     Colours are visual approximations of the provisional colour names. */
+  const SW = {
+    'almond / khaki': ['#d8c3a5', '#a89a72'], 'almendra / caqui': ['#d8c3a5', '#a89a72'],
+    'berry red': ['#9b2335'], 'rojo baya': ['#9b2335'], 'black': ['#1f1a17'], 'negro': ['#1f1a17'],
+    'blue': ['#2f5fa7'], 'azul': ['#2f5fa7'],
+    'blue with light blue': ['#2f5fa7', '#a9c8e8'], 'azul con azul claro': ['#2f5fa7', '#a9c8e8'],
+    'brown': ['#6b4430'], 'marrón': ['#6b4430'], 'butter yellow': ['#f1df9a'], 'amarillo mantequilla': ['#f1df9a'],
+    'cherry blossom pink': ['#f2b8c6'], 'rosa cerezo': ['#f2b8c6'], 'chocolate brown': ['#4a2c1f'], 'marrón chocolate': ['#4a2c1f'],
+    'cream yellow': ['#f3e6b8'], 'amarillo crema': ['#f3e6b8'],
+    'dark brown with yellow': ['#3b2418', '#e8c547'], 'marrón oscuro con amarillo': ['#3b2418', '#e8c547'],
+    'dark coffee': ['#3b2418'], 'café oscuro': ['#3b2418'], 'deep blue': ['#1f3b73'], 'azul profundo': ['#1f3b73'],
+    'deep coffee': ['#4a2e20'], 'café intenso': ['#4a2e20'], 'fig brown': ['#6e4a4f'], 'marrón higo': ['#6e4a4f'],
+    'ice blue': ['#cfe3ef'], 'azul hielo': ['#cfe3ef'], 'indigo blue': ['#2e3a7a'], 'azul índigo': ['#2e3a7a'],
+    'ink blue': ['#1c2a4a'], 'azul tinta': ['#1c2a4a'], 'ivory yellow': ['#f4ecc9'], 'amarillo marfil': ['#f4ecc9'],
+    'light lilac': ['#cdbbe0'], 'lila claro': ['#cdbbe0'], 'mocha': ['#7a5642'], 'moca': ['#7a5642'],
+    'orange': ['#e07a2e'], 'naranja': ['#e07a2e'], 'pine green': ['#2f4f3e'], 'verde pino': ['#2f4f3e'],
+    'purple': ['#6b3f8f'], 'morado': ['#6b3f8f'], 'strawberry pink': ['#e45d7f'], 'rosa fresa': ['#e45d7f'],
+    'taupe / truffle': ['#9c8b7d', '#6b5a4e'], 'topo / trufa': ['#9c8b7d', '#6b5a4e'],
+    'white': ['#fbfaf7'], 'blanco': ['#fbfaf7'], 'wine': ['#5e1a2a'], 'vino': ['#5e1a2a'],
+    'wine / berry': ['#5e1a2a', '#9b2335'], 'vino / baya': ['#5e1a2a', '#9b2335']
+  };
+  const swatchBg = name => {
+    const c = SW[name.trim().toLowerCase()] || ['#cfc3b6'];
+    return c.length > 1 ? `linear-gradient(135deg, ${c[0]} 0 50%, ${c[1]} 50% 100%)` : c[0];
+  };
+  function catalogSwatches(root = document) {
+    root.querySelectorAll('[data-catalog-color]').forEach(select => {
+      const control = select.closest('[data-catalog-color-control]');
+      if (!control || control.classList.contains('is-enhanced')) return;
+      const label = control.querySelector('label');
+      const sizesOut = control.querySelector('[data-catalog-sizes]');
+      const head = document.createElement('p');
+      head.className = 'cat-color-head';
+      head.append(label ? label.textContent.trim() : '');
+      const current = document.createElement('span');
+      head.append(current);
+      const group = document.createElement('div');
+      group.className = 'cat-swatches';
+      group.setAttribute('role', 'radiogroup');
+      if (label) group.setAttribute('aria-label', label.textContent.trim());
+      const tags = document.createElement('span');
+      tags.className = 'cat-sizes';
+      tags.setAttribute('aria-hidden', 'true');
+      const buttons = [...select.options].map((opt, i) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'cat-swatch'; b.title = opt.textContent.trim();
+        b.setAttribute('role', 'radio'); b.setAttribute('aria-label', opt.textContent.trim());
+        b.innerHTML = '<i></i>';
+        b.firstChild.style.setProperty('--sw', swatchBg(opt.textContent));
+        b.addEventListener('click', () => choose(i, true));
+        b.addEventListener('keydown', e => {
+          const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+          if (!step) return;
+          e.preventDefault();
+          const next = (i + step + buttons.length) % buttons.length;
+          choose(next, true); buttons[next].focus();
+        });
+        group.append(b);
+        return b;
+      });
+      function choose(i, fromUser) {
+        const opt = select.options[i];
+        buttons.forEach((b, k) => { b.setAttribute('aria-checked', String(k === i)); b.tabIndex = k === i ? 0 : -1; });
+        current.textContent = opt.textContent.trim();
+        tags.replaceChildren(...(opt.dataset.sizes || '').split('·').map(s => s.trim()).filter(Boolean).map((s, n) => {
+          const t = document.createElement('span'); t.className = 'cat-size'; t.style.setProperty('--n', n); t.textContent = s; return t;
+        }));
+        if (fromUser && select.selectedIndex !== i) { select.selectedIndex = i; select.dispatchEvent(new Event('change', { bubbles: true })); }
+      }
+      control.insertBefore(group, control.firstChild);
+      control.insertBefore(head, group);
+      if (sizesOut) { sizesOut.classList.add('is-enhanced'); sizesOut.parentNode.append(tags); }
+      control.classList.add('is-enhanced');
+      choose(Math.max(0, select.selectedIndex), false);
+    });
+  }
+
   function init(root = document) {
     root.querySelectorAll('[data-silk-stage]').forEach(silk);
+    catalogSwatches(root);
     prepareInk(root); magnetic(root); reveal(root); headerState();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init());

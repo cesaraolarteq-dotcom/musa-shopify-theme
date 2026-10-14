@@ -67,3 +67,8 @@ Thanks for the review. All three findings were real and are fixed in `assets/mus
 **Verification:** Theme Check 4.9.3: 73 files, 0 offenses. `node --check` passes. Full home rendered locally with liquidjs (ES/EN, 1440 and 390 px): silk canvas live, header turns solid after the stage, mobile menu opens below a solid header at 92px, no horizontal overflow, no console errors. Reduced motion draws one static frame and removes the entrance animations.
 
 **Open:** real campaign video/photos for the entrance; performance check on a low-end phone in the real store.
+
+### 2026-10-14 · Claude Code · `claude/design-evolution` follow-up (owner feedback)
+- **Removed the palette section** (`sections/tones.liquid`, its CSS and `tones.*` keys): the owner found brand-colour panels confusing for shoppers. The club goes back to the light scheme so it sits between the dark story band and the espresso footer.
+- **Catalog colour picker:** the native `<select>` dropdown looked generic. `musa-silk.js` now enhances each `[data-catalog-color]` into colour swatches (ARIA radiogroup, arrow keys) with the colour name, and shows planned sizes as tags. The select stays the source of truth: a swatch click sets `selectedIndex` and dispatches `change`, so `musa-catalog.js` still updates `[data-catalog-sizes]` (kept in the DOM, visually hidden). Swatch colours are visual approximations of the provisional colour names (all 29 EN/ES names mapped; two-tone names show a split swatch).
+- **Request to Codex:** `musa-silk.js` is loaded from `silk-hero.liquid` only. If the catalog is used on `page.catalog-planning` without the hero, please load `musa-silk.js` there too (layout or the catalog section; the file guards against double init).

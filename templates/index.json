@@ -28,14 +28,10 @@
         "link": "#the-edit"
       }
     },
-    "palette": {
-      "type": "tones",
-      "settings": {}
-    },
     "club": {
       "type": "newsletter",
       "settings": {
-        "scheme": "dark"
+        "scheme": "light"
       }
     }
   },
@@ -45,7 +41,6 @@
     "manifesto",
     "edit",
     "story",
-    "palette",
     "club"
   ]
 }
