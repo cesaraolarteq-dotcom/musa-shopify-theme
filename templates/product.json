@@ -3,9 +3,16 @@
     "main": {
       "type": "main-product",
       "settings": {}
+    },
+    "benefits": {
+      "type": "benefits-bar",
+      "blocks": {},
+      "block_order": [],
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "benefits"
   ]
 }

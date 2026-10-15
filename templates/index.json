@@ -35,14 +35,69 @@
       "settings": {
         "scheme": "light"
       }
+    },
+    "categories": {
+      "type": "shop-categories",
+      "blocks": {
+        "cat1": {
+          "type": "category",
+          "settings": {
+            "title": "2-piece sets",
+            "title_es": "Sets de 2 piezas"
+          }
+        },
+        "cat2": {
+          "type": "category",
+          "settings": {
+            "title": "3-piece sets",
+            "title_es": "Sets de 3 piezas"
+          }
+        },
+        "cat3": {
+          "type": "category",
+          "settings": {
+            "title": "Bodysuits",
+            "title_es": "Enterizos"
+          }
+        },
+        "cat4": {
+          "type": "category",
+          "settings": {
+            "title": "Leggings",
+            "title_es": "Leggings"
+          }
+        }
+      },
+      "block_order": [
+        "cat1",
+        "cat2",
+        "cat3",
+        "cat4"
+      ],
+      "settings": {}
+    },
+    "benefits": {
+      "type": "benefits-bar",
+      "blocks": {},
+      "block_order": [],
+      "settings": {}
+    },
+    "community": {
+      "type": "instagram-grid",
+      "blocks": {},
+      "block_order": [],
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "marquee",
+    "benefits",
+    "categories",
     "manifesto",
     "edit",
     "story",
+    "community",
     "club"
   ]
 }

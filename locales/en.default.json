@@ -174,5 +174,30 @@
     "empty_title": "Your next connection starts here.",
     "empty_text": "Our next gatherings are taking shape. Join the mailing list below for updates.",
     "explore": "Discover MUSA Club"
+  },
+  "benefits": {
+    "label": "Store benefits"
+  },
+  "categories": {
+    "eyebrow": "Shop by category",
+    "title": "Find your",
+    "emphasis": "set.",
+    "all": "Shop all"
+  },
+  "community": {
+    "eyebrow": "The MUSA community",
+    "title": "Moving with",
+    "follow": "Follow us"
+  },
+  "faq": {
+    "eyebrow": "Help",
+    "title": "Frequently asked questions",
+    "editor_hint": "Add Question blocks in the theme editor to build this page."
+  },
+  "whatsapp": {
+    "eyebrow": "Personal help",
+    "title": "Talk to us on WhatsApp",
+    "text": "Questions about sizes, colors or your order? Write to us and we will help you.",
+    "cta": "Open WhatsApp"
   }
 }

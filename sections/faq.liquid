@@ -1,0 +1,14 @@
+<section class="faq section-pad" aria-labelledby="Faq-{{ section.id }}">
+  <div class="faq-head"><p class="eyebrow">{{ 'faq.eyebrow' | t }}</p><h1 id="Faq-{{ section.id }}">{% if section.settings.heading != blank %}{{ section.settings.heading | escape }}{% else %}{{ 'faq.title' | t }}{% endif %}</h1>{% if page.content != blank %}<div class="rte">{{ page.content }}</div>{% endif %}</div>
+  <div class="faq-list">
+    {%- for block in section.blocks -%}{%- if block.settings.question != blank -%}
+      <details class="detail-row" {{ block.shopify_attributes }}><summary>{{ block.settings.question | escape }}</summary><div class="rte">{{ block.settings.answer }}</div></details>
+    {%- endif -%}{%- else -%}
+      {%- if request.design_mode -%}<p class="small">{{ 'faq.editor_hint' | t }}</p>{%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{"name": "MUSA FAQ", "settings": [{"type": "text", "id": "heading", "label": "Custom heading (optional)"}], "blocks": [{"type": "question", "name": "Question", "settings": [{"type": "text", "id": "question", "label": "Question"}, {"type": "richtext", "id": "answer", "label": "Answer"}]}], "presets": [{"name": "MUSA FAQ"}]}
+{% endschema %}

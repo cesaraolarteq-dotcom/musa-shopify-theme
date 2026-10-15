@@ -114,3 +114,16 @@ Updated README and added connection/delivery documentation and a sanitized recei
 - **Header:** the default navigation shows **MUSA Club** when `settings.club_page` is set (desktop and mobile).
 **Flags for the owner:** the supplier reference photos are 148–251 px wide and look soft when enlarged; usage rights must be confirmed before launch. CSV products have no price, so Shopify may set $0; prices must be set before activation.
 **Verification:** Theme Check 80 files, 0 offenses. Codex renderer (`scripts/render-full-preview.cjs`): Club ES/EN at 1440 and 390 px, no horizontal overflow, MUSA Club in nav.
+
+## 2026-10-15 · Claude Code · `claude/store-ready` (design half of `docs/AUDIT-TASKS.md`)
+**Delivered**
+- **D-7 Gallery** (`sections/main-product.liquid`): desktop editorial grid (lead image full width, then pairs), mobile edge-to-edge swipe with dots and a "3 / 5" counter, click/tap to zoom in a native `<dialog data-zoom-dialog>`. Media keeps `id="Media-{section}-{media.id}"`, so variant `scrollIntoView` still works. The zoom click is delegated in `musa-silk.js`, so it also works in quick view.
+- **D-9 Facts:** metafields `custom.fit` and `custom.model_info` (single line, shown only when filled) under the price.
+- **D-11 Trust:** "Secure checkout" plus `shop.enabled_payment_types` icons under the form. **C-10:** put `payment_button` between the add button and this row.
+- **D-12 Accordions:** Details (description, open), size guide, fabric & care, Detail blocks, then Shipping and Returns built from `shop.shipping_policy` / `shop.refund_policy` (excerpt plus a link; hidden while empty).
+- **D-18 Badges:** `.product-badges` stack in `snippets/product-card.liquid`: Sold out, or New for the tag `new`/`nuevo`. **C-13:** add the low-stock badge into `.product-badges`.
+- **D-16 Mega menu:** header dropdowns become an image grid when child links are collections with an image (merchant builds the menu in Navigation).
+- **D-21** `sections/benefits-bar.liquid` (blocks; renders nothing until text is entered) on the home and the product template. **D-23** `sections/shop-categories.liquid` (collection/image/title EN+ES per tile; silk-art tiles until images exist; the home ships 4 tiles from the order categories linking to all products). **D-24** `sections/instagram-grid.liquid` (merchant photos; hidden until one is set). **D-22** `sections/faq.liquid` + `templates/page.faq.json`, `templates/page.about.json` (manifesto, page content, light story), `sections/whatsapp-contact.liquid` added to `templates/page.contact.json` (hidden until a number is set).
+- Header nav: "Shop / Tienda" first; MUSA Club always reachable (Club page or `/#musa-club`).
+**Touched outside my usual files (please review):** `sections/main-product.liquid` (markup only, all hooks kept), `snippets/product-card.liquid` (badge wrapper), `snippets/icon.liquid` (+lock, return, zoom), `templates/product.json`, `templates/page.contact.json`.
+**Verification:** Theme Check 87 files, 0 offenses; `node --check`. Product page rendered locally with sample data (EN/ES, 1440 and 390): gallery counter, zoom open and close, no overflow. Home with category tiles rendered via a block-aware copy of your renderer (your `render-full-preview.cjs` passes `blocks: []` for index sections; please add block support).

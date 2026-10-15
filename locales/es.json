@@ -174,5 +174,30 @@
     "empty_title": "Tu próxima conexión empieza aquí.",
     "empty_text": "Estamos preparando nuestros próximos encuentros. Suscríbete abajo para recibir novedades.",
     "explore": "Descubre MUSA Club"
+  },
+  "benefits": {
+    "label": "Beneficios de la tienda"
+  },
+  "categories": {
+    "eyebrow": "Compra por categoría",
+    "title": "Encuentra tu",
+    "emphasis": "set.",
+    "all": "Ver todo"
+  },
+  "community": {
+    "eyebrow": "La comunidad MUSA",
+    "title": "En movimiento con",
+    "follow": "Síguenos"
+  },
+  "faq": {
+    "eyebrow": "Ayuda",
+    "title": "Preguntas frecuentes",
+    "editor_hint": "Agrega bloques de pregunta en el editor del tema para armar esta página."
+  },
+  "whatsapp": {
+    "eyebrow": "Atención personal",
+    "title": "Escríbenos por WhatsApp",
+    "text": "¿Dudas sobre tallas, colores o tu pedido? Escríbenos y te ayudamos.",
+    "cta": "Abrir WhatsApp"
   }
 }

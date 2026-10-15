@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "manifesto": {
+      "type": "manifesto",
+      "settings": {}
+    },
+    "story": {
+      "type": "editorial",
+      "settings": {
+        "scheme": "light"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "manifesto",
+    "main",
+    "story"
+  ]
+}

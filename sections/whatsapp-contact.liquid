@@ -1,0 +1,13 @@
+{%- assign digits = section.settings.number | remove: ' ' | remove: '-' | remove: '+' | remove: '(' | remove: ')' -%}
+{%- if digits != blank -%}
+<section class="wa-contact section-pad">
+  <p class="eyebrow">{{ 'whatsapp.eyebrow' | t }}</p>
+  <h2>{{ 'whatsapp.title' | t }}</h2>
+  <p>{{ 'whatsapp.text' | t }}</p>
+  <a class="button" href="https://wa.me/{{ digits }}" rel="noopener">{{ 'whatsapp.cta' | t }} {% render 'icon', name: 'arrow' %}</a>
+</section>
+{%- endif -%}
+
+{% schema %}
+{"name": "MUSA WhatsApp contact", "settings": [{"type": "text", "id": "number", "label": "WhatsApp number with country code", "info": "Example: 1 346 555 0100. The section stays hidden until a number is entered."}], "presets": [{"name": "MUSA WhatsApp contact"}]}
+{% endschema %}
