@@ -305,8 +305,53 @@
     scope.querySelectorAll('.brand-art').forEach(el => { if (!el.dataset.waveWatch) { el.dataset.waveWatch = 'true'; waveIO.observe(el); } });
   }
 
+  /* ---------- product gallery: mobile counter/dots + zoom dialog ---------- */
+  function gallery(scope = document) {
+    scope.querySelectorAll('[data-gallery]').forEach(g => {
+      if (g.dataset.galleryReady) return;
+      g.dataset.galleryReady = 'true';
+      const track = g.querySelector('[data-gallery-track]');
+      const slides = [...g.querySelectorAll('[data-gallery-slide]')];
+      const dots = [...g.querySelectorAll('.gallery-dots span')];
+      const current = g.querySelector('[data-gallery-current]');
+      if (track && slides.length > 1) {
+        let raf = 0;
+        track.addEventListener('scroll', () => {
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(() => {
+            const i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+            dots.forEach((d, k) => d.classList.toggle('is-active', k === i));
+            if (current) current.textContent = String(Math.min(slides.length, i + 1));
+          });
+        }, { passive: true });
+      }
+    });
+  }
+
+  /* zoom: delegated so it also works inside quick view */
+  let zoomOpener = null;
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-zoom-src]');
+    if (b) {
+      const dialog = b.closest('[data-product-section]')?.querySelector('[data-zoom-dialog]');
+      if (!dialog || typeof dialog.showModal !== 'function') return;
+      const img = dialog.querySelector('[data-zoom-img]');
+      img.src = b.dataset.zoomSrc; img.alt = b.dataset.zoomAlt || '';
+      zoomOpener = b;
+      if (!dialog.dataset.zoomReady) {
+        dialog.dataset.zoomReady = 'true';
+        dialog.addEventListener('close', () => { zoomOpener?.focus(); });
+      }
+      dialog.showModal();
+      return;
+    }
+    const dialog = e.target.closest('[data-zoom-dialog]');
+    if (dialog && (e.target === dialog || e.target.closest('[data-zoom-close]') || e.target.matches('[data-zoom-img]'))) dialog.close();
+  });
+
   function init(scope = document) {
     pauseWaves(scope);
+    gallery(scope);
     scope.querySelectorAll('[data-silk-stage]').forEach(silk);
     catalogSwatches(scope);
     prepareInk(scope); magnetic(scope); reveal(scope); headerState();

@@ -103,7 +103,17 @@
     "increase": "Increase quantity",
     "adding": "Adding…",
     "quick_view": "Quick view",
-    "colors_count": "Available in {{ count }} colors"
+    "colors_count": "Available in {{ count }} colors",
+    "zoom": "Enlarge image",
+    "fit": "Fit",
+    "model": "Model",
+    "secure_checkout": "Secure checkout",
+    "payment_methods": "Payment methods",
+    "details": "Details",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "read_policy": "Read the full policy",
+    "new": "New"
   },
   "cart": {
     "eyebrow": "Your selection",
