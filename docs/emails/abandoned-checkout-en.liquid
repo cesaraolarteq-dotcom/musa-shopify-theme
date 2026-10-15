@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ shop.name }}</title></head>
+<body style="margin:0;padding:0;background:#F6F3EE;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F6F3EE;"><tr><td align="center" style="padding:32px 16px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FFFFFF;border:1px solid #E2D9CF;">
+<tr><td align="center" style="padding:36px 32px 24px;border-bottom:1px solid #E2D9CF;">
+{%- if shop.email_logo_url -%}<a href="{{ shop.url }}"><img src="{{ shop.email_logo_url }}" width="{{ shop.email_logo_width | default: 140 }}" alt="{{ shop.name }}" style="display:block;border:0;max-width:100%;height:auto;"></a>{%- else -%}<a href="{{ shop.url }}" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;font-weight:600;letter-spacing:-1px;color:#3F2519;text-decoration:none;">musa</a>{%- endif -%}
+</td></tr>
+<tr><td style="padding:40px 32px 8px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3F2519;">
+<h1 style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-weight:normal;font-size:34px;line-height:40px;color:#3F2519;">Still thinking about it?</h1>
+<p style="margin:0;font-size:15px;line-height:24px;color:#7C6E65;">You left a few pieces in your bag. We saved them for you, but availability is not guaranteed.</p>
+</td></tr><tr><td style="padding:30px 32px 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3F2519;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+{% for line in line_items %}
+<tr><td width="76" style="padding:12px 0;border-top:1px solid #E2D9CF;vertical-align:top;">{% if line.image %}<img src="{{ line | img_url: 'compact_cropped' }}" width="64" alt="" style="display:block;border:0;width:64px;height:auto;">{% endif %}</td>
+<td style="padding:12px 12px;border-top:1px solid #E2D9CF;vertical-align:top;font-size:14px;line-height:20px;"><span style="font-family:Georgia,'Times New Roman',serif;font-size:17px;">{{ line.title }}</span>{% if line.variant.title != 'Default Title' %}<br><span style="color:#7C6E65;font-size:13px;">{{ line.variant.title }}</span>{% endif %}<br><span style="color:#7C6E65;font-size:12px;">Qty {{ line.quantity }}</span></td>
+<td align="right" style="padding:12px 0;border-top:1px solid #E2D9CF;vertical-align:top;font-size:14px;white-space:nowrap;">{{ line.final_line_price | money }}</td></tr>
+{% endfor %}
+</table></td></tr><tr><td style="padding:26px 32px 8px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#3F2519;"><a href="{{ url }}" style="display:inline-block;padding:15px 28px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#F6F3EE;text-decoration:none;">Return to your bag &rarr;</a></td></tr></table></td></tr><tr><td style="padding:0 0 26px;"></td></tr>
+<tr><td style="padding:26px 32px 30px;border-top:1px solid #E2D9CF;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#7C6E65;text-align:center;">
+Questions? Just reply to this email or write to <a href="mailto:{{ shop.email }}" style="color:#3F2519;">{{ shop.email }}</a><br><br>
+<span style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:15px;color:#3F2519;">musa — welcome to your new era</span><br>
+<span style="letter-spacing:2px;font-size:11px;text-transform:uppercase;">@hellomusa.us</span>
+</td></tr>
+</table></td></tr></table>
+</body></html>

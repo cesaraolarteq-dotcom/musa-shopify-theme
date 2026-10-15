@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ shop.name }}</title></head>
+<body style="margin:0;padding:0;background:#F6F3EE;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F6F3EE;"><tr><td align="center" style="padding:32px 16px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FFFFFF;border:1px solid #E2D9CF;">
+<tr><td align="center" style="padding:36px 32px 24px;border-bottom:1px solid #E2D9CF;">
+{%- if shop.email_logo_url -%}<a href="{{ shop.url }}"><img src="{{ shop.email_logo_url }}" width="{{ shop.email_logo_width | default: 140 }}" alt="{{ shop.name }}" style="display:block;border:0;max-width:100%;height:auto;"></a>{%- else -%}<a href="{{ shop.url }}" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;font-weight:600;letter-spacing:-1px;color:#3F2519;text-decoration:none;">musa</a>{%- endif -%}
+</td></tr>
+<tr><td style="padding:40px 32px 8px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3F2519;">
+<p style="margin:0 0 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7C6E65;">Pedido {{ order_name }}</p><h1 style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-weight:normal;font-size:34px;line-height:40px;color:#3F2519;">Tu MUSA va en camino.</h1>
+<p style="margin:0;font-size:15px;line-height:24px;color:#7C6E65;">Buenas noticias: tu pedido ya fue enviado.</p>
+</td></tr>{% if fulfillment.tracking_urls.size > 0 %}<tr><td style="padding:26px 32px 8px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#3F2519;"><a href="{{ fulfillment.tracking_urls | first }}" style="display:inline-block;padding:15px 28px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#F6F3EE;text-decoration:none;">Rastrear tu paquete &rarr;</a></td></tr></table></td></tr>{% else %}<tr><td style="padding:26px 32px 8px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#3F2519;"><a href="{{ order_status_url }}" style="display:inline-block;padding:15px 28px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#F6F3EE;text-decoration:none;">Ver tu pedido &rarr;</a></td></tr></table></td></tr>{% endif %}{% if fulfillment.tracking_numbers.size > 0 %}<tr><td style="padding:22px 32px 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;color:#3F2519;"><p style="margin:0 0 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7C6E65;">Número de seguimiento</p>{{ fulfillment.tracking_company }} {{ fulfillment.tracking_numbers | first }}</td></tr>{% endif %}<tr><td style="padding:26px 32px 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;"><p style="margin:0 0 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7C6E65;">En este envío</p></td></tr><tr><td style="padding:30px 32px 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3F2519;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+{% for line in fulfillment.fulfillment_line_items %}
+<tr><td width="76" style="padding:12px 0;border-top:1px solid #E2D9CF;vertical-align:top;">{% if line.line_item.image %}<img src="{{ line.line_item | img_url: 'compact_cropped' }}" width="64" alt="" style="display:block;border:0;width:64px;height:auto;">{% endif %}</td>
+<td style="padding:12px 12px;border-top:1px solid #E2D9CF;vertical-align:top;font-size:14px;line-height:20px;"><span style="font-family:Georgia,'Times New Roman',serif;font-size:17px;">{{ line.line_item.title }}</span>{% if line.line_item.variant.title != 'Default Title' %}<br><span style="color:#7C6E65;font-size:13px;">{{ line.line_item.variant.title }}</span>{% endif %}<br><span style="color:#7C6E65;font-size:12px;">Cant. {{ line.quantity }}</span></td>
+<td align="right" style="padding:12px 0;border-top:1px solid #E2D9CF;vertical-align:top;font-size:14px;white-space:nowrap;"></td></tr>
+{% endfor %}
+</table></td></tr>{% if requires_shipping and shipping_address %}<tr><td style="padding:26px 32px 30px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;color:#3F2519;"><p style="margin:0 0 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7C6E65;">Se envía a</p>{{ shipping_address.name }}<br>{{ shipping_address.address1 }}{% if shipping_address.address2 != blank %}, {{ shipping_address.address2 }}{% endif %}<br>{{ shipping_address.city }}, {{ shipping_address.province_code }} {{ shipping_address.zip }}</td></tr>{% endif %}
+<tr><td style="padding:26px 32px 30px;border-top:1px solid #E2D9CF;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#7C6E65;text-align:center;">
+¿Preguntas? Responde a este correo o escríbenos a <a href="mailto:{{ shop.email }}" style="color:#3F2519;">{{ shop.email }}</a><br><br>
+<span style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:15px;color:#3F2519;">musa — welcome to your new era</span><br>
+<span style="letter-spacing:2px;font-size:11px;text-transform:uppercase;">@hellomusa.us</span>
+</td></tr>
+</table></td></tr></table>
+</body></html>
