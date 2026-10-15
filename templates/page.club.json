@@ -2,7 +2,9 @@
   "sections": {
     "club": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "scheme": "dark"
+      }
     },
     "events": {
       "type": "club-events",
