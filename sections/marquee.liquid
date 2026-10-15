@@ -2,6 +2,7 @@
   assign phrases = section.blocks
 -%}
 <section class="marquee{% if section.settings.scheme == 'dark' %} marquee--dark{% endif %}" aria-label="{{ 'marquee.label' | t }}">
+  <button type="button" class="marquee-toggle" data-marquee-toggle aria-pressed="false" data-pause-label="{{ 'marquee.pause' | t | escape }}" data-play-label="{{ 'marquee.play' | t | escape }}" aria-label="{{ 'marquee.pause' | t | escape }}" hidden><span aria-hidden="true"></span></button>
   <div class="marquee-track">
     {%- for n in (1..2) -%}
       <ul class="marquee-list"{% if n == 2 %} aria-hidden="true"{% endif %}>

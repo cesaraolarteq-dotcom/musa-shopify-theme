@@ -155,7 +155,9 @@
     "one": "Bienvenida a tu nueva era",
     "two": "El movimiento, reinventado",
     "three": "Hecho para cada versión de ti",
-    "four": "En estado de fluidez"
+    "four": "En estado de fluidez",
+    "pause": "Pausar el texto en movimiento",
+    "play": "Reanudar el texto en movimiento"
   },
   "silk": {
     "slogan": "welcome to your new era.",
@@ -199,5 +201,8 @@
     "title": "Escríbenos por WhatsApp",
     "text": "¿Dudas sobre tallas, colores o tu pedido? Escríbenos y te ayudamos.",
     "cta": "Abrir WhatsApp"
+  },
+  "notfound": {
+    "text": "La página que buscas cambió de lugar o ya no existe. Prueba con una búsqueda o sigue comprando."
   }
 }

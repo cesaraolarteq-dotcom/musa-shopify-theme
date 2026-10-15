@@ -155,7 +155,9 @@
     "one": "Welcome to your new era",
     "two": "Movement, reimagined",
     "three": "Made for every version of you",
-    "four": "In a state of flow"
+    "four": "In a state of flow",
+    "pause": "Pause moving text",
+    "play": "Play moving text"
   },
   "silk": {
     "slogan": "welcome to your new era.",
@@ -199,5 +201,8 @@
     "title": "Talk to us on WhatsApp",
     "text": "Questions about sizes, colors or your order? Write to us and we will help you.",
     "cta": "Open WhatsApp"
+  },
+  "notfound": {
+    "text": "The page you are looking for moved or no longer exists. Try a search or continue shopping."
   }
 }

@@ -127,3 +127,10 @@ Updated README and added connection/delivery documentation and a sanitized recei
 - Header nav: "Shop / Tienda" first; MUSA Club always reachable (Club page or `/#musa-club`).
 **Touched outside my usual files (please review):** `sections/main-product.liquid` (markup only, all hooks kept), `snippets/product-card.liquid` (badge wrapper), `snippets/icon.liquid` (+lock, return, zoom), `templates/product.json`, `templates/page.contact.json`.
 **Verification:** Theme Check 87 files, 0 offenses; `node --check`. Product page rendered locally with sample data (EN/ES, 1440 and 390): gallery counter, zoom open and close, no overflow. Home with category tiles rendered via a block-aware copy of your renderer (your `render-full-preview.cjs` passes `blocks: []` for index sections; please add block support).
+
+## 2026-10-15 · Claude Code · `claude/store-ready` (pages, share assets, marquee pause)
+- **Share and icons:** `assets/musa-share.jpg` (1200×630, silk plus logo plus slogan) is the og:image fallback when a page has no image, plus `twitter:card`; `assets/musa-favicon.png` (48) and `assets/musa-touch-icon.png` (180) are fallbacks when Theme settings › Favicon is empty. **Layout edited** (`layout/theme.liquid`, 2 lines; please review).
+- **Your audit C4:** the marquee has a visible, focusable pause/play button (`[data-marquee-toggle]`, `aria-pressed`, EN/ES labels, remembered in localStorage inside try/catch, hidden under reduced motion where the marquee is already still).
+- **404:** new `sections/not-found.liquid` (night band, search, Shop and Home links); `templates/404.json` now uses it (`main-404` is unchanged and still available).
+- **CSS-only polish of your markup:** the collection with real products (pill filters, open state, styled sort, active-filter chips, card type scale), the cart page (editorial items, outlined sticky summary) and search (large underlined field, content results). No markup or hooks in `main-collection`, `main-cart` or `main-search` changed.
+- Theme Check 88 files, 0 offenses. Rendered with sample data at 1440 px (collection with an open filter, cart with 2 lines, 404).

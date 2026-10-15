@@ -1,0 +1,13 @@
+<section class="nf" aria-labelledby="NotFound-{{ section.id }}">
+  <div class="nf-inner">
+    <p class="eyebrow">404 · MUSA</p>
+    <h1 id="NotFound-{{ section.id }}">{{ 'general.not_found' | t }}</h1>
+    <p class="nf-text">{{ 'notfound.text' | t }}</p>
+    <form action="{{ routes.search_url }}" method="get" class="nf-search" role="search"><label class="visually-hidden" for="NfSearch-{{ section.id }}">{{ 'general.search' | t }}</label><input type="search" name="q" id="NfSearch-{{ section.id }}" placeholder="{{ 'search.placeholder' | t }}"><button type="submit" aria-label="{{ 'general.search' | t }}">{% render 'icon', name: 'search' %}</button></form>
+    <div class="nf-links"><a class="silk-cta" href="{{ routes.all_products_collection_url }}"><span>{{ 'general.shop' | t }}</span>{% render 'icon', name: 'arrow' %}</a><a class="text-link" href="{{ routes.root_url }}">{{ 'general.home' | t }} {% render 'icon', name: 'arrow' %}</a></div>
+  </div>
+</section>
+
+{% schema %}
+{"name": "MUSA Not found", "settings": []}
+{% endschema %}

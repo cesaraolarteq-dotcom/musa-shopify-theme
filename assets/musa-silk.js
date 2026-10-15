@@ -349,8 +349,32 @@
     if (dialog && (e.target === dialog || e.target.closest('[data-zoom-close]') || e.target.matches('[data-zoom-img]'))) dialog.close();
   });
 
+  /* ---------- marquee: visible pause control, remembered per visitor ---------- */
+  function marquees(scope = document) {
+    let saved = null;
+    try { saved = localStorage.getItem('musa-marquee'); } catch (e) {}
+    scope.querySelectorAll('[data-marquee-toggle]').forEach(btn => {
+      if (btn.dataset.ready) return;
+      btn.dataset.ready = 'true';
+      const box = btn.closest('.marquee');
+      const set = paused => {
+        box.classList.toggle('is-paused', paused);
+        btn.setAttribute('aria-pressed', String(paused));
+        btn.setAttribute('aria-label', paused ? btn.dataset.playLabel : btn.dataset.pauseLabel);
+      };
+      set(saved === 'paused');
+      btn.hidden = false;
+      btn.addEventListener('click', () => {
+        const paused = !box.classList.contains('is-paused');
+        set(paused);
+        try { localStorage.setItem('musa-marquee', paused ? 'paused' : 'playing'); } catch (e) {}
+      });
+    });
+  }
+
   function init(scope = document) {
     pauseWaves(scope);
+    marquees(scope);
     gallery(scope);
     scope.querySelectorAll('[data-silk-stage]').forEach(silk);
     catalogSwatches(scope);
